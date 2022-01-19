@@ -18,7 +18,7 @@ At the end of each exploration you can do a fun little quiz to test your knowled
 
     //technologies we used coming soon
 
-**art: SNEAK-PEAK**
+**:art: SNEAK-PEAK**
 
     //gif with our pretty design coming soon
 
