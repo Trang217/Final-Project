@@ -9,7 +9,7 @@ const dotenv = require("dotenv");
 const configureJwtStrategy = require("./passport-config");
 
 const AppError = require("./error/AppError");
-const { errorHandler } = require("./error/errorHandler");
+const errorHandler = require("./error/errorHandler");
 
 const userRoutes = require("./routes/userRoutes");
 
