@@ -1,7 +1,7 @@
 // ---- hooks, dependencies, styling import ----
 
 // ---- components ----
-import AnimalBubble from "./AnimalBubble";
+import AnimalBubble from "../../components/AnimalBubble";
 
 // ---- COMPONENT ----
 const Landing = () => {
@@ -33,9 +33,9 @@ const Landing = () => {
           <button onClick={handleSubmit}>Start the adventure</button>
           {/* NAVIGATE - LINK type*/}
         </div>
-        <AnimalBubble name="item_01" />
-        <AnimalBubble name="item_02" />
-        <AnimalBubble name="item_03" />
+        <AnimalBubble name="rainforest" />
+        <AnimalBubble name="desert" />
+        <AnimalBubble name="ocean" />
       </div>
     </>
   );
