@@ -31,7 +31,7 @@ export default function MainRouter() {
           <Route path="/" element={<Landing />} />
           {/* <Route path="login" element={<Login />} /> */}
           {/* <Route path="login" element={<Register />} /> */}
-          <Route path="notfound" element={<NotFound />} />
+          <Route path="*" element={<NotFound />} />
 
           {/* ---Protected Routes--- */}
           <Route path="about" element={<AboutUs />} />
