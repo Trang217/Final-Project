@@ -11,13 +11,13 @@ export default function Sidebar() {
         onClick={() => setIsOpen(!isOpen)}
       >{`${!isOpen ? "open" : "close"}`}</button>
 
-      {isOpen ? (
-        <div className=" right-0 pt-20 h-full bg-red-500">
-          <Navigation />
-        </div>
-      ) : (
-        <></>
-      )}
+      <div
+        className={`fixed right-0 pt-20 h-full bg-red-500 w-80 transform ease-in-out duration-300 ${
+          isOpen ? "translate-x-0" : "translate-x-full"
+        }`}
+      >
+        <Navigation />
+      </div>
     </div>
   );
 }
