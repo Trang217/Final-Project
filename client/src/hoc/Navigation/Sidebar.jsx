@@ -1,8 +1,25 @@
+// ---- hooks, dependencies, styling import ----
 import React, { useState } from "react";
+
+// ---- components ----
 import Navigation from "./Navigation";
 
+// ---- context import ----
+
+// ---- data ----
+
+// ---- COMPONENT ----
+
 export default function Sidebar() {
+  //? ---- hooks ----
   const [isOpen, setIsOpen] = useState(false);
+
+  //? ---- event handlers ----
+  //! Add event handler to detect click outside the sidebar -> close sidebar
+
+  //? ---- variables ----
+
+  //? ---- rendering ----
 
   return (
     <div>
