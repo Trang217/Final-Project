@@ -6,22 +6,29 @@ import { useState } from "react";
 import data from "../pages/Landing/data.json";
 
 //---- COMPONENT ----
-const AnimalBubble = ({ name }) => {
+const AnimalBubble = ({ name, doesNavigate }) => {
   //? ---- hooks ----
 
   const [isShown, setIsShown] = useState();
 
   //? ---- variables ----
   const [animal, message] = data[`${name}`];
-  
+
+  //? ---- handlers
+
+  const navigate = (game) => {
+    console.log(`user clicked, navigate to ${game}`); // switch statement in the future
+  };
+
   //? ---- rendering ----
   return (
     <div
-    //  className={`bubble ${animal}`}
+      //  className={`bubble ${animal}`}
       onMouseEnter={() => setIsShown(true)}
       onMouseLeave={() => setIsShown(false)}
-    >  
-{/*temporarily displaying the name instead of picture */}
+      onClick={doesNavigate ? ()=> navigate(animal) : null}
+    >
+      {/*temporarily displaying the name instead of picture */}
       {animal}
       {isShown ? <div>{message}</div> : null}
     </div>
