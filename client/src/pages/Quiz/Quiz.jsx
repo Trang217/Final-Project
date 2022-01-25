@@ -15,11 +15,11 @@ import data from "./desert.json";
 // ---- COMPONENT ----
 
 const Quiz = ({ biomeName }) => {
-
   //? ---- hooks ----
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [showResults, setShowResults] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [selectedAnswer, setSelectedAnswer] = useState("");
   const [checkAnswer, setCheckAnswer] = useState(false);
   const [score, setScore] = useState(0);
 
@@ -29,7 +29,16 @@ const Quiz = ({ biomeName }) => {
 
   //? ---- event handlers ----
   const handleAnswer = () => {
-    setIsSubmitted(true);
+    selectedAnswer === ""
+      ? alert("Please choose your answer")
+      : setIsSubmitted(true);
+    if (selectedAnswer === correct_answer) {
+      setCheckAnswer(true);
+      setScore(score + 1);
+    } else {
+      setCheckAnswer(false);
+    }
+    setSelectedAnswer("");
   };
 
   const handleNextQuestion = () => {
@@ -43,18 +52,15 @@ const Quiz = ({ biomeName }) => {
   };
 
   const chooseAnswer = (e) => {
-    if (e.target.textContent === correct_answer) {
-      setCheckAnswer(true);
-      setScore(score + 1);
-    } else {
-      setCheckAnswer(false);
-    }
+    setSelectedAnswer(e.target.textContent);
   };
 
   //? ---- rendering ----
   return (
-    <div className="app">
-      <p>Quiz</p>
+    <div className="bg-neutral-50 w-1/2 text-center m-16 p-10">
+      <p className="m-3">
+        Can you help the Scientist write a chapter about the {biomeName}?
+      </p>
       {showResults ? (
         <Results biomeName={biomeName} score={score} questions={questions} />
       ) : isSubmitted ? (
@@ -63,6 +69,8 @@ const Quiz = ({ biomeName }) => {
           correct_answer={correct_answer}
           message={message}
           handleNextQuestion={handleNextQuestion}
+          currentQuestion={currentQuestion}
+          questions={questions}
         />
       ) : (
         <Question

@@ -60,7 +60,7 @@
 
   "questions": [
      {
-      "question": "What does the word desert mean?",
+      "question": "What does the word 'desert' mean?",
       "correct_answer": "Abandoned place",
       "answers": ["Sandy place", "Abandoned place", "Dead place"],
       "message": "The word 'desert' means 'abandoned place', which is spot on for these places that have harsh conditions."
@@ -76,6 +76,12 @@
       "correct_answer": "12",
       "answers": ["12", "5", "19"],
       "message": "Sahara is in northern Africa and spreads its sand across 12 countries."
+    },
+    {
+      "question": "Which one is the largest hot desert on Earth?",
+      "correct_answer": "Sahara",
+      "answers": ["Sahara", "Gobi", "Namib"],
+      "message": "The Sahara is the largest hot desert on Earth, it is in northern Africa and spreads its sand across 12 countries."
     }
   ]
 }
