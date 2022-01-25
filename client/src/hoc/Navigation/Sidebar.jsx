@@ -1,5 +1,5 @@
 // ---- hooks, dependencies, styling import ----
-import React, { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 
 // ---- components ----
 import Navigation from "./Navigation";
@@ -9,20 +9,34 @@ import Navigation from "./Navigation";
 // ---- data ----
 
 // ---- COMPONENT ----
-
 export default function Sidebar() {
   //? ---- hooks ----
   const [isOpen, setIsOpen] = useState(false);
 
   //? ---- event handlers ----
-  //! Add event handler to detect click outside the sidebar -> close sidebar
+
+  //* close Sidebar when click outside the Sidebar Component is detected
+  const wrapperRef = useRef(null);
+
+  useEffect(() => {
+    document.addEventListener("click", handleClickOutside, true);
+    return () => {
+      document.removeEventListener("click", handleClickOutside, true);
+    };
+  }, []);
+
+  const handleClickOutside = (event) => {
+    if (wrapperRef.current && !wrapperRef.current.contains(event.target)) {
+      setIsOpen(false);
+    }
+  };
 
   //? ---- variables ----
 
   //? ---- rendering ----
 
   return (
-    <div>
+    <div ref={wrapperRef}>
       <button
         className="fixed z-30 flex items-center cursor-pointer right-10 top-6 bg-green-500 p-3"
         onClick={() => setIsOpen(!isOpen)}
