@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 //* Nav/Sidebar
-import Navigation from "../Navigation/Navigation";
+import Sidebar from "../Navigation/Sidebar";
 
 //* Unprotected Routes
 import Landing from "../../pages/Landing/Landing";
@@ -25,7 +25,7 @@ import Quiz from "../../pages/Quiz/Quiz";
 export default function MainRouter() {
   return (
     <BrowserRouter>
-      <Navigation />
+      <Sidebar />
       <main>
         <Routes>
           <Route path="/" element={<Landing />} />
