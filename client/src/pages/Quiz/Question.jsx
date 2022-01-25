@@ -3,21 +3,16 @@
 // ---- components ----
 
 // ---- context import ----
-import QuizContext from "../../contexts/QuizContext/QuizContext";
+
 // ---- data ----
 
 // ---- COMPONENT ----
 
-const Question = () => {
-  //? ---- hooks ----
-
-  //? ---- event handlers ----
-
-  //? ---- variables ----
+const Question = ({questions, currentQuestion, handleAnswer, answers, chooseAnswer}) => {
 
   //? ---- rendering ----
   return ( <>
-        {/*  <div className="question-section">
+         <div className="question-section">
             <div className="question-count"></div>
             <div className="question-text">
               {questions[currentQuestion].question}
@@ -31,8 +26,8 @@ const Question = () => {
             ))}
           </div>
           <button onClick={handleAnswer}>Answer</button>
-          <button onClick={handleNextQuestion}>Next Question</button>
+         
           <span>{currentQuestion + 1}</span>/{questions.length}
-        </>);*/}</>)
+        </>)
 };
 export default Question ;

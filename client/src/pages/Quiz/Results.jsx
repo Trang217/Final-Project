@@ -3,18 +3,18 @@
 // ---- components ----
 
 // ---- context import ----
-import QuizContext from "../../contexts/QuizContext/QuizContext";
+
 // ---- data ----
-import data from "./desert.json";
+
 // ---- COMPONENT ----
 
-const Results = ({ score, biomeName }) => {
+const Results = ({ score, biomeName, questions }) => {
   //? ---- hooks ----
 
   //? ---- event handlers ----
 
   //? ---- variables ----
-  const { questions } = data;
+
   //? ---- rendering ----
   return (
     <div>
