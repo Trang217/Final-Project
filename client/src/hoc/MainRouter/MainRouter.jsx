@@ -39,13 +39,11 @@ export default function MainRouter() {
           <Route path="badges" element={<MyBadges />} />
           <Route path="home" element={<Home />} />
 
-          <Route path="game">
-            <Route path="desert" element={<GameDesert />} />
-            {/* <Route path="jungle" element={<GameJungle/>} */}
-          </Route>
+          <Route path="desert" element={<GameDesert />} />
+          {/* <Route path="jungle" element={<GameJungle/>} */}
 
           <Route path="quiz" element={<Quiz />}>
-            {/* <Route path="desert" element={<QuizDesert />} /> */}
+            <Route path="desert" element={<Quiz />} />
             {/* <Route path="jungle" element={<QuizJungle />} /> */}
           </Route>
         </Routes>
