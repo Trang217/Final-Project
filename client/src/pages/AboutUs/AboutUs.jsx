@@ -3,8 +3,6 @@ import luisa from "./images/luisa.jpeg";
 import patrick from "./images/patrick.jpeg";
 import trang from "./images/trang.jpeg";
 
-
-
 // ---- hooks, dependencies, styling import ----
 
 // ---- components ----
@@ -24,9 +22,9 @@ const AboutUs = () => {
 
   //? ---- rendering ----
   return (
-    <div>
+    <div className="container mx-auto text-center">
       <h1>About Us</h1>
-      <h2>Why did we make it</h2>
+      <h2>Why did we make it?</h2>
       <p>
         We created this website to offer you a fun experience while exploring
         different ecosystems/biomes and learn about their uniqueness and
@@ -37,11 +35,27 @@ const AboutUs = () => {
         profile!
       </p>
       <h2>Who made it?</h2>
-      <div>
-        <img src={aleksandra} alt="" width="250px" />
-        <img src={luisa} alt="" width="250px"/>
-        <img src={patrick} alt="" width="250px"/>
-        <img src={trang} alt="" width="250px"/>
+      <div className="flex justify-center">
+        <img
+          src={aleksandra}
+          alt="Aleksandra Bury"
+          className="w-40 h-40 rounded-full  m-3"
+        />
+        <img
+          src={luisa}
+          alt="Luisa-Lisanne Forck"
+          className="w-40 h-40 rounded-full m-3"
+        />
+        <img
+          src={patrick}
+          alt="Patrick Mohr"
+          className="w-40 h-40 rounded-full m-3"
+        />
+        <img
+          src={trang}
+          alt="Trang Nguyen"
+          className="w-40 h-40 rounded-full m-3"
+        />
       </div>
       <p>
         We are a team of four full stack web developers - Aleksandra, Luisa,
@@ -50,8 +64,16 @@ const AboutUs = () => {
       </p>
       <p>
         If you’d like to take a look at what’s happening behind the scenes: This
-        is our project repository on GitHub: <a href="https://github.com/Trang217/Final-Project">https://github.com/Trang217/Final-Project</a>
+        is our project repository on GitHub:{" "}
       </p>
+      <a
+        href="https://github.com/Trang217/Final-Project"
+        target="_blank"
+        rel="noreferrer"
+        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+      >
+        go to repo
+      </a>
     </div>
   );
 };
