@@ -1,6 +1,6 @@
 // ---- hooks, dependencies, styling import ----
-
-import { useState } from "react";
+import './animation.scss'
+import { useState, useEffect } from "react";
 
 // ---- components ----
 import Question from "./Question";
@@ -22,15 +22,23 @@ const Quiz = ({ biomeName }) => {
   const [selectedAnswer, setSelectedAnswer] = useState("");
   const [checkAnswer, setCheckAnswer] = useState(false);
   const [score, setScore] = useState(0);
+  const [notify, setNotify] = useState(false);
 
   //? ---- data----
   const { questions } = data;
   const { correct_answer, answers, message } = questions[currentQuestion];
+ 
 
   //? ---- event handlers ----
+
+  const animate = () => {
+    setNotify(true);
+    setTimeout(()=>setNotify(false), 1000)
+  }
+
   const handleAnswer = () => {
     selectedAnswer === ""
-      ? alert("Please choose your answer")
+      ? animate()
       : setIsSubmitted(true);
     if (selectedAnswer === correct_answer) {
       setCheckAnswer(true);
@@ -80,6 +88,7 @@ const Quiz = ({ biomeName }) => {
           handleNextQuestion={handleNextQuestion}
           answers={answers}
           chooseAnswer={chooseAnswer}
+          notify={notify}
         />
       )}
     </div>

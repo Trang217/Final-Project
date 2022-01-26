@@ -71,6 +71,12 @@
       "answers": ["There are no animals", "There is no wind", "There is very little rain"],
       "message": "Deserts are dry regions of terrain with limited rainfall. This leads to harsh living conditions for plants and animals."
     },
+    { 
+      "question": "The type of plants that store water in their roots, stems and leaves are called succulents.",
+      "correct_answer": "True",
+      "answers": ["True", "False"],
+      "message": "Succulent plants store water in fleshy leaves, stems or roots. All cacti are succulents."
+    },
     {
       "question": "How many countries does the Sahara desert cross?",
       "correct_answer": "12",
@@ -82,6 +88,14 @@
       "correct_answer": "Sahara",
       "answers": ["Sahara", "Gobi", "Namib"],
       "message": "The Sahara is the largest hot desert on Earth, it is in northern Africa and spreads its sand across 12 countries."
+    },
+     {
+      "question": "Camels store water in their humps.",
+      "correct_answer": "False",
+      "answers": ["True", "False"],
+      "message": "Camels store most of their fat in the hump. When there is a shortage of food and water, the camels convert the fat stored in the hump into energy. "
     }
+
+
   ]
 }

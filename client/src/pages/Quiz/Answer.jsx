@@ -48,7 +48,7 @@ const Answer = ({
         {" "}
         {checkAnswer ? <p>{praise}</p> : null}
         <span>
-          The correct answer is <i> {correct_answer.toLowerCase()}</i>.
+          The correct answer is <i> {correct_answer}</i>.
         </span>
       </div>
       <p className=" mx-8 h-56 flex flex-col justify-center border-solid border-2 border-gray-400 rounded-lg m-4 p-3">{message}</p>
