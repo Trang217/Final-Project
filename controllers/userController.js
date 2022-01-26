@@ -10,7 +10,6 @@ exports.registerUser = tryCatchHelper(async (req, res, next) => {
   const user = new User();
 
   user.firstName = req.body.firstName;
-  user.lastName = req.body.lastName;
   user.userName = req.body.userName;
   user.email = req.body.email;
   user.password = hashedPassword;
@@ -83,7 +82,7 @@ exports.listUsers = tryCatchHelper(async (req, res, next) => {
 
 exports.profile = tryCatchHelper(async (req, res, next) => {
   const user = await User.findById(req.user._id).select(
-    "firstName lastName userName email"
+    "firstName userName email"
   );
 
   if (!user) {

@@ -6,10 +6,6 @@ const userSchema = new Schema({
     type: String,
     required: [true, "Please tell us your first name!"],
   },
-  lastName: {
-    type: String,
-    required: [true, "Please tell us your last name!"],
-  },
   userName: {
     type: String,
     required: [true, "Please provide a username!"],
