@@ -3,21 +3,35 @@ import QuizContext from "./QuizContext";
 import data from "../../pages/Quiz/desert.json";
 
 export default function QuizProvider({ children }) {
-  //? ---- STATE ----
+  //? ---- hooks ----
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [showResults, setShowResults] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [selectedAnswer, setSelectedAnswer] = useState("");
   const [checkAnswer, setCheckAnswer] = useState(false);
   const [score, setScore] = useState(0);
+  const [notify, setNotify] = useState(false);
 
-  //? ---- DATA ----
+  //? ---- data----
   const { questions } = data;
   const { correct_answer, answers, message } = questions[currentQuestion];
 
-  //? ---- EVENT HANDLERS ----
+  //? ---- event handlers ----
+
+  const animate = () => {
+    setNotify(true);
+    setTimeout(() => setNotify(false), 1000);
+  };
 
   const handleAnswer = () => {
-    setIsSubmitted(true);
+    selectedAnswer === "" ? animate() : setIsSubmitted(true);
+    if (selectedAnswer === correct_answer) {
+      setCheckAnswer(true);
+      setScore(score + 1);
+    } else {
+      setCheckAnswer(false);
+    }
+    setSelectedAnswer("");
   };
 
   const handleNextQuestion = () => {
@@ -31,12 +45,7 @@ export default function QuizProvider({ children }) {
   };
 
   const chooseAnswer = (e) => {
-    if (e.target.textContent === correct_answer) {
-      setCheckAnswer(true);
-      setScore(score + 1);
-    } else {
-      setCheckAnswer(false);
-    }
+    setSelectedAnswer(e.target.textContent);
   };
 
   const providedData = {
@@ -51,7 +60,9 @@ export default function QuizProvider({ children }) {
     handleAnswer,
     handleNextQuestion,
     chooseAnswer,
-    questions
+    questions,
+    animate,
+    notify,
   };
 
   return (

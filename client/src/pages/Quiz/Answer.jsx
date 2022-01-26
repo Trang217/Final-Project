@@ -1,21 +1,22 @@
 // ---- hooks, dependencies, styling import ----
-
-// ---- components ----
+import { useContext } from "react";
 
 // ---- context import ----
-
-// ---- data ----
+import QuizContext from "../../contexts/QuizContext/QuizContext";
 
 // ---- COMPONENT ----
 
-const Answer = ({
-  checkAnswer,
-  correct_answer,
-  message,
-  handleNextQuestion,
-  currentQuestion,
-  questions,
-}) => {
+const Answer = () => {
+  //? ---- hooks ----
+  const {
+    questions,
+    checkAnswer,
+    correct_answer,
+    message,
+    handleNextQuestion,
+    currentQuestion,
+  } = useContext(QuizContext);
+
   //? ---- variables ----
   const correctMessages = [
     "Well done!",
@@ -51,7 +52,9 @@ const Answer = ({
           The correct answer is <i> {correct_answer}</i>.
         </span>
       </div>
-      <p className=" mx-8 h-56 flex flex-col justify-center border-solid border-2 border-gray-400 rounded-lg m-4 p-3">{message}</p>
+      <p className=" mx-8 h-56 flex flex-col justify-center border-solid border-2 border-gray-400 rounded-lg m-4 p-3">
+        {message}
+      </p>
       <button
         className="bg-cyan-700 hover:bg-cyan-900 text-amber-50 font-bold py-2 px-4 rounded-md"
         onClick={handleNextQuestion}

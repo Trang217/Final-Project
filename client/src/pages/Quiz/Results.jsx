@@ -1,16 +1,18 @@
 // ---- hooks, dependencies, styling import ----
+import { useContext } from "react";
 
 // ---- components ----
 
 // ---- context import ----
+import QuizContext from "../../contexts/QuizContext/QuizContext";
 
 // ---- data ----
 
 // ---- COMPONENT ----
 
-const Results = ({ score, biomeName, questions }) => {
+const Results = ({biomeName}) => {
   //? ---- hooks ----
-
+const {score, questions} = useContext(QuizContext)
   //? ---- event handlers ----
 
   //? ---- variables ----
