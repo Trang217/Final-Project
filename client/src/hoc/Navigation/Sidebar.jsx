@@ -15,6 +15,10 @@ export default function Sidebar() {
 
   //? ---- event handlers ----
 
+  const closeSidebar = () => {
+    setIsOpen(!isOpen);
+  };
+
   //* close Sidebar when click outside the Sidebar Component is detected
   const wrapperRef = useRef(null);
 
@@ -39,7 +43,7 @@ export default function Sidebar() {
     <div ref={wrapperRef}>
       <button
         className="fixed z-30 flex items-center cursor-pointer right-10 top-6 bg-green-500 p-3"
-        onClick={() => setIsOpen(!isOpen)}
+        onClick={closeSidebar}
       >{`${!isOpen ? "open" : "close"}`}</button>
 
       <div
