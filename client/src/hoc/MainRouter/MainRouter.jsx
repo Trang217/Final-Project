@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 //* Nav/Sidebar
-import Navigation from "../Navigation/Navigation";
+import Sidebar from "../Navigation/Sidebar";
 
 //* Unprotected Routes
 import Landing from "../../pages/Landing/Landing";
@@ -25,7 +25,7 @@ import Quiz from "../../pages/Quiz/Quiz";
 export default function MainRouter() {
   return (
     <BrowserRouter>
-      <Navigation />
+      <Sidebar />
       <main>
         <Routes>
           <Route path="/" element={<Landing />} />
@@ -39,13 +39,11 @@ export default function MainRouter() {
           <Route path="badges" element={<MyBadges />} />
           <Route path="home" element={<Home />} />
 
-          <Route path="game">
-            <Route path="desert" element={<GameDesert />} />
-            {/* <Route path="jungle" element={<GameJungle/>} */}
-          </Route>
+          <Route path="desert" element={<GameDesert />} />
+          {/* <Route path="jungle" element={<GameJungle/>} */}
 
           <Route path="quiz" element={<Quiz />}>
-            {/* <Route path="desert" element={<QuizDesert />} /> */}
+            <Route path="desert" element={<Quiz />} />
             {/* <Route path="jungle" element={<QuizJungle />} /> */}
           </Route>
         </Routes>
