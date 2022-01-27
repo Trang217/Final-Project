@@ -1,6 +1,23 @@
 const { Schema, model } = require("mongoose");
 const validator = require("validator");
 
+const badgeSchema = new Schema({
+  type: {
+    type: String,
+    required: true,
+  },
+  score: {
+    type: Number,
+    default: Date.now,
+    required: true,
+  },
+  date: {
+    type: Date,
+    default: Date.now,
+    required: true,
+  },
+});
+
 const userSchema = new Schema({
   firstName: {
     type: String,
@@ -20,7 +37,9 @@ const userSchema = new Schema({
   password: {
     type: String,
     required: [true, "Please provide a password!"],
-    minlength: 8,
+  },
+  badges: {
+    type: [badgeSchema],
   },
 });
 

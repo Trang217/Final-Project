@@ -5,14 +5,29 @@ const authenticationHelper = require("../helpers/authenticationHelper");
 const { tryCatchHelper } = require("../helpers/tryCatchHelper");
 
 exports.registerUser = tryCatchHelper(async (req, res, next) => {
-  const hashedPassword = await bcrypt.hash(req.body.password, 12);
+  const { firstName, userName, email, password } = req.body;
+
+  const hashedPassword = await bcrypt.hash(password, 12);
+  const defaultBadges = [
+    {
+      type: "desert",
+      score: 0,
+      date: Date.now(),
+    },
+    {
+      type: "rainforest",
+      score: 0,
+      date: Date.now(),
+    },
+  ];
 
   const user = new User();
 
-  user.firstName = req.body.firstName;
-  user.userName = req.body.userName;
-  user.email = req.body.email;
+  user.firstName = firstName;
+  user.userName = userName;
+  user.email = email;
   user.password = hashedPassword;
+  user.badges = defaultBadges;
 
   await user.save();
 
@@ -82,7 +97,7 @@ exports.listUsers = tryCatchHelper(async (req, res, next) => {
 
 exports.profile = tryCatchHelper(async (req, res, next) => {
   const user = await User.findById(req.user._id).select(
-    "firstName userName email"
+    "firstName userName email badges"
   );
 
   if (!user) {
