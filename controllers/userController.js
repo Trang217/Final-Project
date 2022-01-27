@@ -108,3 +108,49 @@ exports.profile = tryCatchHelper(async (req, res, next) => {
     .status(200)
     .json({ status: "success", message: "user information", user });
 });
+
+//badges
+
+exports.getUserBadges = tryCatchHelper(async (req, res, next) => {
+  const userBadges = await User.findById(req.user._id).select("badges");
+
+  if (!userBadges) {
+    return next(new AppError("No User exists!", 404));
+  }
+
+  return res.status(200).json({
+    status: "success",
+    message: "user information",
+    badges: userBadges.badges,
+  });
+});
+
+exports.updateBadges = tryCatchHelper(async (req, res, next) => {
+  const { score } = req.body;
+
+  const { type } = req.params;
+
+  const updatedUserBadges = await User.findOneAndUpdate(
+    {
+      _id: req.user._id,
+      "badges.type": type,
+    },
+    {
+      $set: {
+        "badges.$[element].score": score,
+        "badges.$[element].date": Date.now(),
+      },
+    },
+    {
+      arrayFilters: [
+        { "element.score": { $lte: score }, "element.type": { $eq: type } },
+      ],
+      new: true,
+    }
+  ).select("badges");
+
+  return res.status(200).json({
+    message: "User badge is updated",
+    updateBadges: updatedUserBadges,
+  });
+});

@@ -13,4 +13,9 @@ router.use(authenticationHelper.authenticateJwt);
 router.get("/list", controller.listUsers);
 router.get("/profile", controller.profile);
 
+//badges
+
+router.get("/badges", controller.getUserBadges);
+router.patch("/update/badges/:type", controller.updateBadges);
+
 module.exports = router;
