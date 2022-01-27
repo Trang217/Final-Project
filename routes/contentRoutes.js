@@ -3,7 +3,7 @@ const controller = require("../controllers/contentController");
 
 const router = express.Router();
 
-router.get("/game", controller.getItems);
-router.get("/quiz", controller.getQuestions);
+router.get("/game", controller.getGameContent);
+router.get("/quiz", controller.getQuizContent);
 
 module.exports = router;
