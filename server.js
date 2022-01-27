@@ -12,6 +12,7 @@ const AppError = require("./error/AppError");
 const errorHandler = require("./error/errorHandler");
 
 const userRoutes = require("./routes/userRoutes");
+const contentRoutes = require("./routes/contentRoutes");
 
 //--------------------CONFIGURATION SETUP--------------------
 
@@ -51,6 +52,7 @@ mongoose
 //-----------------------ROUTES----------------------
 
 app.use("/api/users", userRoutes);
+app.use("/api/content", contentRoutes);
 
 // Handling unhandled routes
 
