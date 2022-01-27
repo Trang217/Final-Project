@@ -1,3 +1,4 @@
+//--------------------IMPORT MODULES------------------------
 const { Schema, model } = require("mongoose");
 const validator = require("validator");
 

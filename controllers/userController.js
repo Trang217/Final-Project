@@ -1,8 +1,15 @@
+//--------------------IMPORT MODULES------------------------
 const bcrypt = require("bcrypt");
+
+//--------------------IMPORT MODEL--------------------------
 const User = require("../models/User");
-const AppError = require("../error/AppError");
+
+//--------------------IMPORT HELPERS------------------------
 const authenticationHelper = require("../helpers/authenticationHelper");
 const { tryCatchHelper } = require("../helpers/tryCatchHelper");
+
+//--------------------IMPORT APP ERROR----------------------
+const AppError = require("../error/AppError");
 
 exports.registerUser = tryCatchHelper(async (req, res, next) => {
   const { firstName, userName, email, password } = req.body;

@@ -1,5 +1,10 @@
+//--------------------IMPORT MODULES------------------------
 const express = require("express");
+
+//--------------------IMPORT HELPERS------------------------
 const authenticationHelper = require("../helpers/authenticationHelper");
+
+//--------------------IMPORT CONTROLLER--------------------------
 const controller = require("../controllers/userController");
 
 const router = express.Router();
