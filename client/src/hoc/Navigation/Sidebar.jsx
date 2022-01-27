@@ -43,7 +43,7 @@ export default function Sidebar() {
   return (
     <div ref={wrapperRef}>
       <div
-        class="fixed z-30 cursor-pointer right-10 top-6 p-3 w-20 rounded-full"
+        className="fixed z-30 cursor-pointer right-10 top-6 p-3 w-20 rounded-full"
         onClick={closeSidebar}
       >
         <img alt="logo" src={menuBtn} className="object-cover" />
