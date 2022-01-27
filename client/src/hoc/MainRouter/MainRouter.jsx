@@ -1,12 +1,18 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { useContext } from "react";
+
+// Context
+import {
+  AuthContext,
+  AuthProvider,
+} from "../../contexts/AuthContext/AuthContext";
 
 //* Nav/Sidebar
 import Sidebar from "../Navigation/Sidebar";
 
 //* Unprotected Routes
 import Landing from "../../pages/Landing/Landing";
-// import Login from "../../pages/Login/Login";
-// import Register from "../../pages/Register/Register";
+import LoginAndRegistration from "../../pages/LoginAndRegistration/LoginAndRegistration";
 import NotFound from "../../pages/NotFound/NotFound";
 
 //* Protected Routes
@@ -23,31 +29,36 @@ import GameDesert from "../../pages/Game/GameDesert";
 import Quiz from "../../pages/Quiz/Quiz";
 
 export default function MainRouter() {
+  //? ---- variables ----
+  //const { loggedIn } = useContext(AuthContext);
+
   return (
-    <BrowserRouter>
-      <Sidebar />
-      <main>
-        <Routes>
-          <Route path="/" element={<Landing />} />
-          {/* <Route path="login" element={<Login />} /> */}
-          {/* <Route path="login" element={<Register />} /> */}
-          <Route path="*" element={<NotFound />} />
+    <AuthProvider>
+      <BrowserRouter>
+        <Sidebar />
+        <main>
+          <Routes>
+            <Route path="/" element={<Landing />} />
+            <Route path="login" element={<LoginAndRegistration />} />
 
-          {/* ---Protected Routes--- */}
-          <Route path="about" element={<AboutUs />} />
-          <Route path="account" element={<AccountDetails />} />
-          <Route path="badges" element={<MyBadges />} />
-          <Route path="home" element={<Home />} />
+            <Route path="*" element={<NotFound />} />
 
-          <Route path="desert" element={<GameDesert />} />
-          {/* <Route path="jungle" element={<GameJungle/>} */}
+            {/* ---Protected Routes--- */}
+            <Route path="about" element={<AboutUs />} />
+            <Route path="account" element={<AccountDetails />} />
+            <Route path="badges" element={<MyBadges />} />
+            <Route path="home" element={<Home />} />
 
-          <Route path="quiz" element={<Quiz />}>
-            <Route path="desert" element={<Quiz />} />
-            {/* <Route path="jungle" element={<QuizJungle />} /> */}
-          </Route>
-        </Routes>
-      </main>
-    </BrowserRouter>
+            <Route path="desert" element={<GameDesert />} />
+            {/* <Route path="jungle" element={<GameJungle/>} */}
+
+            <Route path="quiz" element={<Quiz />}>
+              <Route path="desert" element={<Quiz />} />
+              {/* <Route path="jungle" element={<QuizJungle />} /> */}
+            </Route>
+          </Routes>
+        </main>
+      </BrowserRouter>
+    </AuthProvider>
   );
 }
