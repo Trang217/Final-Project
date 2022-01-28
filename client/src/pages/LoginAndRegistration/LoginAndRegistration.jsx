@@ -37,11 +37,11 @@ const LoginAndRegistration = () => {
     console.log(loginData);
     try {
       const response = await axios.post("/api/users/login", loginData);
-      console.log(handleLogin);
+      //console.log(handleLogin);
       //console.log(useContext(AuthContext));
 
       handleLogin(response.data.user.userName);
-      navigate("/");
+      navigate("/home");
     } catch (error) {
       console.log(error);
       setIsError(true);
@@ -74,7 +74,7 @@ const LoginAndRegistration = () => {
         password: signUpData.password,
       });
       handleLogin(signInResponse.data.user.userName);
-      navigate("/");
+      navigate("/home");
     } catch (error) {
       console.log(error);
       setIsError(true);
