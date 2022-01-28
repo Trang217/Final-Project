@@ -74,7 +74,7 @@ exports.login = tryCatchHelper(async (req, res, next) => {
       secure: false,
       sameSite: "lax",
     })
-    .json({ message: "Login successful" });
+    .json({ message: "Login successful", user: { userName: user.userName } });
 });
 
 exports.logout = tryCatchHelper(async (req, res, next) => {
