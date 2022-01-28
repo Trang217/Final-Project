@@ -1,19 +1,40 @@
+//--------------------IMPORT MODULES------------------------
 const bcrypt = require("bcrypt");
+
+//--------------------IMPORT MODEL--------------------------
 const User = require("../models/User");
-const AppError = require("../error/AppError");
+
+//--------------------IMPORT HELPERS------------------------
 const authenticationHelper = require("../helpers/authenticationHelper");
 const { tryCatchHelper } = require("../helpers/tryCatchHelper");
 
+//--------------------IMPORT APP ERROR----------------------
+const AppError = require("../error/AppError");
+
 exports.registerUser = tryCatchHelper(async (req, res, next) => {
-  const hashedPassword = await bcrypt.hash(req.body.password, 12);
+  const { firstName, userName, email, password } = req.body;
+
+  const hashedPassword = await bcrypt.hash(password, 12);
+  const defaultBadges = [
+    {
+      type: "desert",
+      score: 0,
+      date: Date.now(),
+    },
+    {
+      type: "rainforest",
+      score: 0,
+      date: Date.now(),
+    },
+  ];
 
   const user = new User();
 
-  user.firstName = req.body.firstName;
-  user.lastName = req.body.lastName;
-  user.userName = req.body.userName;
-  user.email = req.body.email;
+  user.firstName = firstName;
+  user.userName = userName;
+  user.email = email;
   user.password = hashedPassword;
+  user.badges = defaultBadges;
 
   await user.save();
 
@@ -83,7 +104,7 @@ exports.listUsers = tryCatchHelper(async (req, res, next) => {
 
 exports.profile = tryCatchHelper(async (req, res, next) => {
   const user = await User.findById(req.user._id).select(
-    "firstName lastName userName email"
+    "firstName userName email badges"
   );
 
   if (!user) {
@@ -93,4 +114,50 @@ exports.profile = tryCatchHelper(async (req, res, next) => {
   return res
     .status(200)
     .json({ status: "success", message: "user information", user });
+});
+
+//badges
+
+exports.getUserBadges = tryCatchHelper(async (req, res, next) => {
+  const userBadges = await User.findById(req.user._id).select("badges");
+
+  if (!userBadges) {
+    return next(new AppError("No User exists!", 404));
+  }
+
+  return res.status(200).json({
+    status: "success",
+    message: "user information",
+    badges: userBadges.badges,
+  });
+});
+
+exports.updateBadges = tryCatchHelper(async (req, res, next) => {
+  const { score } = req.body;
+
+  const { type } = req.params;
+
+  const updatedUserBadges = await User.findOneAndUpdate(
+    {
+      _id: req.user._id,
+      "badges.type": type,
+    },
+    {
+      $set: {
+        "badges.$[element].score": score,
+        "badges.$[element].date": Date.now(),
+      },
+    },
+    {
+      arrayFilters: [
+        { "element.score": { $lte: score }, "element.type": { $eq: type } },
+      ],
+      new: true,
+    }
+  ).select("badges");
+
+  return res.status(200).json({
+    message: "User badge is updated",
+    updateBadges: updatedUserBadges,
+  });
 });

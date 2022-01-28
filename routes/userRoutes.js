@@ -1,5 +1,10 @@
+//--------------------IMPORT MODULES------------------------
 const express = require("express");
+
+//--------------------IMPORT HELPERS------------------------
 const authenticationHelper = require("../helpers/authenticationHelper");
+
+//--------------------IMPORT CONTROLLER--------------------------
 const controller = require("../controllers/userController");
 
 const router = express.Router();
@@ -12,5 +17,10 @@ router.use(authenticationHelper.authenticateJwt);
 
 router.get("/list", controller.listUsers);
 router.get("/profile", controller.profile);
+
+//badges
+
+router.get("/badges", controller.getUserBadges);
+router.patch("/update/badges/:type", controller.updateBadges);
 
 module.exports = router;
