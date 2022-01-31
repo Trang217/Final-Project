@@ -1,8 +1,24 @@
-import React from "react";
-import { Link } from "react-router-dom";
+// ---- hooks, dependencies, styling import ----
+import React, { useContext } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import axios from "../../utils/axiosInstance";
 import closeSidebar from "./Sidebar";
 
+// ---- context import ----
+import { AuthContext } from "../../contexts/AuthContext/AuthContext";
+
 export default function Navigation() {
+  //? ---- variables ----
+  const navigate = useNavigate();
+  const { handleLogin } = useContext(AuthContext);
+
+  //? ---- event handlers ----
+  const handleLogout = async () => {
+    await axios.get("/api/users/logout");
+    handleLogin("");
+    navigate("/");
+  };
+
   return (
     <nav>
       <ul className="p-2">
@@ -27,7 +43,9 @@ export default function Navigation() {
             Account Details
           </Link>
         </li>
-        <li className="p-4">Logout</li>
+        <li className="p-4">
+          <button onClick={handleLogout}>Logout</button>
+        </li>
       </ul>
     </nav>
   );
