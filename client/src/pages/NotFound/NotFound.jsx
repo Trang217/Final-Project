@@ -1,5 +1,5 @@
 // ---- hooks, dependencies, styling import ----
-import "./dummy.scss";
+import "./notFound.scss";
 import { useNavigate } from "react-router-dom";
 
 // ---- COMPONENT ----
@@ -16,17 +16,19 @@ const NotFound = () => {
 
   //? ---- rendering ----
   return (
-    <div className="h-screen bg-image flex flex-col justify-center items-center">
-      <div className="w-38 text-3xl text-center text-stone-50">
+    <div className="relative h-screen">
+      <div className="h-screen bg-image flex flex-col justify-center items-center"></div>
+      <div className="absolute center-me w-38 text-3xl text-center text-stone-50">
         <h2 className="text-5xl m-5">404 Page Not Found</h2>
         <p>Whoops! Looks like we wandered off.</p>
+
+        <button
+          className="tracking-wide mt-6 border-2 border-neutral-100 text-neutral-100 rounded-2xl px-8 py-1.5 inline-block font-semibold hover:bg-cyan-500 hover:border-cyan-500"
+          onClick={handleHome}
+        >
+          Take me back to Home Page
+        </button>
       </div>
-      <button
-        className="tracking-wide mt-6 border-2 border-neutral-100 text-neutral-100 rounded-2xl px-8 py-1.5 inline-block font-semibold hover:bg-cyan-500 hover:border-cyan-500"
-        onClick={handleHome}
-      >
-        Take me back to Home Page
-      </button>
     </div>
   );
 };

@@ -1,0 +1,22 @@
+.bg-image {
+  background-image: url("./assets/xxs.png");
+  background-position: center;
+  animation: animate 0.5s both linear;
+}
+.center-me {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@keyframes animate {
+  0% {
+    background-size: 100%;
+  }
+  50% {
+    background-size: 150%;
+  }
+  100% {
+    background-size: 200%;
+  }
+}
