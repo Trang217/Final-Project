@@ -1,27 +1,15 @@
 // ---- hooks, dependencies, styling import ----
-import { useContext } from "react";
 
 // ---- context import ----
-import QuizContext from "../../contexts/QuizContext/QuizContext";
 
 // ---- COMPONENT ----
 
-const Answer = ({questions,
-    checkAnswer,
-    correct_answer,
-    message,
-    handleNextQuestion,
-    currentQuestion}) => {
-  //? ---- hooks ----
- /* const {
-    questions,
-    checkAnswer,
-    correct_answer,
-    message,
-    handleNextQuestion,
-    currentQuestion,
-  } = useContext(QuizContext);
-*/
+const Answer = ({
+  questions,
+  checkAnswer,
+  handleNextQuestion,
+  currentQuestion,
+}) => {
   //? ---- variables ----
   const correctMessages = [
     "Well done!",
@@ -41,6 +29,8 @@ const Answer = ({questions,
 
   const praise =
     correctMessages[Math.floor(Math.random() * correctMessages.length)];
+
+  const { correct_answer, message } = questions[currentQuestion];
 
   //? ---- rendering ----
   return (
