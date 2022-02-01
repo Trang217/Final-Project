@@ -7,6 +7,9 @@ import {
   AuthProvider,
 } from "../../contexts/AuthContext/AuthContext";
 
+// Import Protected Routes
+import ProtectedRoutes from "./ProtectedRoutes";
+
 //* Nav/Sidebar
 import Sidebar from "../Navigation/Sidebar";
 
@@ -14,10 +17,10 @@ import Sidebar from "../Navigation/Sidebar";
 import Landing from "../../pages/Landing/Landing";
 import LoginAndRegistration from "../../pages/LoginAndRegistration/LoginAndRegistration";
 import NotFound from "../../pages/NotFound/NotFound";
+import AboutUs from "../../pages/AboutUs/AboutUs";
 
 //* Protected Routes
 // Pages
-import AboutUs from "../../pages/AboutUs/AboutUs";
 import AccountDetails from "../../pages/AccountDetails/AccountDetails";
 import Home from "../../pages/Home/Home";
 import MyBadges from "../../pages/MyBadges/MyBadges";
@@ -40,21 +43,16 @@ export default function MainRouter() {
           <Routes>
             <Route path="/" element={<Landing />} />
             <Route path="login" element={<LoginAndRegistration />} />
-
             <Route path="*" element={<NotFound />} />
+            <Route path="about" element={<AboutUs />} />
 
             {/* ---Protected Routes--- */}
-            <Route path="about" element={<AboutUs />} />
-            <Route path="account" element={<AccountDetails />} />
-            <Route path="badges" element={<MyBadges />} />
-            <Route path="home" element={<Home />} />
-
-            <Route path="desert" element={<GameDesert />} />
-            {/* <Route path="jungle" element={<GameJungle/>} */}
-
-            <Route path="quiz" element={<Quiz />}>
-              <Route path="desert" element={<Quiz />} />
-              {/* <Route path="jungle" element={<QuizJungle />} /> */}
+            <Route element={<ProtectedRoutes />}>
+              <Route path="account" element={<AccountDetails />} />
+              <Route path="badges" element={<MyBadges />} />
+              <Route path="home" element={<Home />} />
+              <Route path="desert" element={<GameDesert />} />
+              <Route path="quiz" element={<Quiz />} />
             </Route>
           </Routes>
         </main>
