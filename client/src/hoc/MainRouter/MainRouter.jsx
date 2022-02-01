@@ -1,11 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { useContext } from "react";
 
 // Context
-import {
-  AuthContext,
-  AuthProvider,
-} from "../../contexts/AuthContext/AuthContext";
+import { AuthProvider } from "../../contexts/AuthContext/AuthContext";
 
 // Import Protected Routes
 import ProtectedRoutes from "./ProtectedRoutes";
@@ -32,9 +28,6 @@ import GameDesert from "../../pages/Game/GameDesert";
 import Quiz from "../../pages/Quiz/Quiz";
 
 export default function MainRouter() {
-  //? ---- variables ----
-  //const { loggedIn } = useContext(AuthContext);
-
   return (
     <AuthProvider>
       <BrowserRouter>
@@ -46,7 +39,6 @@ export default function MainRouter() {
             <Route path="*" element={<NotFound />} />
             <Route path="about" element={<AboutUs />} />
 
-            {/* ---Protected Routes--- */}
             <Route element={<ProtectedRoutes />}>
               <Route path="account" element={<AccountDetails />} />
               <Route path="badges" element={<MyBadges />} />
