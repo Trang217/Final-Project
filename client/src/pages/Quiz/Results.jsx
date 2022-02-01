@@ -10,9 +10,9 @@ import QuizContext from "../../contexts/QuizContext/QuizContext";
 
 // ---- COMPONENT ----
 
-const Results = ({biomeName}) => {
+const Results = ({biomeName, score, questions}) => {
   //? ---- hooks ----
-const {score, questions} = useContext(QuizContext)
+//const {score, questions} = useContext(QuizContext)
   //? ---- event handlers ----
 
   //? ---- variables ----

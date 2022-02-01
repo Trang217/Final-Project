@@ -1,22 +1,21 @@
 // ---- hooks, dependencies, styling import ----
-import { useContext } from "react";
+
 import "./animation.scss";
 
 // ---- context import ----
-import QuizContext from "../../contexts/QuizContext/QuizContext";
 
 // ---- COMPONENT ----
 
-const Question = () => {
-  //? ---- hooks ----
-  const {
-    handleAnswer,
-    currentQuestion,
-    answers,
-    chooseAnswer,
-    notify,
-    questions,
-  } = useContext(QuizContext);
+const Question = ({
+  handleAnswer,
+  currentQuestion,
+  chooseAnswer,
+  notify,
+  questions,
+}) => {
+  //? ---- variables ----
+
+  const { question, answers } = questions[currentQuestion];
 
   //? ---- rendering ----
   return (
@@ -28,7 +27,7 @@ const Question = () => {
           </span>
         </div>
         <div className=" mx-6 h-14 flex flex-col justify-center">
-          <span>{questions[currentQuestion].question}</span>
+          <span>{question}</span>
         </div>
 
         <div className=" h-56 flex flex-col items-center justify-around">
