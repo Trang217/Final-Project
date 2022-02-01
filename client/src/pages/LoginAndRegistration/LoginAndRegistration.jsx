@@ -34,7 +34,7 @@ const LoginAndRegistration = () => {
       email: formData.get("email"),
       password: formData.get("password"),
     };
-    console.log(loginData);
+    //console.log(loginData);
     try {
       const response = await axios.post("/api/users/login", loginData);
       //console.log(handleLogin);
@@ -43,7 +43,7 @@ const LoginAndRegistration = () => {
       handleLogin(response.data.user.userName);
       navigate("/home");
     } catch (error) {
-      console.log(error);
+      // console.log(error);
       setIsError(true);
       setErrorMessage(error.response.data.message);
     }
@@ -60,7 +60,7 @@ const LoginAndRegistration = () => {
       email: formData.get("signUpEmail"),
       password: formData.get("signUpPassword"),
     };
-    console.log(signUpData);
+    //console.log(signUpData);
     try {
       const response = await axios.post("/api/users/register", signUpData);
       if (response.status === 200) {
@@ -76,7 +76,7 @@ const LoginAndRegistration = () => {
       handleLogin(signInResponse.data.user.userName);
       navigate("/home");
     } catch (error) {
-      console.log(error);
+      //  console.log(error);
       setIsError(true);
       setErrorMessage(error.response.data.message);
     }
@@ -108,11 +108,13 @@ const LoginAndRegistration = () => {
               </label>
               <div className="bg-gray-100 w-64 p-2 flex items-center mb-1">
                 <input
+                  required
                   id="firstName"
                   type="text"
                   name="firstName"
                   placeholder="First name"
                   className="bg-gray-100 outline-none text-sm flex-1"
+                  onChange={() => setErrorMessage("")}
                 />
               </div>
             </div>
@@ -123,11 +125,13 @@ const LoginAndRegistration = () => {
               </label>
               <div className="bg-gray-100 w-64 p-2 flex items-center mb-1">
                 <input
+                  required
                   id="userName"
                   type="text"
                   name="userName"
                   placeholder="Username"
                   className="bg-gray-100 outline-none text-sm flex-1"
+                  onChange={() => setErrorMessage("")}
                 />
               </div>
             </div>
@@ -138,11 +142,13 @@ const LoginAndRegistration = () => {
               </label>
               <div className="bg-gray-100 w-64 p-2 flex items-center mb-1">
                 <input
+                  required
                   id="signUpEmail"
                   type="email"
                   name="signUpEmail"
                   placeholder="myemail@gmail.com"
                   className="bg-gray-100 outline-none text-sm flex-1"
+                  onChange={() => setErrorMessage("")}
                 />
               </div>
             </div>
@@ -153,11 +159,13 @@ const LoginAndRegistration = () => {
               </label>
               <div className="bg-gray-100 w-64 p-2 flex items-center mb-1">
                 <input
+                  required
                   id="signUpPassword"
                   type="password"
                   name="signUpPassword"
                   placeholder=" ******"
                   className="bg-gray-100 outline-none text-sm flex-1"
+                  onChange={() => setErrorMessage("")}
                 />
               </div>
             </div>
@@ -185,11 +193,13 @@ const LoginAndRegistration = () => {
               </label>
               <div className="bg-gray-100 w-64 p-2 flex items-center mb-1">
                 <input
+                  required
                   id="email"
                   type="email"
                   name="email"
                   placeholder="myemail@gmail.com"
                   className="bg-gray-100 outline-none text-sm flex-1"
+                  onChange={() => setErrorMessage("")}
                 />
               </div>
             </div>
@@ -199,11 +209,13 @@ const LoginAndRegistration = () => {
               </label>
               <div className="bg-gray-100 w-64 p-2 flex items-center mb-3">
                 <input
+                  required
                   id="password"
                   type="password"
                   name="password"
                   placeholder=" ******"
                   className="bg-gray-100 outline-none text-sm flex-1"
+                  onChange={() => setErrorMessage("")}
                 />
               </div>
             </div>
