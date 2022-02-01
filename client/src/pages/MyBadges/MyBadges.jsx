@@ -20,7 +20,7 @@ const MyBadges = () => {
       try {
         const res = await axios.get("/api/users/badges");
         setBadges(res.data.badges);
-        console.log(res.data.badges);
+    
       } catch (error) {
         console.error(error);
       }
@@ -29,13 +29,7 @@ const MyBadges = () => {
     fetchData();
   }, []);
 
-  //? ---- variables ----
-
-  //destructure USER object from DB -> name + Badges
-
-  // const { badges } = data; // Badges Objects from USER DB
-  // console.log(badges);
-
+  
   //? ---- rendering ----
   return (
     <div>

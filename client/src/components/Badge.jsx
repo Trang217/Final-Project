@@ -2,16 +2,9 @@
 import { format } from "date-fns";
 import capitalize from "../utils/capitalize";
 
-// ---- components ----
-
-// ---- context import ----
-
-// ---- data ----
-
 // ---- COMPONENT ----
 
 const Badge = ({ badge }) => {
-  //? ---- hooks ----
 
   //? ---- event handlers ----
 
@@ -27,7 +20,7 @@ const Badge = ({ badge }) => {
     <div>
       <p>{capitalize(type)}</p>
       <p>score: {score}</p>
-      {/* <p>discovered: {format(date, "EEEE, do MMM")}</p> */}
+      {score < 0 ? <p>discovered on: {format(new Date(date), "EEEE, Do MMMM yyyy")}</p> : null }
       <button onClick={toQuiz}>Do the quiz again</button>
     </div>
   );
