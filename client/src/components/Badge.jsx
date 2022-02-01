@@ -1,4 +1,5 @@
 // ---- hooks, dependencies, styling import ----
+import { format } from "date-fns";
 import capitalize from "../utils/capitalize";
 
 // ---- components ----
@@ -26,7 +27,7 @@ const Badge = ({ badge }) => {
     <div>
       <p>{capitalize(type)}</p>
       <p>score: {score}</p>
-      <p>discovered: {date}</p>
+      {/* <p>discovered: {format(date, "EEEE, do MMM")}</p> */}
       <button onClick={toQuiz}>Do the quiz again</button>
     </div>
   );

@@ -1,4 +1,6 @@
 // ---- hooks, dependencies, styling import ----
+import { useEffect, useState } from "react";
+import axios from "../../utils/axiosInstance";
 
 // ---- components ----
 import Badge from "../../components/Badge";
@@ -7,32 +9,47 @@ import Badge from "../../components/Badge";
 
 // ---- data ----
 
-import user from './data.json'
-
 // ---- COMPONENT ----
 
 const MyBadges = () => {
   //? ---- hooks ----
+  const [badges, setBadges] = useState([]);
 
-  //? ---- event handlers ----
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res = await axios.get("/api/users/badges");
+        setBadges(res.data.badges);
+        console.log(res.data.badges);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    fetchData();
+  }, []);
 
   //? ---- variables ----
-  
+
   //destructure USER object from DB -> name + Badges
 
-
-  const {firstName, badges} =  user // Badges Objects from USER DB 
-
-//const badgess = []
+  // const { badges } = data; // Badges Objects from USER DB
+  // console.log(badges);
 
   //? ---- rendering ----
-  return <div>
-
-    <div>Hello, {firstName}!</div>
-    <p>See all the chapters change as you explore the ecosystems! Help the scientist finish his book before he wakes up!</p>
-    <div className="allBadges">
-      {badges.map((badge, i) => <Badge key={i} badge={badge}/>)}
+  return (
+    <div>
+      <div>Hello!</div>
+      <p>
+        See all the chapters change as you explore the ecosystems! Help the
+        scientist finish his book before he wakes up!
+      </p>
+      <div className="allBadges">
+        {badges.map((badge, i) => (
+          <Badge key={i} badge={badge} />
+        ))}
+      </div>
     </div>
-  </div>;
+  );
 };
-export default MyBadges ;
+export default MyBadges;
