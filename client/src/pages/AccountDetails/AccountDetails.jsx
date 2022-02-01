@@ -1,5 +1,6 @@
 // ---- hooks, dependencies, styling import ----
-import user from "./data.json";
+import { useState, useEffect } from "react";
+import axios from "../../utils/axiosInstance";
 
 // ---- components ----
 
@@ -11,12 +12,27 @@ import user from "./data.json";
 
 const AccountDetails = () => {
   //? ---- hooks ----
+  const [data, setData] = useState({});
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res = await axios.get("/api/users/profile");
+        setData(res.data.user);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    fetchData();
+  }, []);
 
   //? ---- event handlers ----
 
-  //? ---- variables ----
+  //! DELETE ACCOUNT
 
-  const { firstName, userName, email } = user; // get data from user db
+  //? ---- variables ----
+  const { firstName, userName, email } = data;
 
   //? ---- rendering ----
   return (
@@ -31,7 +47,7 @@ const AccountDetails = () => {
         onClick={() => alert("edit information")}
         className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
       >
-        Edit my Account details
+        Edit information
       </button>
       <button
         onClick={() => alert("delete account")}
