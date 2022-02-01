@@ -23,12 +23,7 @@ axiosApiInstance.interceptors.response.use(
     return config;
   },
   (error) => {
-    console.log("Error response has been received", error.response);
-
-    if (error.response.status === 401) {
-      window.location = "/logout";
-    }
-
+    //console.log("Error response has been received", error.response);
     return Promise.reject(error);
   }
 );
