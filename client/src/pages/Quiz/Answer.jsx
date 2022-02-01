@@ -6,9 +6,14 @@ import QuizContext from "../../contexts/QuizContext/QuizContext";
 
 // ---- COMPONENT ----
 
-const Answer = () => {
+const Answer = ({questions,
+    checkAnswer,
+    correct_answer,
+    message,
+    handleNextQuestion,
+    currentQuestion}) => {
   //? ---- hooks ----
-  const {
+ /* const {
     questions,
     checkAnswer,
     correct_answer,
@@ -16,7 +21,7 @@ const Answer = () => {
     handleNextQuestion,
     currentQuestion,
   } = useContext(QuizContext);
-
+*/
   //? ---- variables ----
   const correctMessages = [
     "Well done!",

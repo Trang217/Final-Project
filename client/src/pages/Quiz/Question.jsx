@@ -7,9 +7,16 @@ import QuizContext from "../../contexts/QuizContext/QuizContext";
 
 // ---- COMPONENT ----
 
-const Question = () => {
+const Question = ({
+    handleAnswer,
+    currentQuestion,
+    answers,
+    chooseAnswer,
+    notify,
+    questions,
+  }) => {
   //? ---- hooks ----
-  const {
+ /* const {
     handleAnswer,
     currentQuestion,
     answers,
@@ -17,7 +24,7 @@ const Question = () => {
     notify,
     questions,
   } = useContext(QuizContext);
-
+*/
   //? ---- rendering ----
   return (
     <>
