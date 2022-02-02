@@ -8,7 +8,6 @@ const App = () => {
   return (
     <div className="app">
       <MainRouter />
-      <Quiz biomeName="Desert"/>
     </div>
   );
 };

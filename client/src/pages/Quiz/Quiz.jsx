@@ -14,6 +14,7 @@ import Results from "./Results";
 // ---- COMPONENT ----
 
 const Quiz = ({ biomeName }) => {
+
   //? ---- hooks ----
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [showResults, setShowResults] = useState(false);
