@@ -135,7 +135,7 @@ exports.getUserBadges = tryCatchHelper(async (req, res, next) => {
 exports.updateBadges = tryCatchHelper(async (req, res, next) => {
   const { score } = req.body;
 
-  const { type } = req.params;
+  const { type } = req.body;
 
   const updatedUserBadges = await User.findOneAndUpdate(
     {

@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import "./animation.scss";
 import axios from "../../utils/axiosInstance";
+
 // ---- components ----
 import Question from "./Question";
 import Answer from "./Answer";
@@ -13,6 +14,7 @@ import Results from "./Results";
 // ---- COMPONENT ----
 
 const Quiz = ({ biomeName }) => {
+
   //? ---- hooks ----
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [showResults, setShowResults] = useState(false);
@@ -25,7 +27,7 @@ const Quiz = ({ biomeName }) => {
 
   //? ---- API CONNECTION ----
 
-  const api = async () => {
+  const getData = async () => {
     try {
       const response = await axios.get(`/api/content/quiz/${biomeName}`);
       const data = response.data.quizContent.questions;
@@ -34,8 +36,6 @@ const Quiz = ({ biomeName }) => {
       console.log(error);
     }
   };
-
-  //? ---- data----
 
   //? ---- event handlers ----
 
@@ -55,12 +55,31 @@ const Quiz = ({ biomeName }) => {
     setSelectedAnswer("");
   };
 
+  const updateScore = async () => {
+    const scoreData = {
+      score: score,
+      type: biomeName.toLowerCase(),
+    };
+    try {
+      const response = await axios.patch(
+        `api/users/update/badges/${biomeName}`,
+        scoreData
+      );
+      if (response.status === 200) {
+        console.log("Request to update score sent");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   const handleNextQuestion = () => {
     setIsSubmitted(false);
     const nextQuestion = currentQuestion + 1;
     if (nextQuestion < questions.length) {
       setCurrentQuestion(nextQuestion);
     } else {
+      updateScore();
       setShowResults(true);
     }
   };
@@ -69,7 +88,7 @@ const Quiz = ({ biomeName }) => {
     setSelectedAnswer(e.target.textContent);
   };
 
-  useEffect(() => api(), []);
+  useEffect(() => getData(), []);
 
   //? ---- rendering ----
   return (

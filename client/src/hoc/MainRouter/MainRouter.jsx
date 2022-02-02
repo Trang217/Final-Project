@@ -44,7 +44,8 @@ export default function MainRouter() {
               <Route path="badges" element={<MyBadges />} />
               <Route path="home" element={<Home />} />
               <Route path="desert" element={<GameDesert />} />
-              <Route path="quiz" element={<Quiz />} />
+              <Route path="quiz/desert" element={<Quiz biomeName="Desert"/>} />
+              <Route path="quiz/rainforest" element={<Quiz biomeName="Rainforest"/>} />
             </Route>
           </Routes>
         </main>
