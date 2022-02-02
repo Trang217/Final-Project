@@ -1,11 +1,14 @@
 // ---- hooks, dependencies, styling import ----
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import Modal from "react-modal";
 
 // ---- components ----
 import AboutUs from "../AboutUs/AboutUs";
 import AnimalBubble from "../../components/AnimalBubble";
+
+// ---- context ----
+import { AuthContext } from "../../contexts/AuthContext/AuthContext";
 
 // ---- COMPONENT ----
 const Landing = () => {
@@ -13,11 +16,13 @@ const Landing = () => {
   let navigate = useNavigate();
   const [modalOpen, setModalOpen] = useState(false);
 
+  const { loggedIn } = useContext(AuthContext);
+
   //? ---- event handlers ----
 
   //Start the adventure button handler
   const handleClick = () => {
-    navigate("/login");
+    loggedIn ? navigate("/home") : navigate("/login");
   };
 
   // Show Modal with AboutUS component
