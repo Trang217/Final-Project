@@ -1,4 +1,5 @@
 // ---- hooks, dependencies, styling import ----
+import { useNavigate } from "react-router-dom";
 
 // ---- components ----
 import AnimalBubble from "../../components/AnimalBubble";
@@ -6,12 +7,14 @@ import AnimalBubble from "../../components/AnimalBubble";
 // ---- COMPONENT ----
 const Landing = () => {
   //? ---- hooks ----
-  // const history = useHistory();
+  let navigate = useNavigate();
 
   //? ---- event handlers ----
 
   //Start the adventure button handler
-  const handleSubmit = () => {};
+  const handleSubmit = () => {
+    navigate("/login");
+  };
 
   /* QUESTION: useHistory here? {history.push('/login')*/
 
@@ -30,7 +33,9 @@ const Landing = () => {
             At the end of each exploration you can do a fun little quiz to test
             your knowledge and collect some badges on your profile!
           </p>
-          <button onClick={handleSubmit}>Start the adventure</button>
+          <button className="bg-yellow-500 p-3 m-2" onClick={handleSubmit}>
+            Start the adventure
+          </button>
           {/* NAVIGATE - LINK type*/}
         </div>
         <AnimalBubble name="rainforest" />
