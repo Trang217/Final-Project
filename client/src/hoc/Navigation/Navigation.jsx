@@ -7,6 +7,8 @@ import closeSidebar from "./Sidebar";
 // ---- context import ----
 import { AuthContext } from "../../contexts/AuthContext/AuthContext";
 
+// ---- COMPONENT ----
+
 export default function Navigation() {
   //? ---- variables ----
   const navigate = useNavigate();
