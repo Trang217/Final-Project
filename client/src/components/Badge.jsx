@@ -20,7 +20,7 @@ const Badge = ({ badge }) => {
     <div>
       <p>{capitalize(type)}</p>
       <p>score: {score}</p>
-      {score < 0 ? <p>discovered on: {format(new Date(date), "EEEE, Do MMMM yyyy")}</p> : null }
+      {score > 0 ? <p>discovered on: {format(new Date(date), "EEEE, do MMMM yyyy")}</p> : null }
       <button onClick={toQuiz}>Do the quiz again</button>
     </div>
   );

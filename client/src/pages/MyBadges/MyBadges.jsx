@@ -5,10 +5,6 @@ import axios from "../../utils/axiosInstance";
 // ---- components ----
 import Badge from "../../components/Badge";
 
-// ---- context import ----
-
-// ---- data ----
-
 // ---- COMPONENT ----
 
 const MyBadges = () => {
@@ -20,7 +16,6 @@ const MyBadges = () => {
       try {
         const res = await axios.get("/api/users/badges");
         setBadges(res.data.badges);
-    
       } catch (error) {
         console.error(error);
       }
@@ -29,7 +24,6 @@ const MyBadges = () => {
     fetchData();
   }, []);
 
-  
   //? ---- rendering ----
   return (
     <div>
