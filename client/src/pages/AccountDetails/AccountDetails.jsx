@@ -2,12 +2,6 @@
 import { useState, useEffect } from "react";
 import axios from "../../utils/axiosInstance";
 
-// ---- components ----
-
-// ---- context import ----
-
-// ---- data ----
-
 // ---- COMPONENT ----
 
 const AccountDetails = () => {
