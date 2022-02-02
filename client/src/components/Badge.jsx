@@ -1,15 +1,19 @@
 // ---- hooks, dependencies, styling import ----
 import { format } from "date-fns";
+import {useNavigate} from "react-router-dom"
 import capitalize from "../utils/capitalize";
 
 // ---- COMPONENT ----
 
 const Badge = ({ badge }) => {
 
+  //? ---- hooks ----
+  const navigate = useNavigate()
+
   //? ---- event handlers ----
 
   const toQuiz = () => {
-    console.log(`navigate to URL -> /quiz/${type}`);
+   navigate(`/quiz/${type}`);
   };
   //? ---- variables ----
 
