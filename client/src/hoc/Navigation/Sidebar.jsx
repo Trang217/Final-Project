@@ -1,7 +1,6 @@
 // ---- hooks, dependencies, styling import ----
 import { useState, useEffect, useRef, useContext } from "react";
 import menuBtn from "../Navigation/images/compass-test.png";
-import "./sidebar.scss";
 
 // ---- components ----
 import Navigation from "./Navigation";

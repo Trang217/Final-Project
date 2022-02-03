@@ -1,26 +1,12 @@
+// ---- hooks, dependencies, styling import ----
 import aleksandra from "./images/aleksandra.jpeg";
 import luisa from "./images/luisa.jpeg";
 import patrick from "./images/patrick.jpeg";
 import trang from "./images/trang.jpeg";
-import "./about.scss";
-
-// ---- hooks, dependencies, styling import ----
-
-// ---- components ----
-
-// ---- context import ----
-
-// ---- data ----
 
 // ---- COMPONENT ----
 
 const AboutUs = () => {
-  //? ---- hooks ----
-
-  //? ---- event handlers ----
-
-  //? ---- variables ----
-
   //? ---- rendering ----
   return (
     <div className="backgroundContainer">
@@ -52,13 +38,16 @@ const AboutUs = () => {
           If you’d like to take a look at what’s happening behind the scenes,
           check out our project repository on GitHub:{" "}
         </p>
-        <a
-          href="https://github.com/Trang217/Final-Project"
-          target="_blank"
-          rel="noreferrer"
-        >
-          <button>go to repo</button>
-        </a>
+
+        <button>
+          <a
+            href="https://github.com/Trang217/Final-Project"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Take me to the repo
+          </a>
+        </button>
       </div>
     </div>
   );
