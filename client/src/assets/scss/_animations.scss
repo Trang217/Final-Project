@@ -1,12 +1,11 @@
-.wobble-hor-bottom {
-  animation: wobble-hor-bottom 0.8s;
+.wobble-me {
+  animation: wobble-me 0.8s;
 }
 
-@keyframes wobble-hor-bottom {
+@keyframes wobble-me {
   0%,
   100% {
     transform: translateX(0%);
-
     transform-origin: 50% 50%;
   }
   15% {
