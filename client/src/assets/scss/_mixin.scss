@@ -11,3 +11,39 @@
   background-image: $bg-map;
   height: 100vh;
 }
+@mixin btn-green {
+  background-position: center;
+  background-size: cover;
+  background-image: $bg-button;
+  font-size: $font-size-sm;
+  color: $light-txt;
+  margin: 2rem;
+  padding: 0.5rem 2rem;
+  border-radius: 1rem;
+  box-shadow: $shadow-btn;
+  &:hover {
+    transform: scale(1.1);
+    transition: 0.5s;
+  }
+}
+
+@mixin center-fixed {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin badge {
+  background-position: center;
+  background-size: 110%;
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  box-shadow: $shadow-badge;
+  position: absolute;
+  &:hover {
+    transform: scale(1.1);
+    transition: 0.5s;
+  }
+}
