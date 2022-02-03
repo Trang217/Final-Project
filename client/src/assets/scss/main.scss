@@ -3,9 +3,9 @@
 @import "./mixin";
 @import "./variables";
 
-@import "../../pages/AboutUs/about.scss";
+@import "../../pages/AboutUs/about";
 @import "../../pages/Quiz/quiz";
-@import "../../hoc/Navigation/sidebar.scss";
+@import "../../hoc/Navigation/sidebar";
 
 :root {
   font-size: 62.5%;
