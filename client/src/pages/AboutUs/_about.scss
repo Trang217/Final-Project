@@ -13,9 +13,8 @@
 }
 
 .contentContainer {
-  // background-color: rgba(255, 255, 255, 0.404);
   border-radius: 25px;
-  width: 30%;
+  width: 35%;
   margin: 0 auto;
   height: 80%;
   color: rgb(2, 2, 85);
@@ -36,15 +35,16 @@
   }
 
   button {
-    color: $light;
     background-image: url(../../assets/images/d-green-btn.jpg);
     background-size: cover;
     object-fit: fill;
+    color: seashell;
     display: block;
     margin: 0 auto;
+    margin-top: 2rem;
     border-radius: 25px;
     padding: 1.5rem;
-    font-size: $font-size-sm;
+    font-size: $font-size-xs;
   }
 
   .imagesContainer {
