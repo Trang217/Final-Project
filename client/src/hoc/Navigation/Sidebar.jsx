@@ -1,6 +1,7 @@
 // ---- hooks, dependencies, styling import ----
 import { useState, useEffect, useRef, useContext } from "react";
-import menuBtn from "../Navigation/menu-btn.jpg";
+import menuBtn from "../Navigation/images/menu-btn.jpg";
+import "./sidebar.scss";
 
 // ---- components ----
 import Navigation from "./Navigation";
@@ -47,15 +48,12 @@ export default function Sidebar() {
     <div>
       {loggedIn ? (
         <div ref={wrapperRef}>
-          <div
-            className="fixed z-30 cursor-pointer right-10 top-6 p-3 w-20 rounded-full"
-            onClick={closeSidebar}
-          >
+          <div className="menuBtn" onClick={closeSidebar}>
             <img alt="logo" src={menuBtn} className="object-cover" />
           </div>
 
           <div
-            className={`fixed right-0 pt-20 h-full bg-yellow-300 w-60 transform ease-in-out duration-300 ${
+            className={`fixed right-0 pt-20 p-8 bgSidebar h-full w-80 transform ease-in-out duration-300 ${
               isOpen ? "translate-x-0" : "translate-x-full"
             }`}
           >
