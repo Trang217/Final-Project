@@ -32,8 +32,7 @@ const Landing = () => {
 
   //? ---- rendering ----
   return (
-    <div className="">
-      {/* applies the map picture */}
+    <div className="landing">
       <div className="">
         <button
           className="fixed z-30 cursor-pointer right-10 top-6 p-3 w-20 bg-red-500"

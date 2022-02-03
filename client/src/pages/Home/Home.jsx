@@ -30,7 +30,7 @@ const Home = () => {
 
   //? ---- rendering ----
   return (
-    <div>
+    <div className="home">
       <div>
         <div onClick={navigateToProfile}>Player Animated</div>
         <div onClick={openModal}>Read the journal trigger</div>

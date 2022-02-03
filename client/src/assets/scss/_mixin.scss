@@ -4,3 +4,10 @@
   justify-content: center;
   align-items: center;
 }
+
+@mixin bg-img {
+  background-position: center;
+  background-size: cover;
+  background-image: $bg-map;
+  height: 100vh;
+}
