@@ -1,6 +1,5 @@
 // ---- hooks, dependencies, styling import ----
 import { useState, useEffect } from "react";
-import "./animation.scss";
 import axios from "../../utils/axiosInstance";
 
 // ---- components ----
@@ -92,8 +91,8 @@ const Quiz = ({ biomeName }) => {
 
   //? ---- rendering ----
   return (
-    <div className="bg-neutral-50 w-1/2 text-center m-16 p-10">
-      <p className="m-3">
+    <div className="quiz bg-neutral-50">
+      <p className="title">
         Can you help the Scientist write a chapter about the {biomeName}?
       </p>
 

@@ -34,29 +34,28 @@ const Answer = ({
 
   //? ---- rendering ----
   return (
-    <div className="flex flex-col items-center h-80">
+    <div className="answer-container">
       <div>
         <span className="">
           {currentQuestion + 1}/{questions.length}
         </span>
       </div>
-      <div className="mx-8 h-14 flex flex-col justify-center">
-        {" "}
+      <div className="answer-container">
         {checkAnswer ? <p>{praise}</p> : null}
         <span>
           The correct answer is <i> {correct_answer}</i>.
         </span>
       </div>
-      <p className=" mx-8 h-56 flex flex-col justify-center border-solid border-2 border-gray-400 rounded-lg m-4 p-3">
+      <p className="message">
         {message}
       </p>
       <button
-        className="bg-cyan-700 hover:bg-cyan-900 text-amber-50 font-bold py-2 px-4 rounded-md"
+        className="submit-btn hover:bg-cyan-900 text-amber-50 font-bold py-2 px-4 rounded-md"
         onClick={handleNextQuestion}
       >
         {currentQuestion === questions.length - 1
           ? "See the results!"
-          : "next question"}
+          : "Next question"}
       </button>
     </div>
   );

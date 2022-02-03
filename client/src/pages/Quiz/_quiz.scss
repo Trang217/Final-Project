@@ -1,0 +1,52 @@
+@import "../../assets/scss/animations";
+@import "../../assets/scss/fonts";
+@import "../../assets/scss/variables";
+@import "../../assets/scss/mixin";
+
+.quiz {
+  font-size: $font-size-xs;
+  background-color: $light;
+  padding: 3rem;
+  @include flex-center;
+  .title {
+    font-family: "Rochester";
+    font-size: $font-size-md;
+    margin: 3rem;
+    text-align: center;
+  }
+  span {
+    font-size: $font-size-sm;
+    width: 60rem;
+    margin: 2rem;
+    text-align: center;
+  }
+  .answer {
+    margin: 1rem;
+    width: 24rem;
+    border-radius: 50px;
+    padding: 0.5rem 1rem;
+    &:focus {
+      border: 2px $primary solid;
+    }
+  }
+}
+
+.answer-container {
+  @include flex-center;
+  .message {
+    width: 36rem;
+    margin: 3rem;
+    text-align: justify;
+  }
+}
+
+.submit-btn {
+  background-image: url("../../assets/images/d-blue-btn.jpg");
+  background-position: center;
+  margin: 2rem;
+  background-size: cover;
+  padding: 0.5rem 2rem;
+  border-radius: 1rem;
+  color: $light;
+  font-size: $font-size-sm;
+}
