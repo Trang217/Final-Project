@@ -28,7 +28,7 @@ const Question = ({
         <div className="answer-container">
           {answers.map((answer, i) => (
             <button
-              className={`answer border-2 focus:ring focus:ring-cyan-600 hover:bg-stone-100 focus:bg-stone-100 ${
+              className={`answer ${
                 notify ? "wobble-me" : null
               }`}
               onClick={chooseAnswer}

@@ -5,7 +5,7 @@
 
 .quiz {
   font-size: $font-size-xs;
-  background-image: url("../../assets/images/IMG_8556.jpg");
+  background-image: url("../../assets/images/map.jpg");
   background-position: center;
   background-size: cover;
   height: 100vh;
@@ -29,8 +29,11 @@
     border-radius: 50px;
     padding: 0.5rem 1rem;
     background-color: $light-bg;
-    &:focus {
-      border: 2px $primary solid;
+    border: 3px $input-border solid;
+    box-shadow: $shadow-btn;
+    &:focus,
+    :active {
+      border: 3px $primary solid;
     }
   }
 }
@@ -53,4 +56,9 @@
   border-radius: 1rem;
   color: $light-txt;
   font-size: $font-size-sm;
+  box-shadow: $shadow-btn;
+  &:hover {
+    transform: scale(1.1);
+    transition: 0.5s;
+  }
 }

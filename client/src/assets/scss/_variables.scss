@@ -1,8 +1,9 @@
 $primary: #0a5f6e;
 $secondary: rgba(64, 175, 170, 0.445);
-$light-bg: #f3ecdebb;
+$input-border: rgba(180, 177, 166, 0.315);
+$light-bg: #fff9dd5e;
 $light-txt: #fff8eb;
-$dark: rgb(48, 48, 48);
+$dark: rgb(2, 2, 85);
 
 $font-size-xs: 1.6rem;
 $font-size-sm: 2rem;
@@ -13,3 +14,5 @@ $font-main: "SeoulHangang";
 $font-title: "Rochester";
 
 $bg-button: url("../../assets/images/d-green-btn.jpg");
+
+$shadow-btn: -3px 2px 15px 1px rgba(99, 96, 91, 0.56);
