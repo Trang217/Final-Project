@@ -1,16 +1,38 @@
+@import "../../assets/scss/animations";
+@import "../../assets/scss/fonts";
+@import "../../assets/scss/variables";
+@import "../../assets/scss/mixin";
+
 .bgSidebar {
-  margin-top: 50px;
+  position: fixed;
+  margin-top: 10rem;
+  right: 0;
+  padding-top: 6rem;
+  padding-left: 2rem;
   background-image: url(./images/shabby-2.png);
-  background-repeat: no-repeat;
-  opacity: 80%;
+  background-size: cover;
+  opacity: 90%;
+  height: 80%;
+  width: 20%;
+}
+
+.nav {
+  ul {
+    padding: 7rem;
+    li {
+      font-size: $font-size-sm;
+      color: $dark;
+      padding: 1.5rem;
+    }
+  }
 }
 
 .menuBtn {
   z-index: 30;
   cursor: pointer;
   position: fixed;
-  top: 15px;
-  right: 50px;
-  width: 120px;
+  top: 3rem;
+  right: 5rem;
+  width: 15rem;
   border-radius: 50px;
 }

@@ -1,15 +1,21 @@
+@import "../../assets/scss/animations";
+@import "../../assets/scss/fonts";
+@import "../../assets/scss/variables";
+@import "../../assets/scss/mixin";
+
 .backgroundContainer {
-  background-image: url(./images/watercolor-g4d20786c7_1920.jpg);
-  //   https://pixabay.com/illustrations/watercolor-texture-background-paint-5062356/
   height: 100vh;
-  display: grid;
+  background-image: url(./images/map.jpg);
+  background-size: 100%;
+  background-position: center;
+  display: flex;
   align-items: center;
 }
 
 .contentContainer {
-  background-color: rgba(255, 255, 255, 0.404);
+  // background-color: rgba(255, 255, 255, 0.404);
   border-radius: 25px;
-  width: 60%;
+  width: 30%;
   margin: 0 auto;
   height: 80%;
   color: rgb(2, 2, 85);
@@ -18,23 +24,27 @@
   justify-content: space-around;
 
   h2 {
+    font-family: "Rochester";
+    font-size: $font-size-md;
     text-align: center;
-    font-size: x-large;
   }
 
   p {
-    width: 66.66%;
+    text-align: center;
     margin: 0 auto;
+    font-size: $font-size-sm;
   }
 
   button {
-    background-color: seagreen;
-    color: seashell;
+    color: $light;
+    background-image: url(../../assets/images/d-green-btn.jpg);
+    background-size: cover;
     object-fit: fill;
-    padding: 1rem;
     display: block;
     margin: 0 auto;
-    border-radius: 5%;
+    border-radius: 25px;
+    padding: 1.5rem;
+    font-size: $font-size-sm;
   }
 
   .imagesContainer {
@@ -42,8 +52,8 @@
     justify-content: center;
 
     img {
-      width: 10rem;
-      height: 10rem;
+      width: 13rem;
+      height: 13rem;
       border-radius: 50%;
       margin: 1rem;
     }

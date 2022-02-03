@@ -45,11 +45,12 @@ const AboutUs = () => {
         <p>
           We are a team of four full stack web developers - Aleksandra, Luisa,
           Patrick and Trang - who are passionate about coding, art, animation,
-          and our planet.
+          and our planet. We are graduating at Digital Career Institute in
+          February 2022 and this is our final project.
         </p>
         <p>
-          If you’d like to take a look at what’s happening behind the scenes:
-          This is our project repository on GitHub:{" "}
+          If you’d like to take a look at what’s happening behind the scenes,
+          check out our project repository on GitHub:{" "}
         </p>
         <a
           href="https://github.com/Trang217/Final-Project"

@@ -3,6 +3,7 @@ import React, { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "../../utils/axiosInstance";
 import closeSidebar from "./Sidebar";
+import "./sidebar.scss";
 
 // ---- context import ----
 import { AuthContext } from "../../contexts/AuthContext/AuthContext";
@@ -22,30 +23,29 @@ export default function Navigation() {
   };
 
   return (
-    <nav>
-      <ul className="p-9">
-        <li className="mt-16 p-4">
+    <nav className="nav">
+      <ul>
+        <li>
           <Link to="/home" onClick={closeSidebar}>
             Home
           </Link>
         </li>
-        <li className="p-4">
+        <li>
           <Link to="/badges" onClick={closeSidebar}>
             My Badges
           </Link>
         </li>
-        <li className="p-4 mb-8">
+        <li>
           <Link to="/about" onClick={closeSidebar}>
             About Us
           </Link>
         </li>
-        <hr></hr>
-        <li className="p-4 mt-16">
+        <li>
           <Link to="/account" onClick={closeSidebar}>
             Account Details
           </Link>
         </li>
-        <li className="p-4">
+        <li>
           <button onClick={handleLogout}>Logout</button>
         </li>
       </ul>
