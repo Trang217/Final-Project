@@ -23,8 +23,8 @@ export default function Navigation() {
 
   return (
     <nav>
-      <ul className="p-2">
-        <li className="p-4">
+      <ul className="p-9">
+        <li className="mt-16 p-4">
           <Link to="/home" onClick={closeSidebar}>
             Home
           </Link>
@@ -34,13 +34,13 @@ export default function Navigation() {
             My Badges
           </Link>
         </li>
-        <li className="p-4">
+        <li className="p-4 mb-8">
           <Link to="/about" onClick={closeSidebar}>
             About Us
           </Link>
         </li>
         <hr></hr>
-        <li className="p-4">
+        <li className="p-4 mt-16">
           <Link to="/account" onClick={closeSidebar}>
             Account Details
           </Link>

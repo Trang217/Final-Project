@@ -1,0 +1,16 @@
+.bgSidebar {
+  margin-top: 50px;
+  background-image: url(./images/shabby-2.png);
+  background-repeat: no-repeat;
+  opacity: 80%;
+}
+
+.menuBtn {
+  z-index: 30;
+  cursor: pointer;
+  position: fixed;
+  top: 15px;
+  right: 50px;
+  width: 120px;
+  border-radius: 50px;
+}
