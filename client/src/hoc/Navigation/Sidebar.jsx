@@ -1,7 +1,6 @@
 // ---- hooks, dependencies, styling import ----
 import { useState, useEffect, useRef, useContext } from "react";
-import menuBtn from "../Navigation/images/menu-btn.jpg";
-import "./sidebar.scss";
+import menuBtn from "../Navigation/images/compass-test.png";
 
 // ---- components ----
 import Navigation from "./Navigation";
@@ -53,7 +52,7 @@ export default function Sidebar() {
           </div>
 
           <div
-            className={`fixed right-0 pt-20 p-8 bgSidebar h-full w-80 transform ease-in-out duration-300 ${
+            className={`bgSidebar transform ease-in-out duration-300 ${
               isOpen ? "translate-x-0" : "translate-x-full"
             }`}
           >

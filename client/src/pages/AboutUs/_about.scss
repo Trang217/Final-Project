@@ -1,0 +1,61 @@
+@import "../../assets/scss/animations";
+@import "../../assets/scss/fonts";
+@import "../../assets/scss/variables";
+@import "../../assets/scss/mixin";
+
+.backgroundContainer {
+  height: 100vh;
+  background-image: url("../../assets/images/map.jpg");
+  background-size: 100%;
+  background-position: center;
+  display: flex;
+  align-items: center;
+}
+
+.contentContainer {
+  // background-color: rgba(255, 255, 255, 0.404);
+  border-radius: 25px;
+  width: 30%;
+  margin: 0 auto;
+  height: 80%;
+  color: rgb(2, 2, 85);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+
+  h2 {
+    font-family: "Rochester";
+    font-size: $font-size-md;
+    text-align: center;
+  }
+
+  p {
+    text-align: center;
+    margin: 0 auto;
+    font-size: $font-size-sm;
+  }
+
+  button {
+    color: $light;
+    background-image: url(../../assets/images/d-green-btn.jpg);
+    background-size: cover;
+    object-fit: fill;
+    display: block;
+    margin: 0 auto;
+    border-radius: 25px;
+    padding: 1.5rem;
+    font-size: $font-size-sm;
+  }
+
+  .imagesContainer {
+    display: flex;
+    justify-content: center;
+
+    img {
+      width: 13rem;
+      height: 13rem;
+      border-radius: 50%;
+      margin: 1rem;
+    }
+  }
+}
