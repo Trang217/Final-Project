@@ -1,7 +1,7 @@
 // ---- hooks, dependencies, styling import ----
 import { useState } from "react";
 import Modal from "react-modal"; //! I installed a dependency locally - can be replaced by Tailwind Modal
-import "./dummy-style.scss";
+
 // ---- components ----
 
 import AnimalBubble from "../../components/AnimalBubble";
@@ -30,19 +30,17 @@ const Home = () => {
 
   //? ---- rendering ----
   return (
-    <div>
-      <div>
-        <div onClick={navigateToProfile}>Player Animated</div>
-        <div onClick={openModal}>Read the journal trigger</div>
+    <div className="home">
+      <div className="start">
+        <div className="inkBlot" onClick={navigateToProfile}></div>
+        <button onClick={openModal}>What am I doing here?</button>
         <Modal isOpen={isOpen} ariaHideApp={false}>
           <Story />
           <div onClick={closeModal}>Explore</div>
         </Modal>
       </div>
-
       <div>
-        <AnimalBubble name="rainforest" doesNavigate="true" />{" "}
-        {/*triggers onClick function within the component */}
+        <AnimalBubble name="rainforest" doesNavigate="true" />
         <AnimalBubble name="desert" doesNavigate="true" />
         <AnimalBubble name="ocean" doesNavigate="true" />
       </div>

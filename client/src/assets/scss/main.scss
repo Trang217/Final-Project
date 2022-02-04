@@ -6,8 +6,17 @@
 @import "../../pages/AboutUs/about";
 @import "../../pages/Quiz/quiz";
 @import "../../hoc/Navigation/sidebar";
+
 @import "../../pages/LoginAndRegistration/login";
 @import "../../pages/LoginAndRegistration/errorMessage";
+
+@import "../../pages/Home/home";
+@import "../../pages/Landing/landing";
+@import "../../pages/AccountDetails/accountDetails";
+@import "../../pages/MyBadges/myBadges";
+@import "../../components/bubble";
+@import "../../hoc/MainRouter/background";
+
 :root {
   font-size: 62.5%;
   color: $dark;

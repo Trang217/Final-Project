@@ -1,7 +1,3 @@
-// ---- hooks, dependencies, styling import ----
-
-// ---- context import ----
-
 // ---- COMPONENT ----
 
 const Answer = ({
@@ -34,25 +30,18 @@ const Answer = ({
 
   //? ---- rendering ----
   return (
-    <div className="answer-container">
-      <div>
-        <span className="">
-          {currentQuestion + 1}/{questions.length}
-        </span>
-      </div>
-      <div className="answer-container">
+    <div className="container">
+      <span>
+        {currentQuestion + 1}/{questions.length}
+      </span>
+      <div className="q-msg">
         {checkAnswer ? <p>{praise}</p> : null}
         <span>
           The correct answer is <i> {correct_answer}</i>.
         </span>
       </div>
-      <p className="message">
-        {message}
-      </p>
-      <button
-        className="submit-btn hover:bg-cyan-900 text-amber-50 font-bold py-2 px-4 rounded-md"
-        onClick={handleNextQuestion}
-      >
+      <p className="answer-container">{message}</p>
+      <button className="submit-btn" onClick={handleNextQuestion}>
         {currentQuestion === questions.length - 1
           ? "See the results!"
           : "Next question"}

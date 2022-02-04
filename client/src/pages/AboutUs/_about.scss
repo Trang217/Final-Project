@@ -1,27 +1,6 @@
-@import "../../assets/scss/animations";
-@import "../../assets/scss/fonts";
-@import "../../assets/scss/variables";
-@import "../../assets/scss/mixin";
-
-.backgroundContainer {
-  height: 100vh;
-  background-image: url("../../assets/images/map.jpg");
-  background-size: 100%;
-  background-position: center;
-  display: flex;
-  align-items: center;
-}
-
 .contentContainer {
-  border-radius: 25px;
-  width: 35%;
-  margin: 0 auto;
-  height: 80%;
-  color: rgb(2, 2, 85);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-
+  @include center-fixed;
+  padding: 3rem;
   h2 {
     font-family: "Rochester";
     font-size: $font-size-md;
@@ -35,16 +14,10 @@
   }
 
   button {
-    background-image: url(../../assets/images/d-green-btn.jpg);
-    background-size: cover;
-    object-fit: fill;
-    color: seashell;
+    @include btn-green;
     display: block;
     margin: 0 auto;
-    margin-top: 2rem;
-    border-radius: 25px;
-    padding: 1.5rem;
-    font-size: $font-size-xs;
+    margin-top: 1rem;
   }
 
   .imagesContainer {

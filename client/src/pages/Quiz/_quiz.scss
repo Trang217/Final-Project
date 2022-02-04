@@ -5,22 +5,21 @@
 
 .quiz {
   font-size: $font-size-xs;
-  background-image: url("../../assets/images/map.jpg");
-  background-position: center;
-  background-size: cover;
-  height: 100vh;
-  padding: 3rem;
   @include flex-center;
+  @include center-fixed;
   .title {
     font-family: $font-title;
     font-size: $font-size-md;
     margin: 3rem;
     text-align: center;
+    @media screen and (max-width: $tablet) {
+      width: 50rem;
+      margin: 0.5rem;
+    }
   }
   span {
     font-size: $font-size-sm;
     width: 60rem;
-    margin: 2rem;
     text-align: center;
   }
   .answer {
@@ -38,27 +37,31 @@
   }
 }
 
-.answer-container {
-  @include flex-center;
-  .message {
-    width: 36rem;
-    margin: 3rem;
-    text-align: justify;
+.container {
+  height: 420px;
+  @include flex-even;
+
+  .q-msg {
+    @include flex-center;
+    height: 5rem;
+  }
+  h3 {
+    font-size: $font-size-sm;
   }
 }
 
-.submit-btn {
-  background-image: $bg-button;
-  background-position: center;
-  margin: 2rem;
-  background-size: cover;
-  padding: 0.5rem 2rem;
-  border-radius: 1rem;
-  color: $light-txt;
+.answer-container {
+  @include flex-center;
+  height: 200px;
+  width: 40rem;
+  text-align: justify;
   font-size: $font-size-sm;
-  box-shadow: $shadow-btn;
-  &:hover {
-    transform: scale(1.1);
-    transition: 0.5s;
-  }
+}
+
+.submit-btn {
+  @include btn-green;
+}
+.nav-btn {
+  @include btn-green;
+  width: 25rem;
 }
