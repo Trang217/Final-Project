@@ -4,6 +4,13 @@
   justify-content: center;
   align-items: center;
 }
+
+
+@mixin title-light-md {
+  font-family: $font-title;
+  color: $light-txt;
+  font-size: $font-size-md;
+
 @mixin flex-even {
   display: flex;
   flex-direction: column;
