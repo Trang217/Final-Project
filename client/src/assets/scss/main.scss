@@ -6,8 +6,13 @@
 @import "../../pages/AboutUs/about";
 @import "../../pages/Quiz/quiz";
 @import "../../hoc/Navigation/sidebar";
+@import "../../pages/Home/home";
+@import "../../pages/Landing/landing";
+@import "../../pages/AccountDetails/accountDetails";
+@import "../../pages/MyBadges/myBadges";
+@import "../../components/bubble";
 
-:root {
+:root  {
   font-size: 62.5%;
   color: $dark;
   margin: 0 auto;

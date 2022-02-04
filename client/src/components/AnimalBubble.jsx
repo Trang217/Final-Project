@@ -1,6 +1,5 @@
 // ---- hooks, dependencies, styling import ----
 import { useState } from "react";
-// import "./bubble.scss";
 
 // ---- data ----
 import data from "../pages/Landing/data.json";
@@ -23,14 +22,12 @@ const AnimalBubble = ({ name, doesNavigate }) => {
   //? ---- rendering ----
   return (
     <div
-      //  className={`bubble ${animal}`}
+      className={`${animal}`}
       onMouseEnter={() => setIsShown(true)}
       onMouseLeave={() => setIsShown(false)}
       onClick={doesNavigate ? ()=> navigate(animal) : null}
     >
-      {/*temporarily displaying the name instead of picture */}
-      {animal}
-      {isShown ? <div>{message}</div> : null}
+      {isShown ? <div className="speechBubble">{message}</div> : null}
     </div>
   );
 };

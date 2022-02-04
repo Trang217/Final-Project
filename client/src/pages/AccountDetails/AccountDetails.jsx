@@ -30,7 +30,7 @@ const AccountDetails = () => {
 
   //? ---- rendering ----
   return (
-    <div>
+    <div className="accountDetails">
       <h1>Account Details</h1>
       <div>
         <p>Name: {firstName}</p>

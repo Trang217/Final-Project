@@ -26,7 +26,7 @@ const MyBadges = () => {
 
   //? ---- rendering ----
   return (
-    <div>
+    <div className="myBadges">
       <div>Hello!</div>
       <p>
         See all the chapters change as you explore the ecosystems! Help the
