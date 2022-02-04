@@ -14,28 +14,18 @@ const Results = ({ biomeName, score, questions }) => {
 
   //? ---- rendering ----
   return (
-    <div className="">
-      <span>Congratulations, you finished the {biomeName} quiz! </span>
-      <div>
+    <div className="container">
+      <h3>
         You scored {score} out of {questions.length}.
-        {score >= questions.length / 2 ? "That's amazing!" : null}
-      </div>
-      <button
-        className="bg-cyan-700 hover:bg-cyan-900 text-amber-50 font-bold py-2 px-4 rounded-md m-2 w-48"
-        onClick={() => navigate("/badges")}
-      >
+        {score >= questions.length / 2 ? " That's amazing!" : null}
+      </h3>
+      <button className="nav-btn" onClick={() => navigate("/badges")}>
         I want to see the new badge!
       </button>
-      <button
-        className="bg-cyan-700 hover:bg-cyan-900 text-amber-50 font-bold py-2 px-4 rounded-md m-2 w-48"
-        onClick={refresh}
-      >
+      <button className="nav-btn" onClick={refresh}>
         I want to do the quiz again!
       </button>
-      <button
-        className="bg-cyan-700 hover:bg-cyan-900 text-amber-50 font-bold py-2 px-4 rounded-md m-2 w-48"
-        onClick={() => navigate("/home")}
-      >
+      <button className="nav-btn" onClick={() => navigate("/home")}>
         I want to explore another ecosystem!
       </button>
     </div>
