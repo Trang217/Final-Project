@@ -2,7 +2,6 @@
 import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "../../utils/axiosInstance";
-import "./login.scss";
 
 // ---- components ----
 import ErrorMessage from "./ErrorMessage";
@@ -86,10 +85,14 @@ const LoginAndRegistration = () => {
     <section className="signUp-signIn">
       <div className={`container ${active ? "right-panel-active" : null}`}>
         <div className="sign-up-container">
-          <form onSubmit={handleResisterSubmit} className="sign-up-form">
-            <h2>Create Account</h2>
+          <form
+            onSubmit={handleResisterSubmit}
+            className="sign-up-form form-control"
+          >
+            <h2>Create account</h2>
             <p>
               Are you new? Just one more step before you can start exploring!
+              <br />
               Please tell us who you are!
             </p>
 
@@ -97,6 +100,7 @@ const LoginAndRegistration = () => {
               <label htmlFor="firstName">First name:</label>
               <div className="input-container">
                 <input
+                  className="login-input"
                   required
                   id="firstName"
                   type="text"
@@ -111,6 +115,7 @@ const LoginAndRegistration = () => {
               <label htmlFor="userName">Username:</label>
               <div className="input-container">
                 <input
+                  className="login-input"
                   required
                   id="userName"
                   type="text"
@@ -125,6 +130,7 @@ const LoginAndRegistration = () => {
               <label htmlFor="signUpEmail">Email:</label>
               <div className="input-container">
                 <input
+                  className="login-input"
                   required
                   id="signUpEmail"
                   type="email"
@@ -139,6 +145,7 @@ const LoginAndRegistration = () => {
               <label htmlFor="signUpPassword">Password:</label>
               <div className="input-container">
                 <input
+                  className="login-input"
                   required
                   id="signUpPassword"
                   type="password"
@@ -151,18 +158,21 @@ const LoginAndRegistration = () => {
 
             <ErrorMessage isVisible={isError} errorMessage={errorMessage} />
 
-            <button>Sign up</button>
+            <button className="submit-btn">Sign up</button>
           </form>
         </div>
 
         <div className="sign-in-container">
           <form onSubmit={handleLoginSubmit} className="sign-in-form">
-            <h1>Sign in to Oiko to explore</h1>
+            <h1>
+              Sign in to Oiko <br /> to explore
+            </h1>
 
             <div className="label-input-container ">
               <label htmlFor="email">Email:</label>
               <div className="input-container">
                 <input
+                  className="login-input"
                   required
                   id="email"
                   type="email"
@@ -176,6 +186,7 @@ const LoginAndRegistration = () => {
               <label htmlFor="password">Password:</label>
               <div className="input-container">
                 <input
+                  className="login-input"
                   required
                   id="password"
                   type="password"
@@ -190,7 +201,7 @@ const LoginAndRegistration = () => {
 
             <ErrorMessage isVisible={isError} errorMessage={errorMessage} />
 
-            <button>Log in</button>
+            <button className="submit-btn">Log in</button>
           </form>
         </div>
 
@@ -198,16 +209,29 @@ const LoginAndRegistration = () => {
           <div className="overlay">
             <div className="overlay-panel overlay-left">
               <h1>Welcome back!</h1>
-              <p>To start exploring, please sign in!</p>
-
-              <button onClick={handleClick} id="signIn">
+              <p>
+                To start exploring,
+                <br />
+                please sign in!
+              </p>
+              <button
+                onClick={handleClick}
+                id="signIn"
+                className="submit-btn-light"
+              >
                 Go to sign in
               </button>
             </div>
             <div className="overlay-panel overlay-right">
               <h1>Hello, Explorer!</h1>
-              <p>Enter your details and start journey with us!</p>
-              <button onClick={handleClick} id="signUp">
+              <p>
+                Enter your details and start <br /> journey with us!
+              </p>
+              <button
+                onClick={handleClick}
+                id="signUp"
+                className="submit-btn-light"
+              >
                 To sign up
               </button>
             </div>

@@ -4,11 +4,11 @@ export default function ErrorMessage({ isVisible, errorMessage }) {
       {isVisible && Array.isArray(errorMessage) ? (
         <div>
           {errorMessage.map((err) => (
-            <p className="text-red-500 text-xs pt-1 text-left">{err}</p>
+            <p className=" error-message ">{err}</p>
           ))}
         </div>
       ) : isVisible ? (
-        <p className="text-red-500 text-xs pt-1 text-left">{errorMessage}</p>
+        <p className="error-message">{errorMessage}</p>
       ) : null}
     </>
   );

@@ -6,7 +6,8 @@
 @import "../../pages/AboutUs/about";
 @import "../../pages/Quiz/quiz";
 @import "../../hoc/Navigation/sidebar";
-
+@import "../../pages/LoginAndRegistration/login";
+@import "../../pages/LoginAndRegistration/errorMessage";
 :root {
   font-size: 62.5%;
   color: $dark;
