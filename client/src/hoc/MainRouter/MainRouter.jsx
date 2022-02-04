@@ -32,7 +32,7 @@ export default function MainRouter() {
     <AuthProvider>
       <BrowserRouter>
         <Sidebar />
-        <main>
+        <main className="backgroundContainer">
           <Routes>
             <Route path="/" element={<Landing />} />
             <Route path="login" element={<LoginAndRegistration />} />
@@ -44,8 +44,11 @@ export default function MainRouter() {
               <Route path="badges" element={<MyBadges />} />
               <Route path="home" element={<Home />} />
               <Route path="desert" element={<GameDesert />} />
-              <Route path="quiz/desert" element={<Quiz biomeName="Desert"/>} />
-              <Route path="quiz/rainforest" element={<Quiz biomeName="Rainforest"/>} />
+              <Route path="quiz/desert" element={<Quiz biomeName="Desert" />} />
+              <Route
+                path="quiz/rainforest"
+                element={<Quiz biomeName="Rainforest" />}
+              />
             </Route>
           </Routes>
         </main>
