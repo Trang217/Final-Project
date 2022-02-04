@@ -33,24 +33,22 @@ const Landing = () => {
   //? ---- rendering ----
   return (
     <div className="landing">
-      <div className="">
-        <button
-          className="fixed z-30 cursor-pointer right-10 top-6 p-3 w-20 bg-red-500"
-          onClick={handleModal}
-        >
-          about the project
-        </button>
+      <button className="modalBtn" onClick={handleModal}>
+        about the project
+      </button>
+      <div className="landingContent">
+        <p className="title">Hey there, little explorer!</p>
         <p>
-          Hey there, little explorer! create an account or sign in to playfully
-          discover some interesting facts about our planet’s astonishing
-          landscapes, amazing wildlife, and diverse flora.
+          Create an account or sign in to playfully discover some interesting
+          facts about our planet’s astonishing landscapes, amazing wildlife, and
+          diverse flora.
         </p>
         <p>
           At the end of each exploration you can do a fun little quiz to test
           your knowledge and collect some badges on your profile!
         </p>
         <button className="bg-yellow-500 p-3 m-2" onClick={handleClick}>
-          Start the adventure
+          Start the Adventure
         </button>
       </div>
       <AnimalBubble name="rainforest" />
@@ -58,7 +56,16 @@ const Landing = () => {
       <AnimalBubble name="ocean" />
 
       {modalOpen ? (
-        <Modal isOpen={modalOpen}>
+        <Modal
+          isOpen={modalOpen}
+          style={{
+            content: {
+              left: "15%",
+              right: "15%",
+              backgroundColor: "rgba(255, 255, 2010, 0.8)",
+            },
+          }}
+        >
           {" "}
           <AboutUs />
         </Modal>
