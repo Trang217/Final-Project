@@ -2,3 +2,34 @@
 @import "../../assets/scss/fonts";
 @import "../../assets/scss/variables";
 @import "../../assets/scss/mixin";
+
+.landing {
+  .modalBtn {
+    // z-30 cursor-pointer right-10 top-6 p-3 w-20 bg-red-500"
+    z-index: 30;
+    cursor: pointer;
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    background-color: yellow;
+    height: 30px;
+  }
+  .landingContent {
+    width: 40%;
+    @include center-fixed;
+    text-align: center;
+    font-size: $font-size-sm;
+    line-height: 5rem;
+
+    .title {
+      font-family: "Rochester";
+      font-size: $font-size-md;
+      margin: 2rem;
+    }
+
+    button {
+      @include btn-green;
+    }
+  }
+}
+
