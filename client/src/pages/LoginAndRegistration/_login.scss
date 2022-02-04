@@ -5,25 +5,22 @@
 
 .signUp-signIn {
   @include flex-center;
-  background-image: url("../../assets/images/map.jpg");
-  background-repeat: no-repeat;
-  background-size: 100%;
-  background-position: center;
+  width: 1600px;
   min-height: 100vh;
 
   .container {
+    background-color: #f9edca;
     margin-top: 1.25rem;
     position: relative;
     overflow: hidden;
-    background-color: #e7dfca;
     border-radius: 12px;
     box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-    width: 60%;
+    width: 66%;
     min-width: 70rem;
     height: 65rem;
 
     .sign-in-container {
-      background-color: #e7dfca;
+      @include bg-img-paper;
       height: 100%;
       position: absolute;
       top: 0;
@@ -34,7 +31,6 @@
 
       .sign-in-form {
         @include flex-center;
-        background-color: $light-bg;
         text-align: center;
         height: 100%;
         padding: 0 2.5rem 0 2.5rem;
@@ -76,7 +72,7 @@
     }
 
     .sign-up-container {
-      background-color: #e7dfca;
+      @include bg-img-paper;
       height: 100%;
       position: absolute;
       top: 0;
@@ -245,7 +241,8 @@
 }
 
 .submit-btn-light {
-  background-color: #e7dfca;
+  background-image: $bg-paper;
+  background-position: center;
   margin: 2rem;
   padding: 0.5rem 2rem;
   border-radius: 1rem;

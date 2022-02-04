@@ -24,6 +24,14 @@
   background-image: $bg-map;
   height: 100vh;
 }
+
+@mixin bg-img-paper {
+  background-position: center;
+  background-size: cover;
+  background-repeat: none;
+  background-image: $bg-paper;
+  height: 100vh;
+}
 @mixin btn-green {
   background-position: center;
   background-size: cover;
