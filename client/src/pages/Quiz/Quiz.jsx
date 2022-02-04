@@ -7,13 +7,9 @@ import Question from "./Question";
 import Answer from "./Answer";
 import Results from "./Results";
 
-// ---- context import ----
-//import QuizContext from "../../contexts/QuizContext/QuizContext";
-
 // ---- COMPONENT ----
 
 const Quiz = ({ biomeName }) => {
-
   //? ---- hooks ----
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [showResults, setShowResults] = useState(false);
@@ -91,9 +87,9 @@ const Quiz = ({ biomeName }) => {
 
   //? ---- rendering ----
   return (
-    <div className="quiz bg-neutral-50">
+    <div className="quiz">
       <p className="title">
-        Can you help the Scientist write a chapter about the {biomeName}?
+       { showResults ? `Congratulations, you finished the ${biomeName} quiz!` : `Can you help the Scientist write a chapter about the ${biomeName}?`}
       </p>
 
       {questions.length > 0 ? (
