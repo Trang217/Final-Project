@@ -8,11 +8,11 @@
   background-image: url("../../assets/images/map.jpg");
   background-size: 100%;
   background-position: center;
-  display: flex;
   align-items: center;
 }
 
 .contentContainer {
+  z-index: 20;
   border-radius: 25px;
   width: 35%;
   margin: 0 auto;
