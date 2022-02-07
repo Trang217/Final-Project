@@ -31,21 +31,23 @@ export default function Navigation() {
         </li>
         <li>
           <Link to="/badges" onClick={closeSidebar}>
-            My Badges
+            Badges
           </Link>
         </li>
         <li>
           <Link to="/about" onClick={closeSidebar}>
-            About Us
+            About
           </Link>
         </li>
         <li>
           <Link to="/account" onClick={closeSidebar}>
-            Account Details
+            Account
           </Link>
         </li>
         <li>
-          <button onClick={handleLogout}>Logout</button>
+          <button className="logoutBtn" onClick={handleLogout}>
+            Logout
+          </button>
         </li>
       </ul>
     </nav>

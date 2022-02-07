@@ -35,11 +35,9 @@ export default function Sidebar() {
 
   const handleClickOutside = (event) => {
     if (wrapperRef.current && !wrapperRef.current.contains(event.target)) {
-      setIsOpen(false);
+      setIsOpen(true);
     }
   };
-
-  //? ---- variables ----
 
   //? ---- rendering ----
 
@@ -48,14 +46,10 @@ export default function Sidebar() {
       {loggedIn ? (
         <div ref={wrapperRef}>
           <div className="menuBtn" onClick={closeSidebar}>
-            <img alt="logo" src={menuBtn} className="object-cover" />
+            <img alt="logo" src={menuBtn} />
           </div>
 
-          <div
-            className={`bgSidebar transform ease-in-out duration-300 ${
-              isOpen ? "translate-x-0" : "translate-x-full"
-            }`}
-          >
+          <div className={`bgSidebar ${isOpen ? "showSidebar" : null}`}>
             <Navigation />
           </div>
         </div>
