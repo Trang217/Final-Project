@@ -106,6 +106,7 @@ const Quiz = ({ biomeName }) => {
           <Question
             handleAnswer={handleAnswer}
             currentQuestion={currentQuestion}
+            selectedAnswer = {selectedAnswer}
             chooseAnswer={chooseAnswer}
             notify={notify}
             questions={questions}
