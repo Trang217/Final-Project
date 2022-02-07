@@ -225,7 +225,8 @@ const LoginAndRegistration = () => {
             <div className="overlay-panel overlay-right">
               <h1>Hello, Explorer!</h1>
               <p>
-                Enter your details and start <br /> journey with us!
+                Enter your details and start <br />
+                your journey with us!
               </p>
               <button
                 onClick={handleClick}
