@@ -16,6 +16,12 @@
   height: 75%;
   width: 17%;
   z-index: 20;
+  transform: translateX(0%);
+  transition: 0.5s;
+}
+.showSidebar {
+  transform: translateX(100%);
+  transition: 0.5s;
 }
 
 .nav {
