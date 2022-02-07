@@ -27,15 +27,15 @@ export default function Sidebar() {
   const wrapperRef = useRef(null);
 
   useEffect(() => {
-    document.addEventListener("click", handleClickOutside, true);
+    document.addEventListener("click", handleClickOutside, false);
     return () => {
-      document.removeEventListener("click", handleClickOutside, true);
+      document.removeEventListener("click", handleClickOutside, false);
     };
   }, []);
 
   const handleClickOutside = (event) => {
     if (wrapperRef.current && !wrapperRef.current.contains(event.target)) {
-      setIsOpen(true);
+      setIsOpen(false);
     }
   };
 
@@ -49,7 +49,7 @@ export default function Sidebar() {
             <img alt="logo" src={menuBtn} />
           </div>
 
-          <div className={`bgSidebar ${isOpen ? "showSidebar" : null}`}>
+          <div className={`sidebar ${!isOpen ? "hideSidebar" : null}`}>
             <Navigation />
           </div>
         </div>
