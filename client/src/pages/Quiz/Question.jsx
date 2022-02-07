@@ -3,6 +3,7 @@
 const Question = ({
   handleAnswer,
   currentQuestion,
+  selectedAnswer,
   chooseAnswer,
   notify,
   questions,
@@ -24,7 +25,9 @@ const Question = ({
       <div className="answer-container">
         {answers.map((answer, i) => (
           <button
-            className={`answer ${notify ? "wobble-me" : null}`}
+            className={`answer ${
+              selectedAnswer === answer ? "selected" : null
+            } ${notify ? "wobble-me" : null}`}
             onClick={chooseAnswer}
             key={i}
           >
