@@ -1,6 +1,7 @@
 // ---- hooks, dependencies, styling import ----
 import { useEffect, useState } from "react";
 import axios from "../../utils/axiosInstance";
+import capitalize from "../../utils/capitalize";
 
 // ---- components ----
 import Badge from "../../components/Badge";
@@ -10,12 +11,14 @@ import Badge from "../../components/Badge";
 const MyBadges = () => {
   //? ---- hooks ----
   const [badges, setBadges] = useState([]);
+  const [firstName, setFirstName] = useState('');
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const res = await axios.get("/api/users/badges");
         setBadges(res.data.badges);
+        setFirstName(res.data.firstName);
       } catch (error) {
         console.error(error);
       }
@@ -27,7 +30,7 @@ const MyBadges = () => {
   //? ---- rendering ----
   return (
     <div className="myBadges">
-      <div>Hello!</div>
+      <div>Hello, {capitalize(firstName)}!</div>
       <p>
         See all the chapters change as you explore the ecosystems! Help the
         scientist finish his book before he wakes up!

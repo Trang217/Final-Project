@@ -119,16 +119,17 @@ exports.profile = tryCatchHelper(async (req, res, next) => {
 //badges
 
 exports.getUserBadges = tryCatchHelper(async (req, res, next) => {
-  const userBadges = await User.findById(req.user._id).select("badges");
+  const userInfo = await User.findById(req.user._id).select("firstName badges");
 
-  if (!userBadges) {
+  if (!userInfo) {
     return next(new AppError("No User exists!", 404));
   }
 
   return res.status(200).json({
     status: "success",
     message: "user information",
-    badges: userBadges.badges,
+    badges: userInfo.badges,
+    firstName: userInfo.firstName
   });
 });
 
