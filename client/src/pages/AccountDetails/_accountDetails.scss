@@ -2,3 +2,21 @@
 @import "../../assets/scss/fonts";
 @import "../../assets/scss/variables";
 @import "../../assets/scss/mixin";
+
+.accountDetails {
+  @include flex-center;
+  text-align: center;
+  font-size: $font-size-sm;
+  line-height: 5rem;
+
+  h1 {
+    font-size: $font-size-md;
+    font-family: "Rochester";
+    margin: 3rem;
+  }
+
+  button {
+    @include btn-green;
+    margin: 2rem;
+  }
+}
