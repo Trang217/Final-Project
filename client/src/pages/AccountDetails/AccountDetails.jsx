@@ -37,18 +37,13 @@ const AccountDetails = () => {
         <p>username: {userName}</p>
         <p>Email address: {email}</p>
       </div>
-      <button
+      {/* <button
         onClick={() => alert("edit information")}
         className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
       >
         Edit information
-      </button>
-      <button
-        onClick={() => alert("delete account")}
-        className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
-      >
-        Delete Account
-      </button>
+      </button> */}
+      <button onClick={() => alert("delete account")}>Delete Account</button>
     </div>
   );
 };
