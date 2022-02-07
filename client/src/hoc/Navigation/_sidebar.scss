@@ -43,6 +43,19 @@
 
   .logoutBtn {
     @include btn-green;
+    font-size: $font-size-xs;
+  }
+
+  @media screen and (max-width: $tablet) {
+    ul {
+      padding: 3rem;
+      li {
+        font-size: $font-size-xs;
+        &:nth-last-child(2) {
+          margin-top: 3rem;
+        }
+      }
+    }
   }
 }
 
@@ -54,4 +67,10 @@
   right: 5rem;
   width: 15rem;
   border-radius: 50px;
+
+  @media screen and (max-width: $tablet) {
+    top: 1rem;
+    right: 2rem;
+    width: 9rem;
+  }
 }
