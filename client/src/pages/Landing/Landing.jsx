@@ -2,6 +2,7 @@
 import { useNavigate } from "react-router-dom";
 import { useState, useContext } from "react";
 import Modal from "react-modal";
+import ModalBackground from "./paper.jpg";
 
 // ---- components ----
 import AboutUs from "../AboutUs/AboutUs";
@@ -62,7 +63,7 @@ const Landing = () => {
             content: {
               left: "15%",
               right: "15%",
-              backgroundColor: "rgba(255, 255, 2010, 0.8)",
+              backgroundImage: `url(${ModalBackground})`,
             },
           }}
         >
