@@ -3,7 +3,7 @@
 @import "../../assets/scss/variables";
 @import "../../assets/scss/mixin";
 
-.bgSidebar {
+.sidebar {
   @include bg-img-paper;
   position: fixed;
   background-size: cover;
@@ -19,7 +19,7 @@
   transform: translateX(0%);
   transition: 0.5s;
 }
-.showSidebar {
+.hideSidebar {
   transform: translateX(100%);
   transition: 0.5s;
 }
