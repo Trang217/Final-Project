@@ -2,7 +2,7 @@
 import { useNavigate } from "react-router-dom";
 import { useState, useContext } from "react";
 import Modal from "react-modal";
-import ModalBackground from "./paper4.png";
+import ModalBackground from "../../assets/images/paper-horizontal.png";
 // ---- components ----
 import AboutUs from "../AboutUs/AboutUs";
 import AnimalBubble from "../../components/AnimalBubble";
@@ -58,9 +58,14 @@ const Landing = () => {
           isOpen={modalOpen}
           style={{
             content: {
+              border: "none",
               left: "15%",
               right: "15%",
               backgroundImage: `url(${ModalBackground})`,
+              backgroundSize: "contain",
+              backgroundRepeat: "no-repeat",
+              backgroundPosition: "center",
+              backgroundColor: "transparent",
             },
           }}
         >
