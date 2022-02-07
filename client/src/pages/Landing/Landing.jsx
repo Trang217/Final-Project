@@ -2,7 +2,7 @@
 import { useNavigate } from "react-router-dom";
 import { useState, useContext } from "react";
 import Modal from "react-modal";
-
+import ModalBackground from "../../assets/images/paper-horizontal.png";
 // ---- components ----
 import AboutUs from "../AboutUs/AboutUs";
 import AnimalBubble from "../../components/AnimalBubble";
@@ -33,8 +33,8 @@ const Landing = () => {
   //? ---- rendering ----
   return (
     <div className="landing">
-      <button className="modalBtn" onClick={handleModal}>
-        about the project
+      <button className="modalButton" onClick={handleModal}>
+        ABOUT
       </button>
       <div className="landingContent">
         <p className="title">Hey there, little explorer!</p>
@@ -47,9 +47,7 @@ const Landing = () => {
           At the end of each exploration you can do a fun little quiz to test
           your knowledge and collect some badges on your profile!
         </p>
-        <button className="bg-yellow-500 p-3 m-2" onClick={handleClick}>
-          Start the Adventure
-        </button>
+        <button onClick={handleClick}>Start the Adventure</button>
       </div>
       <AnimalBubble name="rainforest" />
       <AnimalBubble name="desert" />
@@ -60,13 +58,21 @@ const Landing = () => {
           isOpen={modalOpen}
           style={{
             content: {
+              border: "none",
               left: "15%",
               right: "15%",
-              backgroundColor: "rgba(255, 255, 2010, 0.8)",
+              backgroundImage: `url(${ModalBackground})`,
+              backgroundSize: "contain",
+              backgroundRepeat: "no-repeat",
+              backgroundPosition: "center",
+              backgroundColor: "transparent",
             },
           }}
         >
           {" "}
+          <button className="closeModal" onClick={handleModal}>
+            X
+          </button>
           <AboutUs />
         </Modal>
       ) : null}
