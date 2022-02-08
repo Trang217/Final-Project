@@ -1,12 +1,33 @@
-.bg-image {
-  background-image: url("./assets/xxs.png");
-  background-position: center;
-  animation: animate 0.5s both linear;
-}
-.center-me {
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+@import "../../assets/scss/animations";
+@import "../../assets/scss/fonts";
+@import "../../assets/scss/variables";
+@import "../../assets/scss/mixin";
+
+.notFound {
+  @include center-fixed;
+
+  .bgImage {
+    background-image: url("./assets/xxs.png");
+    background-size: contain;
+    background-position: center;
+    animation: animate 0.5s both linear;
+
+    text-align: center;
+    color: white;
+    h2 {
+      font-family: "Rochester";
+      font-size: $font-size-md;
+      margin: 2rem;
+    }
+    p {
+      font-size: $font-size-sm;
+    }
+
+    button {
+      @include btn-green;
+      margin: 2rem;
+    }
+  }
 }
 
 @keyframes animate {
