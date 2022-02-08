@@ -8,6 +8,7 @@ const User = require("../models/User");
 //--------------------IMPORT HELPERS------------------------
 const authenticationHelper = require("../helpers/authenticationHelper");
 const { tryCatchHelper } = require("../helpers/tryCatchHelper");
+const Email = require("../email/email");
 
 //--------------------IMPORT APP ERROR----------------------
 const AppError = require("../error/AppError");
@@ -38,6 +39,10 @@ exports.registerUser = tryCatchHelper(async (req, res, next) => {
   user.badges = defaultBadges;
 
   await user.save();
+
+  const url = `${req.protocol}://localhost:3000`;
+  console.log(url);
+  await new Email(user, url).sendWelcome();
 
   return res.status(200).json({
     status: "Success!",
