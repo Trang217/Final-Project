@@ -20,7 +20,7 @@ const Badge = ({ badge }) => {
 
   //? ---- rendering ----
   return (
-    <div className="oneBadge">
+    <div className={score > 0 ? " oneBadge" : "oneBadge grayscale"}>
       <p className="type">{capitalize(type)}</p>
       <p className="score">score: {score}</p>
       {score > 0 ? (
