@@ -47,6 +47,17 @@
   }
 }
 
+@mixin btn-modal {
+  background-position: center;
+  background-size: cover;
+  background-image: $bg-button;
+  font-size: $font-size-xs;
+  color: $light-txt;
+  padding: 0.5rem 2rem;
+  border-radius: 5rem;
+  box-shadow: $shadow-btn;
+}
+
 @mixin center-fixed {
   position: absolute;
   top: 50%;
