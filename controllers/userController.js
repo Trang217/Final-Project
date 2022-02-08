@@ -1,5 +1,6 @@
 //--------------------IMPORT MODULES------------------------
 const bcrypt = require("bcrypt");
+const crypto = require("crypto");
 
 //--------------------IMPORT MODEL--------------------------
 const User = require("../models/User");
@@ -129,7 +130,7 @@ exports.getUserBadges = tryCatchHelper(async (req, res, next) => {
     status: "success",
     message: "user information",
     badges: userInfo.badges,
-    firstName: userInfo.firstName
+    firstName: userInfo.firstName,
   });
 });
 
@@ -161,4 +162,72 @@ exports.updateBadges = tryCatchHelper(async (req, res, next) => {
     message: "User badge is updated",
     updateBadges: updatedUserBadges,
   });
+});
+
+exports.forgotPassword = tryCatchHelper(async (req, res, next) => {
+  // Get user based on posted email
+  const user = await User.findOne({ email: req.body.email });
+
+  if (!user) {
+    return next(new AppError("There is no user with email address!"));
+  }
+  // Generate the random token
+
+  const resetToken = user.createPasswordResetToken();
+  await user.save({ validateBeforeSave: false });
+  console.log(user);
+
+  try {
+    // Send it to user 's email
+    const resetURL = `${req.protocol}://localhost:3000/resetPassword/${resetToken}`;
+    await new Email(user, resetURL).sendPasswordReset();
+    //console.log(resetURL);
+    res.status(200).json({
+      status: "success",
+      message: "Reset password link is sent successfully to your email!",
+    });
+  } catch (error) {
+    (user.passwordResetToken = undefined),
+      (user.passwordResetExpires = undefined);
+    await user.save({ validateBeforeSave: false });
+    console.log(error);
+    return next(new AppError("Error with sending email, try later", 500));
+  }
+});
+
+exports.resetPassword = tryCatchHelper(async (req, res, next) => {
+  // get user based on the token
+  const hashedToken = crypto
+    .createHash("sha256")
+    .update(req.params.token)
+    .digest("hex");
+
+  const user = await User.findOne({
+    passwordResetToken: hashedToken,
+    passwordResetExpires: { $gt: Date.now() },
+  });
+
+  if (!user) {
+    return next(new AppError("Time has expired", 400));
+  }
+
+  // hash new password
+  const hashedPassword = await bcrypt.hash(req.body.password, 12);
+
+  user.password = hashedPassword;
+  user.passwordResetToken = undefined;
+  user.passwordResetExpires = undefined;
+
+  await user.save();
+
+  const token = await authenticationHelper.generateToken(user);
+
+  return res
+    .status(200)
+    .cookie("jwt", token, {
+      httpOnly: true,
+      secure: false,
+      sameSite: "lax",
+    })
+    .json({ message: "Login successful", user: { userName: user.userName } });
 });
