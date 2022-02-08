@@ -1,6 +1,7 @@
 // ---- hooks, dependencies, styling import ----
 import { useState } from "react";
-import Modal from "react-modal"; //! I installed a dependency locally - can be replaced by Tailwind Modal
+import { useNavigate } from "react-router-dom";
+import Modal from "react-modal"; 
 
 // ---- components ----
 
@@ -11,7 +12,7 @@ import Story from "./Story";
 
 const Home = () => {
   //? ---- hooks ----
-
+  const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
 
   //? ---- event handlers ----
@@ -32,11 +33,25 @@ const Home = () => {
   return (
     <div className="home">
       <div className="start">
-        <div className="inkBlot" onClick={navigateToProfile}></div>
+        <div className="inkBlot pulse-me" onClick={()=>navigate('/badges')}></div>
         <button onClick={openModal}>What am I doing here?</button>
-        <Modal isOpen={isOpen} ariaHideApp={false}>
-          <Story />
-          <div onClick={closeModal}>Explore</div>
+        <Modal
+          isOpen={isOpen}
+          ariaHideApp={false}
+          style={{
+            content: {
+              left: "15%",
+              right: "15%",
+              background: "rgba(255, 255, 2010)",
+              border: "none",
+              borderRadius: "20px",
+            },
+          }}
+        >
+          <Story closeModal={closeModal} />
+          <button className="closeModal" onClick={closeModal}>
+            Back to home
+          </button>
         </Modal>
       </div>
       <div>
