@@ -17,7 +17,7 @@ const NotFound = () => {
   //? ---- rendering ----
   return (
     <div className="notFound">
-      <div className="bgImage">
+      <div>
         <h2>404 Page Not Found</h2>
         <p>Whoops! Looks like we wandered off.</p>
         <button onClick={handleHome}>Take me back to Home Page</button>
