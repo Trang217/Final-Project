@@ -7,6 +7,7 @@
 .slide-me {
   animation: show-text 1s ease-in both;
 }
+
 @keyframes wobble-me {
   0%,
   100% {
@@ -84,5 +85,65 @@
   }
   100% {
     transform: scale(1);
+  }
+}
+
+@keyframes compass {
+  0% {
+    transform: rotate(0);
+  }
+  10% {
+    transform: rotate(45deg);
+  }
+  20% {
+    transform: rotate(5deg);
+  }
+  30% {
+    transform: rotate(-60deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  60% {
+    transform: rotate(45deg);
+  }
+  70% {
+    transform: rotate(-15deg);
+  }
+  100% {
+    transform: rotate(-40deg);
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotateZ(0);
+  }
+  50% {
+    transform: rotateZ(180deg);
+  }
+  100% {
+    transform: rotateZ(360deg);
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translate(0);
+  }
+  20% {
+    transform: translate(-5px, 5px);
+  }
+  40% {
+    transform: translate(-2px, -2px);
+  }
+  60% {
+    transform: translate(3px, 3px);
+  }
+  80% {
+    transform: translate(2px, -2px);
+  }
+  100% {
+    transform: translate(0);
   }
 }

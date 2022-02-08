@@ -46,6 +46,16 @@
     transition: 0.5s;
   }
 }
+@mixin btn-shadow {
+  box-shadow: $shadow-badge;
+  padding: 0.5rem 2rem;
+  border-radius: 5rem;
+  margin-top: 2rem;
+  &:hover {
+    transform: scale(1.1);
+    transition: 0.5s;
+  }
+}
 
 @mixin btn-modal {
   background-position: center;
@@ -65,7 +75,7 @@
   transform: translate(-50%, -50%);
 }
 
-@mixin badge {
+@mixin home-bubble {
   background-position: center;
   background-size: 110%;
   width: 160px;
@@ -77,6 +87,19 @@
     transform: scale(1.1);
     transition: 0.5s;
   }
+}
+@mixin badge-bubble {
+  background-position: center;
+  background-size: 110%;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  box-shadow: $shadow-badge;
+  /* position: absolute;
+  &:hover {
+    transform: scale(1.1);
+    transition: 0.5s;
+  }*/
 }
 
 @mixin speech-bubble {

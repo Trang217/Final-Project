@@ -41,14 +41,7 @@
       height: 12rem;
     }
     button {
-      box-shadow: $shadow-badge;
-      padding: 0.5rem 2rem;
-      border-radius: 50px;
-      margin-top: 2rem;
-      &:hover {
-        transform: scale(1.1);
-        transition: 0.5s;
-      }
+      @include btn-shadow;
     }
   }
 }

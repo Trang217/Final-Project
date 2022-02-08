@@ -5,22 +5,20 @@
 
 .sloth {
   background-image: url("../assets/images/sloth.png");
-  @include badge;
-  top: 75%;
-  left: 80%;
-  .speechBubble {
-    @include speech-bubble;
-    top: -48%;
-    right: 85%;
-    &::after {
-      bottom: -15%;
-      right: -5%;
-    }
-  }
+  @include home-bubble;
 }
 .snake {
   background-image: url("../assets/images/snake.png");
-  @include badge;
+  @include home-bubble;
+}
+
+.fish {
+  background-image: url("../assets/images/fish.png");
+  @include home-bubble;
+}
+
+#snake {
+  animation: float 8s linear infinite reverse both;
   top: 75%;
   left: 5%;
   .speechBubble {
@@ -33,11 +31,26 @@
     }
   }
 }
-.fish {
-  background-image: url("../assets/images/fish.png");
-  @include badge;
+
+#sloth {
+  animation: float 10s linear infinite alternate both;
+  top: 75%;
+  left: 80%;
+  .speechBubble {
+    @include speech-bubble;
+    top: -48%;
+    right: 85%;
+    &::after {
+      bottom: -15%;
+      right: -5%;
+    }
+  }
+}
+#fish {
+  animation: float 8s linear infinite alternate-reverse both;
   top: 32%;
   left: 12%;
+
   .speechBubble {
     @include speech-bubble;
     top: -48%;

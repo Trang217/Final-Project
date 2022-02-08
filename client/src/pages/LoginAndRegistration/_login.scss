@@ -21,6 +21,7 @@
 
     .sign-in-container {
       @include bg-img-paper;
+      background-size: 110%;
       height: 100%;
       position: absolute;
       top: 0;
@@ -73,6 +74,7 @@
 
     .sign-up-container {
       @include bg-img-paper;
+      background-size: 110%;
       height: 100%;
       position: absolute;
       top: 0;
@@ -149,8 +151,8 @@
     .overlay {
       background-image: url("../../assets/images/d-green-btn.jpg");
       background-repeat: no-repeat;
-      background-size: cover;
-      background-position: 0 0;
+      background-size: 115%;
+      background-position: center;
       color: $light-txt;
       position: relative;
       left: -100%;
@@ -225,19 +227,7 @@
 }
 
 .submit-btn {
-  background-image: $bg-button;
-  background-position: center;
-  margin: 2rem;
-  background-size: cover;
-  padding: 0.5rem 2rem;
-  border-radius: 1rem;
-  color: $light-txt;
-  font-size: $font-size-xs;
-  box-shadow: $shadow-btn;
-  &:hover {
-    transform: scale(1.1);
-    transition: 0.5s;
-  }
+  @include btn-green;
 }
 
 .submit-btn-light {
@@ -245,9 +235,9 @@
   background-position: center;
   margin: 2rem;
   padding: 0.5rem 2rem;
-  border-radius: 1rem;
+  border-radius: 5rem;
   color: $dark;
-  font-size: $font-size-xs;
+  font-size: $font-size-sm;
   box-shadow: $shadow-btn;
   &:hover {
     transform: scale(1.1);
