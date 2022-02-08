@@ -2,6 +2,7 @@
 import { format } from "date-fns";
 import { useNavigate } from "react-router-dom";
 import capitalize from "../../utils/capitalize";
+import AnimalBubble from "../../components/AnimalBubble";
 
 // ---- COMPONENT ----
 
@@ -20,14 +21,26 @@ const Badge = ({ badge }) => {
 
   //? ---- rendering ----
   return (
-    <div className={score > 0 ? " oneBadge" : "oneBadge grayscale"}>
+    <div className={score > 0 ? "oneBadge" : "oneBadge grayscale"}>
       <p className="type">{capitalize(type)}</p>
-      <p className="score">score: {score}</p>
+      <div className="bubble">
+        <AnimalBubble name={type} />
+      </div>
+
       {score > 0 ? (
-        <p className="date">
-          discovered on: {format(new Date(date), "EEEE, do MMMM yyyy")}
-        </p>
-      ) : null}
+        <div className="active">
+          <p className="score">Your score: {score}</p>
+          <p className="date">
+            Discovered on: {format(new Date(date), "EEEE, do MMMM yyyy")}
+          </p>
+        </div>
+      ) : (
+        <div className="inactive">
+          <p className="message">
+            Once you explored the {type} you'll find your badge here!
+          </p>
+        </div>
+      )}
       {score > 0 ? <button onClick={toQuiz}>Do the quiz again</button> : null}
     </div>
   );

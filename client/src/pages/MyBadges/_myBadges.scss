@@ -4,13 +4,18 @@
 @import "../../assets/scss/mixin";
 
 .myBadges {
+  height: 75%;
   @include center-fixed;
   text-align: center;
+
   .greeting {
+    margin: 2rem;
     font-size: $font-size-md;
-    font-family: "Rochester";
+    font-family: $font-title;
   }
+
   p {
+    margin: 1rem;
     font-size: $font-size-sm;
   }
 
@@ -19,28 +24,41 @@
     display: flex;
     flex-direction: row;
     .oneBadge {
+      .grayscale {
+        filter: grayscale(100%);
+      }
+
       background-image: url("../../assets/images/paper.png");
       background-size: contain;
       background-repeat: no-repeat;
-      display: flex;
-      flex-direction: column;
-      width: 20rem;
-      height: 25rem;
+      width: 30rem;
+      height: 40rem;
       margin: 1rem;
-      //   border: 2px solid lime;
+
+      .bubble {
+        position: absolute;
+        top: 22%;
+        left: 22%;
+      }
+
       .type {
-        // background-color: yellow;
-        font-family: "Rochester";
+        font-family: $font-title;
         font-size: $font-size-md;
-        padding: 0.2rem;
+        padding: 1rem;
       }
-      .score {
-        background-color: rgba(255, 192, 203, 0.644);
-        font-size: $font-size-xs;
+
+      .active {
+        p {
+          font-size: $font-size-xs;
+        }
       }
-      .date {
-        background-color: rgba(173, 216, 230, 0.61);
-        font-size: $font-size-xs;
+      .inactive {
+        p {
+          font-size: $font-size-xs;
+          margin: 2rem;
+          padding: 1rem;
+          margin-top: 17rem;
+        }
       }
 
       button {
@@ -50,8 +68,4 @@
       }
     }
   }
-}
-
-.grayscale {
-  filter: grayscale(100%);
 }
