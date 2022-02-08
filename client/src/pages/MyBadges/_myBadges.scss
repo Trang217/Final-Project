@@ -2,3 +2,70 @@
 @import "../../assets/scss/fonts";
 @import "../../assets/scss/variables";
 @import "../../assets/scss/mixin";
+
+.myBadges {
+  height: 75%;
+  @include center-fixed;
+  text-align: center;
+
+  .greeting {
+    margin: 2rem;
+    font-size: $font-size-md;
+    font-family: $font-title;
+  }
+
+  p {
+    margin: 1rem;
+    font-size: $font-size-sm;
+  }
+
+  .allBadges {
+    // border: 2px dotted red;
+    display: flex;
+    flex-direction: row;
+    .oneBadge {
+      .grayscale {
+        filter: grayscale(100%);
+      }
+
+      background-image: url("../../assets/images/paper.png");
+      background-size: contain;
+      background-repeat: no-repeat;
+      width: 30rem;
+      height: 40rem;
+      margin: 1rem;
+
+      .bubble {
+        position: absolute;
+        top: 22%;
+        left: 22%;
+      }
+
+      .type {
+        font-family: $font-title;
+        font-size: $font-size-md;
+        padding: 1rem;
+      }
+
+      .active {
+        p {
+          font-size: $font-size-xs;
+        }
+      }
+      .inactive {
+        p {
+          font-size: $font-size-xs;
+          margin: 2rem;
+          padding: 1rem;
+          margin-top: 17rem;
+        }
+      }
+
+      button {
+        @include btn-green;
+        font-size: $font-size-xs;
+        margin: 1rem;
+      }
+    }
+  }
+}
