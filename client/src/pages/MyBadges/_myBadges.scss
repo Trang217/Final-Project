@@ -2,3 +2,36 @@
 @import "../../assets/scss/fonts";
 @import "../../assets/scss/variables";
 @import "../../assets/scss/mixin";
+
+.myBadges {
+  @include center-fixed;
+  text-align: center;
+  .greeting {
+    font-size: $font-size-md;
+    font-family: "Rochester";
+  }
+  p {
+    font-size: $font-size-sm;
+  }
+
+  .allBadges {
+    border: 2px dotted red;
+    .oneBadge {
+      margin: 1rem;
+      border: 2px solid lime;
+      .type {
+        background-color: yellow;
+      }
+      .score {
+        background-color: pink;
+      }
+      .date {
+        background-color: lightblue;
+      }
+
+      button {
+        @include btn-green;
+      }
+    }
+  }
+}
