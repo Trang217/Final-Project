@@ -174,7 +174,9 @@ exports.forgotPassword = tryCatchHelper(async (req, res, next) => {
   const user = await User.findOne({ email: req.body.email });
 
   if (!user) {
-    return next(new AppError("There is no user with email address!"));
+    return next(
+      new AppError("Please make sure your email correct and try again!")
+    );
   }
   // Generate the random token
 
@@ -184,12 +186,13 @@ exports.forgotPassword = tryCatchHelper(async (req, res, next) => {
 
   try {
     // Send it to user 's email
-    const resetURL = `${req.protocol}://localhost:3000/resetPassword/${resetToken}`;
+    const resetURL = `${req.protocol}://localhost:3000/reset-password/${resetToken}`;
     await new Email(user, resetURL).sendPasswordReset();
     //console.log(resetURL);
     res.status(200).json({
       status: "success",
-      message: "Reset password link is sent successfully to your email!",
+      message:
+        "Check your mailbox! A link to reset your password should be there in a few!",
     });
   } catch (error) {
     (user.passwordResetToken = undefined),

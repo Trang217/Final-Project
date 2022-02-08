@@ -14,6 +14,8 @@ import Landing from "../../pages/Landing/Landing";
 import LoginAndRegistration from "../../pages/LoginAndRegistration/LoginAndRegistration";
 import NotFound from "../../pages/NotFound/NotFound";
 import AboutUs from "../../pages/AboutUs/AboutUs";
+import ForgetPassword from "../../pages/ForgetAndResetPassword/ForgetPassword";
+import ResetPassword from "../../pages/ForgetAndResetPassword/ResetPassword";
 
 //* Protected Routes
 // Pages
@@ -36,6 +38,9 @@ export default function MainRouter() {
           <Routes>
             <Route path="/" element={<Landing />} />
             <Route path="login" element={<LoginAndRegistration />} />
+            <Route path="forget-password" element={<ForgetPassword />} />
+            <Route path="reset-password/:token" element={<ResetPassword />} />
+
             <Route path="*" element={<NotFound />} />
             <Route path="about" element={<AboutUs />} />
 
