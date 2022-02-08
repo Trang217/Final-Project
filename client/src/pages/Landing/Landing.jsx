@@ -33,9 +33,11 @@ const Landing = () => {
   //? ---- rendering ----
   return (
     <div className="landing">
-      <button className="modalButton" onClick={handleModal}>
-        ABOUT
-      </button>
+      {!loggedIn ? (
+        <button className="modalButton" onClick={handleModal}>
+          ABOUT
+        </button>
+      ) : null}
       <div className="landingContent">
         <p className="title">Hey there, little explorer!</p>
         <p>
