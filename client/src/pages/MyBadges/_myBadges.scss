@@ -15,22 +15,38 @@
   }
 
   .allBadges {
-    border: 2px dotted red;
+    // border: 2px dotted red;
+    display: flex;
+    flex-direction: row;
     .oneBadge {
+      background-image: url("../../assets/images/paper.png");
+      background-size: contain;
+      background-repeat: no-repeat;
+      display: flex;
+      flex-direction: column;
+      width: 20rem;
+      height: 25rem;
       margin: 1rem;
-      border: 2px solid lime;
+      //   border: 2px solid lime;
       .type {
-        background-color: yellow;
+        // background-color: yellow;
+        font-family: "Rochester";
+        font-size: $font-size-md;
+        padding: 0.2rem;
       }
       .score {
-        background-color: pink;
+        background-color: rgba(255, 192, 203, 0.644);
+        font-size: $font-size-xs;
       }
       .date {
-        background-color: lightblue;
+        background-color: rgba(173, 216, 230, 0.61);
+        font-size: $font-size-xs;
       }
 
       button {
         @include btn-green;
+        font-size: $font-size-xs;
+        margin: 1rem;
       }
     }
   }

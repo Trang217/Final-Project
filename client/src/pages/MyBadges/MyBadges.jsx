@@ -30,7 +30,7 @@ const MyBadges = () => {
   //? ---- rendering ----
   return (
     <div className="myBadges">
-      <div className="greeting">Hello, {capitalize(firstName)}!</div>
+      <div className="greeting">Hello {capitalize(firstName)}!</div>
       <p>
         See all the chapters change as you explore the ecosystems! <br></br>{" "}
         Help the scientist finish his book before he wakes up!
