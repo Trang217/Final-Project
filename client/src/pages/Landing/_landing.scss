@@ -4,14 +4,17 @@
 @import "../../assets/scss/mixin";
 
 .landing {
-  .modalButton {
-    @include btn-shadow;
+  .openModalButton {
+    @include bubble;
+    animation: float 8s linear infinite reverse both;
     color: $primary;
     font-size: $font-size-sm;
     position: fixed;
     top: 3rem;
     right: 5rem;
     padding: 2rem;
+    height: 10rem;
+    width: 10rem;
   }
 
   .landingContent {
@@ -27,7 +30,7 @@
       margin: 2rem;
     }
 
-    button {
+    .startBtn {
       @include btn-green;
       margin: 2rem;
     }
@@ -41,7 +44,14 @@
   background-repeat: no-repeat;
   height: 100%;
   width: 100%;
-  .closeModal {
+
+  .closeModalBtn {
+    @include btn-shadow;
+    background-color: $light-bg;
+    color: $primary;
+    font-size: $font-size-md;
+    height: 7rem;
+    width: 7rem;
     position: relative;
     top: 5%;
     left: 85%;
