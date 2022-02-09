@@ -23,6 +23,7 @@ const AnimalBubble = ({ name, doesNavigate }) => {
   return (
     <div
       className={`${animal}`}
+      id={`${animal}`}
       onMouseEnter={() => setIsShown(true)}
       onMouseLeave={() => setIsShown(false)}
       onClick={doesNavigate ? ()=> navigate(animal) : null}

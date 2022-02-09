@@ -55,7 +55,7 @@ const Home = () => {
         </Modal>
       </div>
       <div>
-        <AnimalBubble name="rainforest" doesNavigate="true" />
+        <AnimalBubble id="rainforest" name="rainforest" doesNavigate="true" />
         <AnimalBubble name="desert" doesNavigate="true" />
         <AnimalBubble name="ocean" doesNavigate="true" />
       </div>
