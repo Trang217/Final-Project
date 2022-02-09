@@ -53,7 +53,7 @@ const Landing = () => {
       </div>
       <AnimalBubble name="rainforest" type="home" />
       <AnimalBubble name="desert" type="home" />
-      <AnimalBubble name="ocean" type="home"/>
+      <AnimalBubble name="ocean" type="home" />
 
       {modalOpen ? (
         <Modal
@@ -68,9 +68,6 @@ const Landing = () => {
           }}
         >
           <div className="modalContent">
-            <button className="closeModal" onClick={handleModal}>
-              X
-            </button>
             <AboutUs />
           </div>
         </Modal>

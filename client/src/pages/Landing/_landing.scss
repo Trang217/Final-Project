@@ -5,13 +5,13 @@
 
 .landing {
   .modalButton {
-    @include btn-green;
-    background-image: url(../../assets/images/d-blue-btn.jpg);
-
-    z-index: 30;
+    @include btn-shadow;
+    color: $primary;
+    font-size: $font-size-sm;
     position: fixed;
     top: 3rem;
-    right: 3rem;
+    right: 5rem;
+    padding: 2rem;
   }
 
   .landingContent {
@@ -22,31 +22,23 @@
     line-height: 5rem;
 
     .title {
-      font-family: "Rochester";
+      font-family: $font-title;
       font-size: $font-size-md;
       margin: 2rem;
     }
 
     button {
       @include btn-green;
-      margin: 3rem;
+      margin: 2rem;
     }
   }
 }
 
 .modalContent {
-  background-image: url("../../assets/images/paper-horizontal.png");
+  background-image: $bg-paper-horizontal;
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
   height: 100%;
   width: 100%;
-
-  .closeModal {
-    @include btn-green;
-    position: relative;
-    right: -80%;
-    margin-top: 5rem;
-    margin-right: 20rem;
-  }
 }
