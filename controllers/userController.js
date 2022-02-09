@@ -28,6 +28,11 @@ exports.registerUser = tryCatchHelper(async (req, res, next) => {
       score: 0,
       date: Date.now(),
     },
+    {
+      type: "ocean",
+      score: 0,
+      date: Date.now(),
+    },
   ];
 
   const user = new User();

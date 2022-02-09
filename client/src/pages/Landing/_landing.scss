@@ -34,9 +34,19 @@
   }
 }
 
-.closeModal {
-  @include btn-green;
-  float: right;
-  margin-top: 5rem;
-  margin-right: 20rem;
+.modalContent {
+  background-image: url("../../assets/images/paper-horizontal.png");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100%;
+  width: 100%;
+
+  .closeModal {
+    @include btn-green;
+    position: relative;
+    right: -80%;
+    margin-top: 5rem;
+    margin-right: 20rem;
+  }
 }

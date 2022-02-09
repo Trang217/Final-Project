@@ -46,6 +46,27 @@
     transition: 0.5s;
   }
 }
+@mixin btn-shadow {
+  box-shadow: $shadow-badge;
+  padding: 0.5rem 2rem;
+  border-radius: 5rem;
+  margin-top: 2rem;
+  &:hover {
+    transform: scale(1.1);
+    transition: 0.5s;
+  }
+}
+
+@mixin btn-modal {
+  background-position: center;
+  background-size: cover;
+  background-image: $bg-button;
+  font-size: $font-size-xs;
+  color: $light-txt;
+  padding: 0.5rem 2rem;
+  border-radius: 5rem;
+  box-shadow: $shadow-btn;
+}
 
 @mixin center-fixed {
   position: absolute;
@@ -54,18 +75,28 @@
   transform: translate(-50%, -50%);
 }
 
-@mixin badge {
-  background-position: center;
-  background-size: 110%;
+@mixin b-home {
+  position: absolute;
   width: 160px;
   height: 160px;
-  border-radius: 50%;
-  box-shadow: $shadow-badge;
-  position: absolute;
   &:hover {
     transform: scale(1.1);
     transition: 0.5s;
   }
+}
+
+@mixin b-badge {
+  width: 140px;
+  height: 140px;
+  display: block;
+  margin: 0 auto;
+}
+
+@mixin bubble {
+  background-position: center;
+  background-size: 110%;
+  border-radius: 50%;
+  box-shadow: $shadow-badge;
 }
 
 @mixin speech-bubble {

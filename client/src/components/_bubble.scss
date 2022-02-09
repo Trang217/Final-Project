@@ -3,9 +3,11 @@
 @import "../assets/scss/variables";
 @import "../assets/scss/mixin";
 
-.sloth {
+.sloth-home {
   background-image: url("../assets/images/sloth.png");
-  @include badge;
+  @include bubble;
+  @include b-home;
+  animation: float 10s linear infinite alternate both;
   top: 75%;
   left: 80%;
   .speechBubble {
@@ -18,9 +20,11 @@
     }
   }
 }
-.snake {
+.snake-home {
   background-image: url("../assets/images/snake.png");
-  @include badge;
+  @include bubble;
+  @include b-home;
+  animation: float 8s linear infinite reverse both;
   top: 75%;
   left: 5%;
   .speechBubble {
@@ -33,11 +37,15 @@
     }
   }
 }
-.fish {
+
+.fish-home {
   background-image: url("../assets/images/fish.png");
-  @include badge;
+  @include bubble;
+  @include b-home;
+  animation: float 8s linear infinite alternate-reverse both;
   top: 32%;
   left: 12%;
+
   .speechBubble {
     @include speech-bubble;
     top: -48%;
@@ -47,4 +55,22 @@
       left: -5%;
     }
   }
+}
+
+.snake-badge {
+  background-image: url("../assets/images/snake.png");
+  @include bubble;
+  @include b-badge;
+}
+
+.sloth-badge {
+  background-image: url("../assets/images/sloth.png");
+  @include bubble;
+  @include b-badge;
+}
+
+.fish-badge {
+  background-image: url("../assets/images/fish.png");
+  @include bubble;
+  @include b-badge;
 }
