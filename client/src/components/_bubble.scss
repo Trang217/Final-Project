@@ -56,3 +56,21 @@
     }
   }
 }
+
+.snake-badge {
+  background-image: url("../assets/images/snake.png");
+  @include bubble;
+  @include b-badge;
+}
+
+.sloth-badge {
+  background-image: url("../assets/images/sloth.png");
+  @include bubble;
+  @include b-badge;
+}
+
+.fish-badge {
+  background-image: url("../assets/images/fish.png");
+  @include bubble;
+  @include b-badge;
+}
