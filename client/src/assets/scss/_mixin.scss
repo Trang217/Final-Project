@@ -75,31 +75,20 @@
   transform: translate(-50%, -50%);
 }
 
-@mixin home-bubble {
-  background-position: center;
-  background-size: 110%;
+@mixin b-home {
+  position: absolute;
   width: 160px;
   height: 160px;
-  border-radius: 50%;
-  box-shadow: $shadow-badge;
-  position: absolute;
   &:hover {
     transform: scale(1.1);
     transition: 0.5s;
   }
 }
-@mixin badge-bubble {
+@mixin bubble {
   background-position: center;
   background-size: 110%;
-  width: 100px;
-  height: 100px;
   border-radius: 50%;
   box-shadow: $shadow-badge;
-  /* position: absolute;
-  &:hover {
-    transform: scale(1.1);
-    transition: 0.5s;
-  }*/
 }
 
 @mixin speech-bubble {
