@@ -3,21 +3,27 @@
 @import "../assets/scss/variables";
 @import "../assets/scss/mixin";
 
-.sloth {
+.sloth-home {
   background-image: url("../assets/images/sloth.png");
-  @include home-bubble;
+  @include bubble;
+  @include b-home;
+  animation: float 10s linear infinite alternate both;
+  top: 75%;
+  left: 80%;
+  .speechBubble {
+    @include speech-bubble;
+    top: -48%;
+    right: 85%;
+    &::after {
+      bottom: -15%;
+      right: -5%;
+    }
+  }
 }
-.snake {
+.snake-home {
   background-image: url("../assets/images/snake.png");
-  @include home-bubble;
-}
-
-.fish {
-  background-image: url("../assets/images/fish.png");
-  @include home-bubble;
-}
-
-#snake {
+  @include bubble;
+  @include b-home;
   animation: float 8s linear infinite reverse both;
   top: 75%;
   left: 5%;
@@ -32,21 +38,10 @@
   }
 }
 
-#sloth {
-  animation: float 10s linear infinite alternate both;
-  top: 75%;
-  left: 80%;
-  .speechBubble {
-    @include speech-bubble;
-    top: -48%;
-    right: 85%;
-    &::after {
-      bottom: -15%;
-      right: -5%;
-    }
-  }
-}
-#fish {
+.fish-home {
+  background-image: url("../assets/images/fish.png");
+  @include bubble;
+  @include b-home;
   animation: float 8s linear infinite alternate-reverse both;
   top: 32%;
   left: 12%;
