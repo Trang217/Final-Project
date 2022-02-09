@@ -69,6 +69,7 @@ const Landing = () => {
         >
           <div className="modalContent">
             <AboutUs />
+            <button className="closeModal">X</button>
           </div>
         </Modal>
       ) : null}
