@@ -6,9 +6,18 @@
     padding: 0.5rem;
   }
 
+  h1,
   h2 {
-    font-family: "Rochester";
-    font-size: 3rem;
+    font-family: $font-title;
+    margin: 1rem;
+  }
+
+  h1 {
+    font-size: $font-size-md;
+  }
+
+  h2 {
+    font-size: 4rem;
     margin: 1rem;
   }
 
