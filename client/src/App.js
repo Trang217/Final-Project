@@ -1,13 +1,12 @@
-import React from "react";
-//import QuizContext from "./contexts/QuizContext/QuizContext";
-// import QuizProvider from "./contexts/QuizContext/QuizProvider";
+import Resize from "./components/Resize";
 import MainRouter from "./hoc/MainRouter/MainRouter";
-import Quiz from "./pages/Quiz/Quiz";
+import useWindowDimensions from "./utils/windowSize";
 
 const App = () => {
+  const { height, width } = useWindowDimensions();
   return (
     <div className="app">
-      <MainRouter />
+      {width < 1080 || height < 710 ? <Resize /> : <MainRouter />}
     </div>
   );
 };
