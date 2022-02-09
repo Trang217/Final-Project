@@ -84,6 +84,14 @@
     transition: 0.5s;
   }
 }
+
+@mixin b-badge {
+  width: 140px;
+  height: 140px;
+  display: block;
+  margin: 0 auto;
+}
+
 @mixin bubble {
   background-position: center;
   background-size: 110%;

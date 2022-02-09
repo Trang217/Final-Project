@@ -12,7 +12,7 @@ const AnimalBubble = ({ name, doesNavigate, type }) => {
 
   //? ---- variables ----
   const [animal, message] = data[`${name}`];
-  const variant = animal.concat('-', type);
+  const variant = animal.concat("-", type);
 
   //? ---- handlers
 
@@ -24,9 +24,9 @@ const AnimalBubble = ({ name, doesNavigate, type }) => {
   return (
     <div
       className={`${variant}`}
-      onMouseEnter={() => setIsShown(true)}
-      onMouseLeave={() => setIsShown(false)}
-      onClick={doesNavigate ? ()=> navigate(animal) : null}
+      onMouseEnter={type === "home" ? () => setIsShown(true) : null}
+      onMouseLeave={type === "home" ? () => setIsShown(false) : null}
+      onClick={doesNavigate ? () => navigate(animal) : null}
     >
       {isShown ? <div className="speechBubble">{message}</div> : null}
     </div>

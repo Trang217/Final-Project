@@ -20,7 +20,6 @@
   }
 
   .allBadges {
-    // border: 2px dotted red;
     display: flex;
     flex-direction: row;
     .oneBadge {
@@ -35,26 +34,38 @@
       height: 40rem;
       margin: 1rem;
 
-      .bubble {
-        position: absolute;
-        top: 22%;
-        left: 22%;
-      }
-
       .type {
         font-family: $font-title;
         font-size: $font-size-md;
-        padding: 1rem;
+        padding: 0.5rem;
+        padding-bottom: 0;
+      }
+
+      .icon {
+        height: 35%;
+        .rosette {
+          height: 130px;
+          width: 80px;
+          background-image: url("../../assets/images/rosette.png");
+          background-size: contain;
+          background-repeat: no-repeat;
+          position: relative;
+          bottom: 80px;
+          left: 50px;
+          // transform: rotate(15deg);
+          animation: rosette 2s linear infinite both alternate-reverse;
+        }
       }
 
       .activeBadge {
         p {
           font-size: $font-size-xs;
-          padding: 1rem;
-          margin-top: 13rem;
+          padding: 0.5rem;
+          padding-bottom: 0;
         }
         button {
-          @include btn-green;
+          @include btn-shadow;
+          margin: 0;
           font-size: $font-size-xs;
         }
       }
@@ -63,7 +74,6 @@
           font-size: $font-size-xs;
           margin: 2rem;
           padding: 1rem;
-          margin-top: 17rem;
         }
       }
     }
