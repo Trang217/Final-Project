@@ -33,12 +33,9 @@ const LoginAndRegistration = () => {
       email: formData.get("email"),
       password: formData.get("password"),
     };
-    //console.log(loginData);
+
     try {
       const response = await axios.post("/api/users/login", loginData);
-      //console.log(handleLogin);
-      //console.log(useContext(AuthContext));
-
       handleLogin(response.data.user.userName);
       navigate("/home");
     } catch (error) {

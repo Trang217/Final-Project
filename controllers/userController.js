@@ -41,7 +41,7 @@ exports.registerUser = tryCatchHelper(async (req, res, next) => {
   await user.save();
 
   const url = `${req.protocol}://localhost:3000`;
-  console.log(url);
+
   await new Email(user, url).sendWelcome();
 
   return res.status(200).json({
@@ -182,13 +182,12 @@ exports.forgotPassword = tryCatchHelper(async (req, res, next) => {
 
   const resetToken = user.createPasswordResetToken();
   await user.save({ validateBeforeSave: false });
-  console.log(user);
 
   try {
     // Send it to user 's email
     const resetURL = `${req.protocol}://localhost:3000/reset-password/${resetToken}`;
     await new Email(user, resetURL).sendPasswordReset();
-    //console.log(resetURL);
+
     res.status(200).json({
       status: "success",
       message:
@@ -216,7 +215,7 @@ exports.resetPassword = tryCatchHelper(async (req, res, next) => {
   });
 
   if (!user) {
-    return next(new AppError("Time has expired", 400));
+    return next(new AppError("Time has expired! Please try again later!", 400));
   }
 
   // hash new password
@@ -228,14 +227,7 @@ exports.resetPassword = tryCatchHelper(async (req, res, next) => {
 
   await user.save();
 
-  const token = await authenticationHelper.generateToken(user);
-
-  return res
-    .status(200)
-    .cookie("jwt", token, {
-      httpOnly: true,
-      secure: false,
-      sameSite: "lax",
-    })
-    .json({ message: "Login successful", user: { userName: user.userName } });
+  return res.status(200).json({
+    message: "New password is successfully set!",
+  });
 });

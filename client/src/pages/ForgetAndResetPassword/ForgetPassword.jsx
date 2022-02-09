@@ -31,11 +31,8 @@ const ForgetPassword = () => {
       setMessage(response.data.message);
       setEmail("");
     } catch (error) {
-      console.log(error);
       setIsError(true);
-
       setErrorMessage(error.response.data.message);
-      console.log(errorMessage);
     }
   };
 
@@ -45,25 +42,34 @@ const ForgetPassword = () => {
   };
 
   return (
-    <div className="forget-password">
+    <div className="forget-reset-password">
       <h1> Forgot your password? </h1>
 
       <form onSubmit={handleForgetPasswordSubmit}>
-        <label htmlFor="email">Enter your email:</label>
-        <div className="input-container">
-          <input
-            value={email}
-            required
-            id="email"
-            type="email"
-            name="email"
-            placeholder="myemail@gmail.com"
-            onChange={onInputChange}
-          />
-        </div>
-        <button className="">Submit</button>
-        <ErrorMessage isVisible={isError} errorMessage={errorMessage} />
-        <p>{message}</p>
+        {message.length ? (
+          <>
+            {message.split("!").map((el) => (
+              <p style={{ margin: 0 }}>{el}</p>
+            ))}
+          </>
+        ) : (
+          <>
+            <label htmlFor="email">Enter your email:</label>
+            <div className="input-container">
+              <input
+                value={email}
+                required
+                id="email"
+                type="email"
+                name="email"
+                placeholder="myemail@gmail.com"
+                onChange={onInputChange}
+              />
+            </div>
+            <button className="">Submit</button>
+            <ErrorMessage isVisible={isError} errorMessage={errorMessage} />
+          </>
+        )}
       </form>
     </div>
   );

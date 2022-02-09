@@ -1,6 +1,7 @@
 // ---- hooks, dependencies, styling import ----
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import axios from "../../utils/axiosInstance";
 
 // ---- COMPONENT ----
@@ -8,13 +9,15 @@ import ErrorMessage from "../LoginAndRegistration/ErrorMessage";
 
 const ResetPassword = () => {
   //? ---- variables ----
+  const navigate = useNavigate();
   const { token } = useParams();
-  console.log(token);
+
   //? ---- hooks ----
   const [password, setPassword] = useState("");
+  const [message, setMessage] = useState("");
+
   const [isError, setIsError] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
-  const [message, setMessage] = useState("");
 
   //? ---- event handlers ----
 
@@ -35,11 +38,8 @@ const ResetPassword = () => {
       setMessage(response.data.message);
       setPassword("");
     } catch (error) {
-      console.log(error);
       setIsError(true);
-
       setErrorMessage(error.response.data.message);
-      console.log(errorMessage);
     }
   };
 
@@ -49,26 +49,35 @@ const ResetPassword = () => {
   };
 
   return (
-    <div className="forget-password">
+    <div className="forget-reset-password">
       <h1> Reset your new password!</h1>
 
       <form onSubmit={handleForgetPasswordSubmit}>
-        <label htmlFor="password">Enter your new password:</label>
-        <div className="input-container">
-          <input
-            value={password}
-            required
-            id="password"
-            type="password"
-            name="password"
-            placeholder=" ******"
-            onChange={onInputChange}
-          />
-        </div>
-        <button>Submit</button>
-        <ErrorMessage isVisible={isError} errorMessage={errorMessage} />
-        <p>{message}</p>
-        <button>Back to Sign In</button>
+        {message.length ? (
+          <>
+            <p>{message}</p>
+            <button onClick={() => navigate("/login")}>
+              Take me back to login
+            </button>
+          </>
+        ) : (
+          <>
+            <label htmlFor="password">Enter your new password:</label>
+            <div className="input-container">
+              <input
+                value={password}
+                required
+                id="password"
+                type="password"
+                name="password"
+                placeholder=" ******"
+                onChange={onInputChange}
+              />
+            </div>
+            <button>Reset</button>
+            <ErrorMessage isVisible={isError} errorMessage={errorMessage} />
+          </>
+        )}
       </form>
     </div>
   );
