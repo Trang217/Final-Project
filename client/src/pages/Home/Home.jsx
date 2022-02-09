@@ -1,7 +1,7 @@
 // ---- hooks, dependencies, styling import ----
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Modal from "react-modal"; 
+import Modal from "react-modal";
 
 // ---- components ----
 
@@ -33,7 +33,10 @@ const Home = () => {
   return (
     <div className="home">
       <div className="start">
-        <div className="inkBlot pulse-me" onClick={()=>navigate('/badges')}></div>
+        <div
+          className="inkBlot pulse-me"
+          onClick={() => navigate("/badges")}
+        ></div>
         <button onClick={openModal}>What am I doing here?</button>
         <Modal
           isOpen={isOpen}
@@ -55,9 +58,9 @@ const Home = () => {
         </Modal>
       </div>
       <div>
-        <AnimalBubble id="rainforest" name="rainforest" doesNavigate="true" />
-        <AnimalBubble name="desert" doesNavigate="true" />
-        <AnimalBubble name="ocean" doesNavigate="true" />
+        <AnimalBubble name="rainforest" doesNavigate="true" type="home" />
+        <AnimalBubble name="desert" doesNavigate="true" type="home" />
+        <AnimalBubble name="ocean" doesNavigate="true" type="home" />
       </div>
     </div>
   );

@@ -5,13 +5,14 @@ import { useState } from "react";
 import data from "../pages/Landing/data.json";
 
 //---- COMPONENT ----
-const AnimalBubble = ({ name, doesNavigate }) => {
+const AnimalBubble = ({ name, doesNavigate, type }) => {
   //? ---- hooks ----
 
   const [isShown, setIsShown] = useState();
 
   //? ---- variables ----
   const [animal, message] = data[`${name}`];
+  const variant = animal.concat('-', type);
 
   //? ---- handlers
 
@@ -22,8 +23,7 @@ const AnimalBubble = ({ name, doesNavigate }) => {
   //? ---- rendering ----
   return (
     <div
-      className={`${animal}`}
-      id={`${animal}`}
+      className={`${variant}`}
       onMouseEnter={() => setIsShown(true)}
       onMouseLeave={() => setIsShown(false)}
       onClick={doesNavigate ? ()=> navigate(animal) : null}

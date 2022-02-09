@@ -24,7 +24,7 @@ const Badge = ({ badge }) => {
     <div className={score > 0 ? "oneBadge" : "oneBadge grayscale"}>
       <p className="type">{capitalize(type)}</p>
       <div className="bubble">
-        <AnimalBubble name={type} />
+        <AnimalBubble name={type} type="badge"/>
       </div>
 
       {score > 0 ? (

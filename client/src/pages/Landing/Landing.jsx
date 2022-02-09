@@ -51,9 +51,9 @@ const Landing = () => {
         </p>
         <button onClick={handleClick}>Start the Adventure</button>
       </div>
-      <AnimalBubble name="rainforest" />
-      <AnimalBubble name="desert" />
-      <AnimalBubble name="ocean" />
+      <AnimalBubble name="rainforest" type="home" />
+      <AnimalBubble name="desert" type="home" />
+      <AnimalBubble name="ocean" type="home"/>
 
       {modalOpen ? (
         <Modal
