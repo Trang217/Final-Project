@@ -1,4 +1,5 @@
 // ---- hooks, dependencies, styling import ----
+import AnimalBubble from "../../components/AnimalBubble";
 import aleksandra from "./images/aleksandra.jpeg";
 import luisa from "./images/luisa.jpeg";
 import patrick from "./images/patrick.jpeg";

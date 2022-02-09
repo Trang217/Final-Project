@@ -33,7 +33,7 @@
     @include btn-green;
     display: block;
     margin: 0 auto;
-    margin-top: 3rem;
+    margin-top: 1rem;
     @media screen and (max-width: $tablet) {
       font-size: $font-size-xs;
       margin-top: 1rem;
@@ -45,10 +45,15 @@
     justify-content: center;
 
     img {
+      @include bubble;
       width: 13rem;
       height: 13rem;
       border-radius: 50%;
       margin: 1rem;
+
+      &:hover {
+        animation: pulse 1s linear both;
+      }
 
       @media screen and (max-width: $tablet) {
         width: 8rem;
