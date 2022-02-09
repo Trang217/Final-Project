@@ -69,7 +69,9 @@ const Landing = () => {
         >
           <div className="modalContent">
             <AboutUs />
-            <button className="closeModal">X</button>
+            <button className="closeModal" onClick={handleModal}>
+              X
+            </button>
           </div>
         </Modal>
       ) : null}
