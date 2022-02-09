@@ -26,22 +26,22 @@ const Badge = ({ badge }) => {
       <div className="bubble">
         <AnimalBubble name={type} />
       </div>
-
-      {score > 0 ? (
-        <div className="active">
-          <p className="score">Your score: {score}</p>
-          <p className="date">
-            Discovered on: {format(new Date(date), "EEEE, do MMMM yyyy")}
-          </p>
-        </div>
-      ) : (
-        <div className="inactive">
-          <p className="message">
-            Once you explored the {type} you'll find your badge here!
-          </p>
-        </div>
-      )}
-      {score > 0 ? <button onClick={toQuiz}>Do the quiz again</button> : null}
+      <div>
+        {score > 0 ? (
+          <div className="activeBadge">
+            <p>
+              Your score: {score}
+              <br></br>
+              Discovered on: {format(new Date(date), "EEEE, do MMMM yyyy")}
+            </p>
+            <button onClick={toQuiz}>Do the quiz again</button>
+          </div>
+        ) : (
+          <div className="inactiveBadge">
+            <p>Once you explored the {type} you'll find your badge here!</p>
+          </div>
+        )}
+      </div>
     </div>
   );
 };
