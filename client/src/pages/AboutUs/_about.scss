@@ -6,9 +6,18 @@
     padding: 0.5rem;
   }
 
+  h1,
   h2 {
-    font-family: "Rochester";
-    font-size: 3rem;
+    font-family: $font-title;
+    margin: 1rem;
+  }
+
+  h1 {
+    font-size: $font-size-md;
+  }
+
+  h2 {
+    font-size: 4rem;
     margin: 1rem;
   }
 
@@ -24,7 +33,7 @@
     @include btn-green;
     display: block;
     margin: 0 auto;
-    margin-top: 3rem;
+    margin-top: 1rem;
     @media screen and (max-width: $tablet) {
       font-size: $font-size-xs;
       margin-top: 1rem;
@@ -36,10 +45,15 @@
     justify-content: center;
 
     img {
+      @include bubble;
       width: 13rem;
       height: 13rem;
       border-radius: 50%;
       margin: 1rem;
+
+      &:hover {
+        animation: pulse 1s linear both;
+      }
 
       @media screen and (max-width: $tablet) {
         width: 8rem;

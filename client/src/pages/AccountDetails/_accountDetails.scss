@@ -6,17 +6,32 @@
 .accountDetails {
   @include flex-center;
   text-align: center;
-  font-size: $font-size-sm;
-  line-height: 5rem;
 
   h1 {
     font-size: $font-size-md;
-    font-family: "Rochester";
+    font-family: $font-title;
     margin: 3rem;
   }
 
-  button {
-    @include btn-green;
-    margin: 2rem;
+  .card {
+    @include flex-even;
+    animation: float 15s linear infinite alternate both;
+    justify-content: center;
+    background-image: $bg-paper-horizontal;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 50rem;
+    height: 35rem;
+
+    p {
+      font-size: $font-size-sm;
+    }
+    button {
+      @include btn-shadow;
+      font-size: $font-size-xs;
+      margin: 2rem;
+      color: rgb(87, 7, 7);
+    }
   }
 }

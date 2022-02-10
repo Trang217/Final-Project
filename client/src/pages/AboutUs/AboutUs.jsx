@@ -10,7 +10,7 @@ const AboutUs = () => {
   //? ---- rendering ----
   return (
     <div className="about">
-      <h2>About the project ...</h2>
+      <h1>About the project ...</h1>
       <p>
         This website is a final project for a Full Stack Web Development Course
         at Digital Career Institute. We hope you enjoy discovering some

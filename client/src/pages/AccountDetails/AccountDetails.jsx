@@ -32,10 +32,11 @@ const AccountDetails = () => {
   return (
     <div className="accountDetails">
       <h1>Account Details</h1>
-      <div>
+      <div className="card">
         <p>Name: {firstName}</p>
         <p>username: {userName}</p>
         <p>Email address: {email}</p>
+        <button onClick={() => alert("delete account")}>Delete Account</button>
       </div>
       {/* <button
         onClick={() => alert("edit information")}
@@ -43,7 +44,6 @@ const AccountDetails = () => {
       >
         Edit information
       </button> */}
-      <button onClick={() => alert("delete account")}>Delete Account</button>
     </div>
   );
 };

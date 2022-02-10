@@ -34,7 +34,7 @@ const Landing = () => {
   return (
     <div className="landing">
       {!loggedIn ? (
-        <button className="modalButton" onClick={handleModal}>
+        <button className="openModalButton" onClick={handleModal}>
           ABOUT
         </button>
       ) : null}
@@ -49,11 +49,13 @@ const Landing = () => {
           At the end of each exploration you can do a fun little quiz to test
           your knowledge and collect some badges on your profile!
         </p>
-        <button onClick={handleClick}>Start the Adventure</button>
+        <button className="startBtn" onClick={handleClick}>
+          Start the Adventure
+        </button>
       </div>
       <AnimalBubble name="rainforest" type="home" />
       <AnimalBubble name="desert" type="home" />
-      <AnimalBubble name="ocean" type="home"/>
+      <AnimalBubble name="ocean" type="home" />
 
       {modalOpen ? (
         <Modal
@@ -68,10 +70,10 @@ const Landing = () => {
           }}
         >
           <div className="modalContent">
-            <button className="closeModal" onClick={handleModal}>
+            <AboutUs />
+            <button className="closeModalBtn" onClick={handleModal}>
               X
             </button>
-            <AboutUs />
           </div>
         </Modal>
       ) : null}
