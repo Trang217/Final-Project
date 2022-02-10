@@ -17,7 +17,8 @@ const LoginAndRegistration = () => {
   //? ---- hooks ----
   const [active, setActive] = useState(false);
   const [isError, setIsError] = useState(false);
-  const [errorMessage, setErrorMessage] = useState("");
+  const [loginErrorMessage, setLoginErrorMessage] = useState("");
+  const [signUpErrorMessage, setSignUpErrorMessage] = useState("");
 
   //? ---- event handlers ----
   const handleClick = () => {
@@ -41,7 +42,7 @@ const LoginAndRegistration = () => {
     } catch (error) {
       // console.log(error);
       setIsError(true);
-      setErrorMessage(error.response.data.message);
+      setLoginErrorMessage(error.response.data.message);
     }
   };
 
@@ -74,7 +75,7 @@ const LoginAndRegistration = () => {
     } catch (error) {
       //  console.log(error);
       setIsError(true);
-      setErrorMessage(error.response.data.message);
+      setSignUpErrorMessage(error.response.data.message);
     }
   };
 
@@ -103,7 +104,7 @@ const LoginAndRegistration = () => {
                   type="text"
                   name="firstName"
                   placeholder="First name"
-                  onChange={() => setErrorMessage("")}
+                  onChange={() => setSignUpErrorMessage("")}
                 />
               </div>
             </div>
@@ -118,7 +119,7 @@ const LoginAndRegistration = () => {
                   type="text"
                   name="userName"
                   placeholder="Username"
-                  onChange={() => setErrorMessage("")}
+                  onChange={() => setSignUpErrorMessage("")}
                 />
               </div>
             </div>
@@ -133,7 +134,7 @@ const LoginAndRegistration = () => {
                   type="email"
                   name="signUpEmail"
                   placeholder="myemail@gmail.com"
-                  onChange={() => setErrorMessage("")}
+                  onChange={() => setSignUpErrorMessage("")}
                 />
               </div>
             </div>
@@ -148,12 +149,15 @@ const LoginAndRegistration = () => {
                   type="password"
                   name="signUpPassword"
                   placeholder=" ******"
-                  onChange={() => setErrorMessage("")}
+                  onChange={() => setSignUpErrorMessage("")}
                 />
               </div>
             </div>
 
-            <ErrorMessage isVisible={isError} errorMessage={errorMessage} />
+            <ErrorMessage
+              isVisible={isError}
+              errorMessage={signUpErrorMessage}
+            />
 
             <button className="submit-btn">Sign up</button>
           </form>
@@ -175,7 +179,7 @@ const LoginAndRegistration = () => {
                   type="email"
                   name="email"
                   placeholder="myemail@gmail.com"
-                  onChange={() => setErrorMessage("")}
+                  onChange={() => setLoginErrorMessage("")}
                 />
               </div>
             </div>
@@ -189,7 +193,7 @@ const LoginAndRegistration = () => {
                   type="password"
                   name="password"
                   placeholder=" ******"
-                  onChange={() => setErrorMessage("")}
+                  onChange={() => setLoginErrorMessage("")}
                 />
               </div>
             </div>
@@ -201,7 +205,10 @@ const LoginAndRegistration = () => {
               Forgot your password?
             </p>
 
-            <ErrorMessage isVisible={isError} errorMessage={errorMessage} />
+            <ErrorMessage
+              isVisible={isError}
+              errorMessage={loginErrorMessage}
+            />
 
             <button className="submit-btn">Log in</button>
           </form>
