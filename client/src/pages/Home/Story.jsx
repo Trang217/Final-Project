@@ -57,9 +57,16 @@ const Story = ({ closeModal }) => {
         <p className={slide ? "slide-me" : null}>{splitJournal[iter]}</p>
         {iter < 5 ? <button  className="pulse-me" onClick={handleNext}>next</button> : null}
         {iter === 5 ? (
-          <div className="inkblot" onClick={handleBlob}></div>
+          <> <div className="inkblot" ></div>
+          <div onClick={handleBlob} className="circle-button">
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+         </>
         ) : null}
       </div>
+      div
     </div>
   );
 };

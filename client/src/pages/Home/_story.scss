@@ -12,6 +12,7 @@
     margin: 2rem;
     height: 20rem;
     width: 90%;
+    color: $light-txt;
     button {
       background-image: url("../../assets/images/d-blue-btn.jpg");
       background-position: center;
@@ -28,10 +29,11 @@
   .journal {
     font-size: $font-size-xs;
     @include flex-center;
-    background-image: url("../../assets/images/paper.png");
+    background-image: url("../../assets/images/paper-journal.png");
     background-position: center;
     background-size: cover;
-    height: 20rem;
+    height: 30rem;
+    width: 78rem;
     padding: 0 5rem;
     position: relative;
     text-align: justify;
@@ -42,6 +44,36 @@
     }
     button {
       @include btn-shadow;
+      margin-top: 5rem;
+    }
+  }
+  .circle-button {
+    position: relative;
+    bottom: -10%;
+    animation: show-text 1.5s ease-in both 2s;
+    cursor: pointer;
+    div {
+      background-position: center;
+      background-size: cover;
+      @include center-fixed;
+    }
+    div:nth-child(1) {
+      width: 50px;
+      height: 50px;
+      background-image: url("../../assets/images/r-1.png");
+      animation: show-text 2s infinite linear alternate 3s;
+    }
+    div:nth-child(2) {
+      width: 36px;
+      height: 36px;
+      background-image: url("../../assets/images/r-3.png");
+      animation: show-text 2s infinite linear alternate 2.8s;
+    }
+    div:nth-child(3) {
+      width: 10px;
+      height: 10px;
+      background-image: url("../../assets/images/r-2.png");
+      animation: show-text 2s infinite linear alternate 2.5s;
     }
   }
 }
@@ -64,13 +96,12 @@
 
 .inkblot {
   position: absolute;
-  left: 40%;
-  top: 5%;
+  left: 40.5%;
+  top: 18%;
   background-image: url("../../assets/images/blob_2.png");
   background-position: center;
   background-size: cover;
   height: 110px;
   width: 100px;
-  animation: pulse 2s ease-in-out infinite both 2s;
-  cursor: pointer;
+  animation: enter-text 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both 0.5s;
 }

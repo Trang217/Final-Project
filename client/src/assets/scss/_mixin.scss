@@ -32,6 +32,13 @@
   background-image: $bg-paper;
   height: 100vh;
 }
+@mixin bg-img-paper-hor {
+  background-position: center;
+  background-size: cover;
+  background-repeat: none;
+  background-image: $bg-paper-horizontal;
+  height: 100vh;
+}
 @mixin btn-green {
   background-position: center;
   background-size: cover;
@@ -60,9 +67,9 @@
 @mixin btn-modal {
   background-position: center;
   background-size: cover;
-  background-image: $bg-button;
+  background-color: $light-txt;
   font-size: $font-size-xs;
-  color: $light-txt;
+  color: $dark;
   padding: 0.5rem 2rem;
   border-radius: 5rem;
   box-shadow: $shadow-btn;
