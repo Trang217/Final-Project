@@ -92,6 +92,12 @@
   margin: 0 auto;
 }
 
+@mixin b-mobile {
+  position: absolute;
+  width: 10rem;
+  height: 10rem;
+}
+
 @mixin bubble {
   background-position: center;
   background-size: 110%;
