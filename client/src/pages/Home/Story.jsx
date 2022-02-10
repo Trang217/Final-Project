@@ -1,15 +1,11 @@
 // ---- hooks, dependencies, styling import ----
 import { useState } from "react";
 
-// ---- components ----
-
-// ---- context import ----
-
 // ---- data ----
 const story = [
   "It was a windy night when the Scientist sat down to write everything he knew about the Earth and its ecosystems...",
   "“Oh no! An ink blob!” - he sighed, but the night was full and his eyes began to close...",
-  '“Where am I?" - said the Ink Blob looking around - “An explorer journal! But the scientist is deep asleep... I must learn as much as I can before dawn so I can fill this story"',
+  '“Where am I...?" - said the Ink Blot looking around - “Explorer"s journal! But I see the scientist is deep asleep... Well, I must learn as much as I can before dawn so I can fill this story"',
 ];
 
 const journal =
@@ -23,7 +19,7 @@ const Story = ({ closeModal }) => {
   const [iter, setIter] = useState(0);
   const [slide, setSlide] = useState(false);
   const [dialog, setDialog] = useState(1);
-
+  const [showButton, setShowButton] = useState(false);
 
   //? ---- event handlers ----
 
@@ -33,11 +29,16 @@ const Story = ({ closeModal }) => {
     if (iter < splitJournal.length - 1) setIter(iter + 1);
     setSlide(true);
     setTimeout(() => setSlide(false), 2000);
+    if(iter === 4) {
+      setShowButton(true)
+    }
   };
 
-  const handleBlob = () => {
+  const handleButton = () => {
     if (dialog < 3) setDialog(dialog + 1);
+    if(dialog === 2) setShowButton(false);
   };
+
 
   //? ---- variables ----
 
@@ -58,15 +59,14 @@ const Story = ({ closeModal }) => {
         {iter < 5 ? <button  className="pulse-me" onClick={handleNext}>next</button> : null}
         {iter === 5 ? (
           <> <div className="inkblot" ></div>
-          <div onClick={handleBlob} className="circle-button">
-            <div></div>
-            <div></div>
-            <div></div>
-          </div>
          </>
         ) : null}
+        {showButton ? <div onClick={handleButton} className="circle-button">
+            <div></div>
+            <div></div>
+            <div></div>
+          </div> : null }
       </div>
-      div
     </div>
   );
 };
