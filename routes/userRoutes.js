@@ -33,4 +33,7 @@ router.patch("/update/userName", controller.updateUsername);
 router.patch("/update/email", controller.updateEmail);
 router.patch("/update/password", controller.updatePassword);
 
+// delete user account
+router.delete("/delete", controller.deleteUser);
+
 module.exports = router;

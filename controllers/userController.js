@@ -317,3 +317,17 @@ exports.updatePassword = tryCatchHelper(async (req, res, next) => {
     message: "Your new password is successfully updated!",
   });
 });
+
+exports.deleteUser = tryCatchHelper(async (req, res, next) => {
+  const user = await User.findById(req.user._id);
+  user.active = false;
+  user.email = undefined;
+  user.userName = undefined;
+  user.password = undefined;
+  user.badges = undefined;
+  user.save();
+  return res.status(200).json({
+    status: "success",
+    message: "Your account is deleted!",
+  });
+});
