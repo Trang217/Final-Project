@@ -98,7 +98,6 @@ const LoginAndRegistration = () => {
               <label htmlFor="firstName">First name:</label>
               <div className="input-container">
                 <input
-                  className="login-input"
                   required
                   id="firstName"
                   type="text"
@@ -113,7 +112,6 @@ const LoginAndRegistration = () => {
               <label htmlFor="userName">Username:</label>
               <div className="input-container">
                 <input
-                  className="login-input"
                   required
                   id="userName"
                   type="text"
@@ -128,7 +126,6 @@ const LoginAndRegistration = () => {
               <label htmlFor="signUpEmail">Email:</label>
               <div className="input-container">
                 <input
-                  className="login-input"
                   required
                   id="signUpEmail"
                   type="email"
@@ -143,7 +140,6 @@ const LoginAndRegistration = () => {
               <label htmlFor="signUpPassword">Password:</label>
               <div className="input-container">
                 <input
-                  className="login-input"
                   required
                   id="signUpPassword"
                   type="password"
@@ -173,7 +169,6 @@ const LoginAndRegistration = () => {
               <label htmlFor="email">Email:</label>
               <div className="input-container">
                 <input
-                  className="login-input"
                   required
                   id="email"
                   type="email"
@@ -187,7 +182,6 @@ const LoginAndRegistration = () => {
               <label htmlFor="password">Password:</label>
               <div className="input-container">
                 <input
-                  className="login-input"
                   required
                   id="password"
                   type="password"

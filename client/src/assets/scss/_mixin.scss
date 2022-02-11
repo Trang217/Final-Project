@@ -118,3 +118,15 @@
     width: 1rem;
   }
 }
+
+@mixin input-login {
+  border-radius: 50px;
+  padding: 0.5rem 1rem;
+  background-color: $light-bg;
+  border: 3px $input-border solid;
+  box-shadow: $shadow-btn;
+  &:focus,
+  :active {
+    border: 3px $primary solid;
+  }
+}
