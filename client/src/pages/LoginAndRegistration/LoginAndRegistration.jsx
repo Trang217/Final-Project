@@ -236,7 +236,7 @@ const LoginAndRegistration = () => {
                 id="signUp"
                 className="submit-btn-light"
               >
-                To sign up
+                Go to sign up
               </button>
             </div>
           </div>

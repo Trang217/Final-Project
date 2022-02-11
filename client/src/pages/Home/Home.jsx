@@ -46,20 +46,17 @@ const Home = () => {
               backgroundColor: "rgba(204, 196, 157, 0.5)",
             },
             content: {
-              left: "15%",
-              right: "15%",
-              top: "10%",
-              height: "80vh",
               border: "none",
-              backgroundColor: "transparent"
+              backgroundColor: "transparent",
             },
           }}
         >
-          <div className="story-overlay"><Story closeModal={closeModal} />
-          <button className="closeModal" onClick={closeModal}>
-            Back to home
-          </button>
-        </div>
+          <div className="story-overlay">
+            <Story closeModal={closeModal} />
+            <button className="closeModal" onClick={closeModal}>
+              Back to home
+            </button>
+          </div>
         </Modal>
       </div>
       <div>

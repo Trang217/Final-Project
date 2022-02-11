@@ -26,10 +26,11 @@
       .grayscale {
         filter: grayscale(100%);
       }
-
-      background-image: url("../../assets/images/paper.png");
-      background-size: contain;
-      background-repeat: no-repeat;
+      @include bg-img-paper;
+      //border-radius: 5rem;
+      // background-image: url("../../assets/images/paper.png");
+      // background-size: contain;
+      // background-repeat: no-repeat;
       width: 30rem;
       height: 40rem;
       margin: 1rem;
