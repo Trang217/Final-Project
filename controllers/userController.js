@@ -236,3 +236,84 @@ exports.resetPassword = tryCatchHelper(async (req, res, next) => {
     message: "New password is successfully set!",
   });
 });
+
+// Update user account
+
+exports.updateFirstName = tryCatchHelper(async (req, res, next) => {
+  const user = await User.findByIdAndUpdate(
+    req.user._id,
+    { firstName: req.body.firstName },
+    { new: true }
+  );
+
+  if (!user) {
+    return next(new AppError("No User exists!", 404));
+  }
+
+  return res.status(200).json({
+    status: "success",
+    message: "Your first name is successfully updated!",
+  });
+});
+
+exports.updateUsername = tryCatchHelper(async (req, res, next) => {
+  const user = await User.findByIdAndUpdate(
+    req.user._id,
+    { userName: req.body.userName },
+    { new: true }
+  );
+
+  if (!user) {
+    return next(new AppError("No User exists!", 404));
+  }
+
+  return res.status(200).json({
+    status: "success",
+    message: "Your username is successfully updated!",
+  });
+});
+
+exports.updateEmail = tryCatchHelper(async (req, res, next) => {
+  const user = await User.findByIdAndUpdate(
+    req.user._id,
+    { email: req.body.email },
+    { new: true }
+  );
+
+  if (!user) {
+    return next(new AppError("No User exists!", 404));
+  }
+
+  return res.status(200).json({
+    status: "success",
+    message: "Your email is successfully updated!",
+  });
+});
+
+exports.updatePassword = tryCatchHelper(async (req, res, next) => {
+  const user = await User.findById(req.user._id);
+
+  if (!user) {
+    return next(new AppError("No User exists!", 404));
+  }
+
+  // check password
+  const checkPassword = await bcrypt.compare(
+    req.body.currentPassword,
+    user.password
+  );
+
+  if (!checkPassword) {
+    return next(new AppError("Your current password is wrong!", 401));
+  }
+
+  // update password
+  const newHashedPassword = await bcrypt.hash(req.body.newPassword, 12);
+  user.password = newHashedPassword;
+  await user.save();
+
+  return res.status(200).json({
+    status: "success",
+    message: "Your new password is successfully updated!",
+  });
+});
