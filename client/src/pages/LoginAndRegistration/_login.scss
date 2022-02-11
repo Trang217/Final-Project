@@ -56,6 +56,14 @@
             display: flex;
             align-items: center;
             margin-bottom: 0.25rem;
+
+            input {
+              @include input-login;
+              flex: 1 1 0%;
+              margin: 0.5rem;
+              width: 28rem;
+              font-size: 1.3rem;
+            }
           }
         }
 
@@ -68,7 +76,7 @@
         }
 
         button {
-          margin-top: 3.5rem;
+          margin-top: 2.5rem;
         }
       }
     }
@@ -116,11 +124,19 @@
           .input-container {
             display: flex;
             align-items: center;
+
+            input {
+              @include input-login;
+              flex: 1 1 0%;
+              margin: 0.5rem;
+              width: 28rem;
+              font-size: 1.3rem;
+            }
           }
         }
 
         button {
-          margin-top: 3.5rem;
+          margin-top: 2.5rem;
         }
       }
     }
@@ -243,22 +259,6 @@
   &:hover {
     transform: scale(1.1);
     transition: 0.5s;
-  }
-}
-
-.login-input {
-  flex: 1 1 0%;
-  margin: 0.5rem;
-  width: 28rem;
-  border-radius: 50px;
-  padding: 0.5rem 1rem;
-  background-color: $light-bg;
-  border: 3px $input-border solid;
-  box-shadow: $shadow-btn;
-  font-size: 1.3rem;
-  &:focus,
-  :active {
-    border: 3px $primary solid;
   }
 }
 

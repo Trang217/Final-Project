@@ -17,7 +17,8 @@ const LoginAndRegistration = () => {
   //? ---- hooks ----
   const [active, setActive] = useState(false);
   const [isError, setIsError] = useState(false);
-  const [errorMessage, setErrorMessage] = useState("");
+  const [loginErrorMessage, setLoginErrorMessage] = useState("");
+  const [signUpErrorMessage, setSignUpErrorMessage] = useState("");
 
   //? ---- event handlers ----
   const handleClick = () => {
@@ -41,7 +42,7 @@ const LoginAndRegistration = () => {
     } catch (error) {
       // console.log(error);
       setIsError(true);
-      setErrorMessage(error.response.data.message);
+      setLoginErrorMessage(error.response.data.message);
     }
   };
 
@@ -74,7 +75,7 @@ const LoginAndRegistration = () => {
     } catch (error) {
       //  console.log(error);
       setIsError(true);
-      setErrorMessage(error.response.data.message);
+      setSignUpErrorMessage(error.response.data.message);
     }
   };
 
@@ -97,13 +98,12 @@ const LoginAndRegistration = () => {
               <label htmlFor="firstName">First name:</label>
               <div className="input-container">
                 <input
-                  className="login-input"
                   required
                   id="firstName"
                   type="text"
                   name="firstName"
                   placeholder="First name"
-                  onChange={() => setErrorMessage("")}
+                  onChange={() => setSignUpErrorMessage("")}
                 />
               </div>
             </div>
@@ -112,13 +112,12 @@ const LoginAndRegistration = () => {
               <label htmlFor="userName">Username:</label>
               <div className="input-container">
                 <input
-                  className="login-input"
                   required
                   id="userName"
                   type="text"
                   name="userName"
                   placeholder="Username"
-                  onChange={() => setErrorMessage("")}
+                  onChange={() => setSignUpErrorMessage("")}
                 />
               </div>
             </div>
@@ -127,13 +126,12 @@ const LoginAndRegistration = () => {
               <label htmlFor="signUpEmail">Email:</label>
               <div className="input-container">
                 <input
-                  className="login-input"
                   required
                   id="signUpEmail"
                   type="email"
                   name="signUpEmail"
                   placeholder="myemail@gmail.com"
-                  onChange={() => setErrorMessage("")}
+                  onChange={() => setSignUpErrorMessage("")}
                 />
               </div>
             </div>
@@ -142,18 +140,20 @@ const LoginAndRegistration = () => {
               <label htmlFor="signUpPassword">Password:</label>
               <div className="input-container">
                 <input
-                  className="login-input"
                   required
                   id="signUpPassword"
                   type="password"
                   name="signUpPassword"
                   placeholder=" ******"
-                  onChange={() => setErrorMessage("")}
+                  onChange={() => setSignUpErrorMessage("")}
                 />
               </div>
             </div>
 
-            <ErrorMessage isVisible={isError} errorMessage={errorMessage} />
+            <ErrorMessage
+              isVisible={isError}
+              errorMessage={signUpErrorMessage}
+            />
 
             <button className="submit-btn">Sign up</button>
           </form>
@@ -169,13 +169,12 @@ const LoginAndRegistration = () => {
               <label htmlFor="email">Email:</label>
               <div className="input-container">
                 <input
-                  className="login-input"
                   required
                   id="email"
                   type="email"
                   name="email"
                   placeholder="myemail@gmail.com"
-                  onChange={() => setErrorMessage("")}
+                  onChange={() => setLoginErrorMessage("")}
                 />
               </div>
             </div>
@@ -183,13 +182,12 @@ const LoginAndRegistration = () => {
               <label htmlFor="password">Password:</label>
               <div className="input-container">
                 <input
-                  className="login-input"
                   required
                   id="password"
                   type="password"
                   name="password"
                   placeholder=" ******"
-                  onChange={() => setErrorMessage("")}
+                  onChange={() => setLoginErrorMessage("")}
                 />
               </div>
             </div>
@@ -201,7 +199,10 @@ const LoginAndRegistration = () => {
               Forgot your password?
             </p>
 
-            <ErrorMessage isVisible={isError} errorMessage={errorMessage} />
+            <ErrorMessage
+              isVisible={isError}
+              errorMessage={loginErrorMessage}
+            />
 
             <button className="submit-btn">Log in</button>
           </form>
