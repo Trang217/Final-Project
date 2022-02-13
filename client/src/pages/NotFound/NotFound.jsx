@@ -7,20 +7,19 @@ import { useNavigate } from "react-router-dom";
 const NotFound = () => {
   //? ---- hooks ----
   const navigate = useNavigate();
-  //? ---- event handlers ----
 
+  //? ---- event handlers ----
   const handleHome = () => {
     navigate("/");
   };
-  //? ---- variables ----
 
   //? ---- rendering ----
   return (
     <div className="notFound">
       <div>
-        <h2>404 Page Not Found</h2>
-        <p>Whoops! Looks like we wandered off.</p>
-        <button onClick={handleHome}>Take me back to Home Page</button>
+        <h2>Whoops!</h2>
+        <p>Looks like we wandered off...</p>
+        <button onClick={handleHome}>Take me back home</button>
       </div>
     </div>
   );
