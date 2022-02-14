@@ -77,31 +77,3 @@
   @include bubble;
   @include b-badge;
 }
-
-// MOBILE
-
-.sloth-mobile {
-  background-image: url("../assets/images/sloth.png");
-  @include bubble;
-  @include b-mobile;
-  animation: float 10s linear infinite alternate both;
-  top: 95%;
-  left: -5%;
-}
-.snake-mobile {
-  background-image: url("../assets/images/snake.png");
-  @include bubble;
-  @include b-mobile;
-  animation: float 8s linear infinite reverse both;
-  top: -25%;
-  left: 0%;
-}
-
-.fish-mobile {
-  background-image: url("../assets/images/fish.png");
-  @include bubble;
-  @include b-mobile;
-  animation: float 8s linear infinite alternate-reverse both;
-  top: -20%;
-  left: 50%;
-}

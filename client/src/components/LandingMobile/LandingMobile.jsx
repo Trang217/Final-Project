@@ -1,23 +1,11 @@
-// ---- hooks, dependencies, styling import ----
-import AnimalBubble from "../AnimalBubble";
-
-// ---- components ----
-
-// ---- context ----
-
-// ---- COMPONENT ----
 const LandingMobile = () => {
-  //? ---- hooks ----
-
-  //? ---- event handlers ----
-
-  //? ---- rendering ----
+  
   return (
     <div className="background">
       <div className="landingContent">
-        <AnimalBubble name="rainforest" type="mobile" />
-        <AnimalBubble name="desert" type="mobile" />
-        <AnimalBubble name="ocean" type="mobile" />
+        <div id="sloth"></div>
+        <div id="snake"></div>
+        <div id="fish"></div>
         <p className="title">Hey there!</p>
         <p>
           When you open this website on a larger device you can create an
