@@ -32,23 +32,30 @@ const AccountDetails = () => {
   return (
     <div className="accountDetails">
       <h1>Account Details</h1>
-      <div>
-        <p>Name: {firstName}</p>
-        <p>username: {userName}</p>
-        <p>Email address: {email}</p>
-      </div>
-      <button
+
+      <table>
+        <tr>
+          <td>Your name</td>
+          <td>{firstName}</td>
+        </tr>
+        <tr>
+          <td>username</td>
+          <td>{userName}</td>
+        </tr>
+        <tr>
+          <td>email address</td>
+          <td>{email}</td>
+        </tr>
+      </table>
+
+      <button onClick={() => alert("delete account")}>Delete this account</button>
+
+      {/* <button
         onClick={() => alert("edit information")}
         className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
       >
         Edit information
-      </button>
-      <button
-        onClick={() => alert("delete account")}
-        className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
-      >
-        Delete Account
-      </button>
+      </button> */}
     </div>
   );
 };

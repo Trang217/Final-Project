@@ -27,9 +27,9 @@ export default function Sidebar() {
   const wrapperRef = useRef(null);
 
   useEffect(() => {
-    document.addEventListener("click", handleClickOutside, true);
+    document.addEventListener("click", handleClickOutside, false);
     return () => {
-      document.removeEventListener("click", handleClickOutside, true);
+      document.removeEventListener("click", handleClickOutside, false);
     };
   }, []);
 
@@ -39,8 +39,6 @@ export default function Sidebar() {
     }
   };
 
-  //? ---- variables ----
-
   //? ---- rendering ----
 
   return (
@@ -48,14 +46,10 @@ export default function Sidebar() {
       {loggedIn ? (
         <div ref={wrapperRef}>
           <div className="menuBtn" onClick={closeSidebar}>
-            <img alt="logo" src={menuBtn} className="object-cover" />
+            <img alt="logo" src={menuBtn} />
           </div>
 
-          <div
-            className={`bgSidebar transform ease-in-out duration-300 ${
-              isOpen ? "translate-x-0" : "translate-x-full"
-            }`}
-          >
+          <div className={`sidebar ${!isOpen ? "hideSidebar" : null}`}>
             <Navigation />
           </div>
         </div>

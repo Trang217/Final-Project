@@ -1,16 +1,32 @@
-.contentContainer {
+.about {
+  text-align: center;
   @include center-fixed;
-  padding: 3rem;
+  @media screen and (max-width: $tablet) {
+    width: 70rem;
+    padding: 0.5rem;
+  }
+
+  h1,
   h2 {
-    font-family: "Rochester";
+    font-family: $font-title;
+    margin: 1rem;
+  }
+
+  h1 {
     font-size: $font-size-md;
-    text-align: center;
+  }
+
+  h2 {
+    font-size: 4rem;
+    margin: 1rem;
   }
 
   p {
-    text-align: center;
-    margin: 0 auto;
     font-size: $font-size-sm;
+    padding: 1rem;
+    @media screen and (max-width: $tablet) {
+      font-size: $font-size-xs;
+    }
   }
 
   button {
@@ -18,6 +34,10 @@
     display: block;
     margin: 0 auto;
     margin-top: 1rem;
+    @media screen and (max-width: $tablet) {
+      font-size: $font-size-xs;
+      margin-top: 1rem;
+    }
   }
 
   .imagesContainer {
@@ -29,6 +49,16 @@
       height: 13rem;
       border-radius: 50%;
       margin: 1rem;
+
+      &:hover {
+        animation: pulse 1s linear both;
+      }
+
+      @media screen and (max-width: $tablet) {
+        width: 8rem;
+        height: 8rem;
+        margin: 0.3rem;
+      }
     }
   }
 }

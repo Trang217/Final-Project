@@ -1,3 +1,4 @@
+
 import React, { useRef, useState, Component, useEffect } from 'react';
 import Phaser from 'phaser';
 import Game from './src/scenes/Game';
@@ -33,5 +34,6 @@ const GameDesert = () => {
   });
 
   return <div id="game-content" />;
+
 };
 export default GameDesert;

@@ -10,12 +10,20 @@
 @import "../../pages/LoginAndRegistration/login";
 @import "../../pages/LoginAndRegistration/errorMessage";
 
+@import "../../pages/ForgetAndResetPassword/forgetAndResetPassword";
+
 @import "../../pages/Home/home";
+@import "../../pages/Home/story";
+
 @import "../../pages/Landing/landing";
 @import "../../pages/AccountDetails/accountDetails";
 @import "../../pages/MyBadges/myBadges";
 @import "../../components/bubble";
+@import "../../components/resize";
 @import "../../hoc/MainRouter/background";
+@import "../../pages/NotFound/notFound";
+
+@import "../../components/LandingMobile/landingMobile";
 
 :root {
   font-size: 62.5%;

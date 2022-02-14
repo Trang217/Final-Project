@@ -2,3 +2,36 @@
 @import "../../assets/scss/fonts";
 @import "../../assets/scss/variables";
 @import "../../assets/scss/mixin";
+
+.accountDetails {
+  @include flex-center;
+
+  h1 {
+    font-size: $font-size-md;
+    font-family: $font-title;
+    margin-bottom: 3rem;
+  }
+
+  table {
+    font-size: $font-size-sm;
+
+    td {
+      padding: 0.8rem;
+      color: $primary;
+    }
+
+    td:first-of-type {
+      text-align: right;
+      border-right: 1px solid $secondary;
+    }
+    td:nth-of-type(2) {
+      text-align: left;
+    }
+  }
+  button {
+    @include btn-shadow;
+    font-size: $font-size-xs;
+    color: $dark;
+    margin-top: 3rem;
+  }
+}

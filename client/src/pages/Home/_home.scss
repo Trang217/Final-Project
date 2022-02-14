@@ -10,7 +10,7 @@
     @include flex-center;
   }
   .inkBlot {
-    background-image: url("../../assets/images/blob_1.png");
+    background-image: url("../../assets/images/blob_2.png");
     background-position: center;
     background-size: cover;
     height: 400px;
@@ -19,4 +19,15 @@
   button {
     @include btn-green;
   }
+}
+.story-overlay {
+  @include center-fixed;
+}
+
+.closeModal {
+  @include btn-modal;
+  position: absolute;
+  bottom: 5rem;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }

@@ -1,22 +1,36 @@
-.bg-image {
-  background-image: url("./assets/xxs.png");
-  background-position: center;
-  animation: animate 0.5s both linear;
-}
-.center-me {
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
+@import "../../assets/scss/animations";
+@import "../../assets/scss/fonts";
+@import "../../assets/scss/variables";
+@import "../../assets/scss/mixin";
 
-@keyframes animate {
-  0% {
-    background-size: 100%;
+.notFound {
+  @include center-fixed;
+  @include flex-even;
+
+  height: 80vh;
+  width: 50vw;
+  background-image: url("./assets/blob.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  animation: notFound 0.6s both linear;
+
+  text-align: center;
+  color: white;
+
+  h2 {
+    font-family: "Rochester";
+    font-size: $font-size-md;
+    margin: 2rem;
   }
-  50% {
-    background-size: 150%;
+  p {
+    font-size: $font-size-sm;
   }
-  100% {
-    background-size: 200%;
+
+  button {
+    @include btn-green;
+    background-image: none;
+    background-color: $light-bg;
+    margin: 3rem;
   }
 }

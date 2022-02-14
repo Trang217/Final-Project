@@ -1,5 +1,6 @@
 //--------------------IMPORT MODULES------------------------
 const bcrypt = require("bcrypt");
+const crypto = require("crypto");
 
 //--------------------IMPORT MODEL--------------------------
 const User = require("../models/User");
@@ -7,6 +8,7 @@ const User = require("../models/User");
 //--------------------IMPORT HELPERS------------------------
 const authenticationHelper = require("../helpers/authenticationHelper");
 const { tryCatchHelper } = require("../helpers/tryCatchHelper");
+const Email = require("../email/email");
 
 //--------------------IMPORT APP ERROR----------------------
 const AppError = require("../error/AppError");
@@ -26,6 +28,11 @@ exports.registerUser = tryCatchHelper(async (req, res, next) => {
       score: 0,
       date: Date.now(),
     },
+    {
+      type: "ocean",
+      score: 0,
+      date: Date.now(),
+    },
   ];
 
   const user = new User();
@@ -37,6 +44,10 @@ exports.registerUser = tryCatchHelper(async (req, res, next) => {
   user.badges = defaultBadges;
 
   await user.save();
+
+  const url = `${req.protocol}://localhost:3000`;
+
+  await new Email(user, url).sendWelcome();
 
   return res.status(200).json({
     status: "Success!",
@@ -129,7 +140,7 @@ exports.getUserBadges = tryCatchHelper(async (req, res, next) => {
     status: "success",
     message: "user information",
     badges: userInfo.badges,
-    firstName: userInfo.firstName
+    firstName: userInfo.firstName,
   });
 });
 
@@ -160,5 +171,163 @@ exports.updateBadges = tryCatchHelper(async (req, res, next) => {
   return res.status(200).json({
     message: "User badge is updated",
     updateBadges: updatedUserBadges,
+  });
+});
+
+exports.forgotPassword = tryCatchHelper(async (req, res, next) => {
+  // Get user based on posted email
+  const user = await User.findOne({ email: req.body.email });
+
+  if (!user) {
+    return next(
+      new AppError("Please make sure your email correct and try again!")
+    );
+  }
+  // Generate the random token
+
+  const resetToken = user.createPasswordResetToken();
+  await user.save({ validateBeforeSave: false });
+
+  try {
+    // Send it to user 's email
+    const resetURL = `${req.protocol}://localhost:3000/reset-password/${resetToken}`;
+    await new Email(user, resetURL).sendPasswordReset();
+
+    res.status(200).json({
+      status: "success",
+      message:
+        "Check your mailbox! A link to reset your password should be there in a few!",
+    });
+  } catch (error) {
+    (user.passwordResetToken = undefined),
+      (user.passwordResetExpires = undefined);
+    await user.save({ validateBeforeSave: false });
+    console.log(error);
+    return next(new AppError("Error with sending email, try later", 500));
+  }
+});
+
+exports.resetPassword = tryCatchHelper(async (req, res, next) => {
+  // get user based on the token
+  const hashedToken = crypto
+    .createHash("sha256")
+    .update(req.params.token)
+    .digest("hex");
+
+  const user = await User.findOne({
+    passwordResetToken: hashedToken,
+    passwordResetExpires: { $gt: Date.now() },
+  });
+
+  if (!user) {
+    return next(new AppError("Time has expired! Please try again later!", 400));
+  }
+
+  // hash new password
+  const hashedPassword = await bcrypt.hash(req.body.password, 12);
+
+  user.password = hashedPassword;
+  user.passwordResetToken = undefined;
+  user.passwordResetExpires = undefined;
+
+  await user.save();
+
+  return res.status(200).json({
+    message: "New password is successfully set!",
+  });
+});
+
+// Update user account
+
+exports.updateFirstName = tryCatchHelper(async (req, res, next) => {
+  const user = await User.findByIdAndUpdate(
+    req.user._id,
+    { firstName: req.body.firstName },
+    { new: true }
+  );
+
+  if (!user) {
+    return next(new AppError("No User exists!", 404));
+  }
+
+  return res.status(200).json({
+    status: "success",
+    message: "Your first name is successfully updated!",
+  });
+});
+
+exports.updateUsername = tryCatchHelper(async (req, res, next) => {
+  const user = await User.findByIdAndUpdate(
+    req.user._id,
+    { userName: req.body.userName },
+    { new: true }
+  );
+
+  if (!user) {
+    return next(new AppError("No User exists!", 404));
+  }
+
+  return res.status(200).json({
+    status: "success",
+    message: "Your username is successfully updated!",
+  });
+});
+
+exports.updateEmail = tryCatchHelper(async (req, res, next) => {
+  const user = await User.findByIdAndUpdate(
+    req.user._id,
+    { email: req.body.email },
+    { new: true }
+  );
+
+  if (!user) {
+    return next(new AppError("No User exists!", 404));
+  }
+
+  return res.status(200).json({
+    status: "success",
+    message: "Your email is successfully updated!",
+  });
+});
+
+exports.updatePassword = tryCatchHelper(async (req, res, next) => {
+  const user = await User.findById(req.user._id);
+
+  if (!user) {
+    return next(new AppError("No User exists!", 404));
+  }
+
+  // check password
+  const checkPassword = await bcrypt.compare(
+    req.body.currentPassword,
+    user.password
+  );
+
+  if (!checkPassword) {
+    return next(new AppError("Your current password is wrong!", 401));
+  }
+
+  // update password
+  const newHashedPassword = await bcrypt.hash(req.body.newPassword, 12);
+  user.password = newHashedPassword;
+  await user.save();
+
+  return res.status(200).json({
+    status: "success",
+    message: "Your new password is successfully updated!",
+  });
+});
+
+exports.deleteUser = tryCatchHelper(async (req, res, next) => {
+  const user = await User.findById(req.user._id);
+  user.active = false;
+  user.email = undefined;
+  user.userName = undefined;
+  user.password = undefined;
+  user.badges = undefined;
+  user.save();
+  return res.status(200).json({
+    status: "success",
+    message: "Your account is deleted!",
   });
 });

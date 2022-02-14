@@ -9,18 +9,15 @@
   min-height: 100vh;
 
   .container {
-    background-color: #f9edca;
     margin-top: 1.25rem;
     position: relative;
-    overflow: hidden;
-    border-radius: 12px;
-    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
     width: 66%;
     min-width: 70rem;
-    height: 65rem;
+    height: 72rem;
 
     .sign-in-container {
-      @include bg-img-paper;
+      background-image: url("../../assets/images/pap-left.png");
+      @include bg-center;
       height: 100%;
       position: absolute;
       top: 0;
@@ -34,7 +31,6 @@
         text-align: center;
         height: 100%;
         padding: 0 2.5rem 0 2.5rem;
-
         h1 {
           font-size: $font-size-md;
           line-height: 4.25rem;
@@ -55,10 +51,19 @@
             display: flex;
             align-items: center;
             margin-bottom: 0.25rem;
+
+            input {
+              @include input-login;
+              flex: 1 1 0%;
+              margin: 0.5rem;
+              width: 28rem;
+              font-size: 1.3rem;
+            }
           }
         }
 
-        a {
+        .forgetPassword {
+          cursor: pointer;
           font-size: 1.2rem;
           &:hover {
             text-decoration: underline;
@@ -66,13 +71,14 @@
         }
 
         button {
-          margin-top: 3.5rem;
+          margin-top: 2.5rem;
         }
       }
     }
 
     .sign-up-container {
-      @include bg-img-paper;
+      background-image: url("../../assets/images/pap-right.png");
+      @include bg-center;
       height: 100%;
       position: absolute;
       top: 0;
@@ -84,7 +90,6 @@
 
       .sign-up-form {
         @include flex-center;
-        background-color: $light-bg;
         text-align: center;
         height: 100%;
         padding: 0 2.5rem 0 2.5rem;
@@ -113,11 +118,19 @@
           .input-container {
             display: flex;
             align-items: center;
+
+            input {
+              @include input-login;
+              flex: 1 1 0%;
+              margin: 0.5rem;
+              width: 28rem;
+              font-size: 1.3rem;
+            }
           }
         }
 
         button {
-          margin-top: 3.5rem;
+          margin-top: 2.5rem;
         }
       }
     }
@@ -147,10 +160,8 @@
     z-index: 100;
 
     .overlay {
-      background-image: url("../../assets/images/d-green-btn.jpg");
-      background-repeat: no-repeat;
-      background-size: cover;
-      background-position: 0 0;
+      background-image: url("../../assets/images/blue-log.png");
+      @include bg-center;
       color: $light-txt;
       position: relative;
       left: -100%;
@@ -225,49 +236,21 @@
 }
 
 .submit-btn {
-  background-image: $bg-button;
-  background-position: center;
-  margin: 2rem;
-  background-size: cover;
-  padding: 0.5rem 2rem;
-  border-radius: 1rem;
-  color: $light-txt;
-  font-size: $font-size-xs;
-  box-shadow: $shadow-btn;
-  &:hover {
-    transform: scale(1.1);
-    transition: 0.5s;
-  }
+  @include btn-green;
 }
 
 .submit-btn-light {
   background-image: $bg-paper;
-  background-position: center;
+  @include bg-center;
   margin: 2rem;
   padding: 0.5rem 2rem;
-  border-radius: 1rem;
+  border-radius: 5rem;
   color: $dark;
-  font-size: $font-size-xs;
+  font-size: $font-size-sm;
   box-shadow: $shadow-btn;
   &:hover {
     transform: scale(1.1);
     transition: 0.5s;
-  }
-}
-
-.login-input {
-  flex: 1 1 0%;
-  margin: 0.5rem;
-  width: 28rem;
-  border-radius: 50px;
-  padding: 0.5rem 1rem;
-  background-color: $light-bg;
-  border: 3px $input-border solid;
-  box-shadow: $shadow-btn;
-  font-size: 1.3rem;
-  &:focus,
-  :active {
-    border: 3px $primary solid;
   }
 }
 
