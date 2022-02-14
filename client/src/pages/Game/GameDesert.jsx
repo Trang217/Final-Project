@@ -1,37 +1,37 @@
-// ---- hooks, dependencies, styling import ----
-import { useNavigate, useLocation } from "react-router";
-
-// ---- components ----
-
-// ---- context import ----
-
-// ---- data ----
-
-// ---- COMPONENT ----
+import React, { useRef, useState, Component, useEffect } from 'react';
+import Phaser from 'phaser';
+import Game from './src/scenes/Game';
 
 const GameDesert = () => {
-  //? ---- hooks ----
-  let navigate = useNavigate();
-  let location = useLocation();
-  console.log(location.pathname);
+  useEffect(() => {
+    const game = new Phaser.Game({
+      type: Phaser.AUTO,
+      parent: 'game',
+      backgroundColor: '#33A5E7',
+      scale: {
+        width: 800,
+        height: 600,
+        mode: Phaser.Scale.FIT,
+        autoCenter: Phaser.Scale.CENTER_BOTH,
+      },
+      render: {
+        pixelArt: false,
+      },
+      physics: {
+        default: 'arcade',
+        arcade: {
+          gravity: { y: 750 },
+          debug: true,
+          debugShowVelocity: true,
+          debugShowBody: true,
+          debugShowStatic: true,
+        },
+      },
+      parent: 'game-content',
+      scene: [Game],
+    });
+  });
 
-  //? ---- event handlers ----
-
-  // helper function that should be called on quiz-button-click and stored somewhere else so it can be used in different components
-  const goToQuiz = () => {
-    navigate(`/quiz${location.pathname}`);
-  };
-
-  //? ---- variables ----
-
-  //? ---- rendering ----
-  return (
-    <div>
-      <h1>Desert</h1>
-      <button className="bg-yellow-500 border-black" onClick={goToQuiz}>
-        QUIZ
-      </button>
-    </div>
-  );
+  return <div id="game-content" />;
 };
 export default GameDesert;
