@@ -27,7 +27,6 @@
       .grayscale {
         filter: grayscale(100%);
       }
-
       @include bg-img-paper;
       width: 30rem;
       height: 40rem;
