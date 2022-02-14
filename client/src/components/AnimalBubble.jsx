@@ -1,6 +1,6 @@
 // ---- hooks, dependencies, styling import ----
-import { useState } from "react";
-
+import { useState} from "react";
+import { useNavigate } from "react-router-dom";
 // ---- data ----
 import data from "../pages/Landing/data.json";
 
@@ -9,6 +9,7 @@ const AnimalBubble = ({ name, doesNavigate, type }) => {
   //? ---- hooks ----
 
   const [isShown, setIsShown] = useState();
+  const navigate = useNavigate();
 
   //? ---- variables ----
   const [animal, message] = data[`${name}`];
@@ -16,8 +17,8 @@ const AnimalBubble = ({ name, doesNavigate, type }) => {
 
   //? ---- handlers
 
-  const navigate = (game) => {
-    console.log(`user clicked, navigate to ${game}`); // switch statement in the future
+  const openGame = (game) => {
+    navigate(`/${game}`) // switch statement in the future
   };
 
   //? ---- rendering ----
@@ -26,7 +27,7 @@ const AnimalBubble = ({ name, doesNavigate, type }) => {
       className={`${variant}`}
       onMouseEnter={type === "home" ? () => setIsShown(true) : null}
       onMouseLeave={type === "home" ? () => setIsShown(false) : null}
-      onClick={doesNavigate ? () => navigate(animal) : null}
+      onClick={doesNavigate ? () => openGame(name) : null}
     >
       {isShown ? <div className="speechBubble">{message}</div> : null}
     </div>
