@@ -26,4 +26,7 @@ router.get("/profile", controller.profile);
 router.get("/badges", controller.getUserBadges);
 router.patch("/update/badges/:type", controller.updateBadges);
 
+
+router.get("/hall-of-fame", controller.getUsers);
+
 module.exports = router;

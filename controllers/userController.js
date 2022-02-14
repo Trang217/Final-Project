@@ -9,6 +9,7 @@ const User = require("../models/User");
 const authenticationHelper = require("../helpers/authenticationHelper");
 const { tryCatchHelper } = require("../helpers/tryCatchHelper");
 const Email = require("../email/email");
+const { getScore } = require("../helpers/calcScoreHelper");
 
 //--------------------IMPORT APP ERROR----------------------
 const AppError = require("../error/AppError");
@@ -234,5 +235,30 @@ exports.resetPassword = tryCatchHelper(async (req, res, next) => {
 
   return res.status(200).json({
     message: "New password is successfully set!",
+  });
+});
+
+// hall of fame sort
+
+exports.getUsers = tryCatchHelper(async (req, res, next) => {
+  const users = await User.find().select("userName badges");
+  const allScores = users.map((user) => {
+    const singleUser = {
+      name: user.userName,
+      totalScore: getScore(user.badges),
+      desert: user.badges[0].score,
+      rainforest: user.badges[1].score,
+      // ocean: user.badges[2].score //! users without ocean throw an error
+    };
+    return singleUser;
+  });
+
+  const league = allScores.sort((a, b) => b.totalScore - a.totalScore);
+
+  if (!users) {
+    return next(new AppError("No Users exists!", 404));
+  }
+  return res.status(200).json({
+    league,
   });
 });
