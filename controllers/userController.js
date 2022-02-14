@@ -9,7 +9,7 @@ const User = require("../models/User");
 const authenticationHelper = require("../helpers/authenticationHelper");
 const { tryCatchHelper } = require("../helpers/tryCatchHelper");
 const Email = require("../email/email");
-const { getScore } = require("../helpers/calcScoreHelper");
+//const { getScore } = require("../helpers/calcScoreHelper");
 
 //--------------------IMPORT APP ERROR----------------------
 const AppError = require("../error/AppError");
@@ -43,6 +43,7 @@ exports.registerUser = tryCatchHelper(async (req, res, next) => {
   user.email = email;
   user.password = hashedPassword;
   user.badges = defaultBadges;
+  user.totalScore = 0
 
   await user.save();
 
@@ -160,6 +161,9 @@ exports.updateBadges = tryCatchHelper(async (req, res, next) => {
         "badges.$[element].score": score,
         "badges.$[element].date": Date.now(),
       },
+      $inc: {
+          "totalScore": score
+      }
     },
     {
       arrayFilters: [
@@ -241,8 +245,12 @@ exports.resetPassword = tryCatchHelper(async (req, res, next) => {
 // hall of fame sort
 
 exports.getUsers = tryCatchHelper(async (req, res, next) => {
-  const users = await User.find().select("userName badges");
-  const allScores = users.map((user) => {
+  const users = await User.find().select("userName badges")
+  // .sort()
+  // .limit(Number(req.query["limit"]) || 5)
+  // .skip(Number(req.query["skip"]) || 0)
+  .lean();
+ /* const allScores = users.map((user) => {
     const singleUser = {
       name: user.userName,
       totalScore: getScore(user.badges),
@@ -254,11 +262,11 @@ exports.getUsers = tryCatchHelper(async (req, res, next) => {
   });
 
   const league = allScores.sort((a, b) => b.totalScore - a.totalScore);
-
+*/
   if (!users) {
     return next(new AppError("No Users exists!", 404));
   }
   return res.status(200).json({
-    league,
+    users,
   });
 });

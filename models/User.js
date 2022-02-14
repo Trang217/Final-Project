@@ -43,6 +43,7 @@ const userSchema = new Schema({
   badges: {
     type: [badgeSchema],
   },
+  totalScore: {type: Number},
   role: {type: String, enum: ["player", "admin"]}, // not yet assigned
   passwordResetToken: String,
   passwordResetExpires: Date,
