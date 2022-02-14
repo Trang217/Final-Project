@@ -5,33 +5,33 @@
 
 .accountDetails {
   @include flex-center;
-  text-align: center;
 
   h1 {
     font-size: $font-size-md;
     font-family: $font-title;
-    margin: 3rem;
+    margin-bottom: 3rem;
   }
 
-  .card {
-    @include flex-even;
-    animation: float 15s linear infinite alternate both;
-    justify-content: center;
-    background-image: $bg-paper-horizontal;
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
-    width: 50rem;
-    height: 35rem;
+  table {
+    font-size: $font-size-sm;
 
-    p {
-      font-size: $font-size-sm;
+    td {
+      padding: 0.8rem;
+      color: $primary;
     }
-    button {
-      @include btn-shadow;
-      font-size: $font-size-xs;
-      margin: 2rem;
-      color: rgb(87, 7, 7);
+
+    td:first-of-type {
+      text-align: right;
+      border-right: 1px solid $secondary;
     }
+    td:nth-of-type(2) {
+      text-align: left;
+    }
+  }
+  button {
+    @include btn-shadow;
+    font-size: $font-size-xs;
+    color: $dark;
+    margin-top: 3rem;
   }
 }
