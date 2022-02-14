@@ -27,6 +27,14 @@
     @media screen and (max-width: $tablet) {
       font-size: $font-size-xs;
     }
+
+    a {
+      color: $primary;
+      font-style: italic;
+      &:hover {
+        color: $secondary;
+      }
+    }
   }
 
   button {
@@ -44,12 +52,23 @@
     display: flex;
     justify-content: center;
 
+    a {
+      font-family: $font-title;
+      color: $primary;
+      font-size: 1.7rem;
+
+      &:hover {
+        color: $dark;
+        font-weight: 600;
+      }
+    }
+
     img {
-      @include bubble;
       width: 13rem;
       height: 13rem;
       border-radius: 50%;
       margin: 1rem;
+      filter: sepia(20%);
 
       &:hover {
         animation: pulse 1s linear both;

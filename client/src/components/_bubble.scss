@@ -3,6 +3,7 @@
 @import "../assets/scss/variables";
 @import "../assets/scss/mixin";
 
+// LANDING/HOME
 .sloth-home {
   background-image: url("../assets/images/sloth.png");
   @include bubble;
@@ -56,6 +57,8 @@
     }
   }
 }
+
+// BADGES
 
 .snake-badge {
   background-image: url("../assets/images/snake.png");

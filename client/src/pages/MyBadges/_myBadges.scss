@@ -4,8 +4,8 @@
 @import "../../assets/scss/mixin";
 
 .myBadges {
-  height: 75%;
   @include center-fixed;
+  height: 75%;
   text-align: center;
 
   .greeting {
@@ -22,14 +22,12 @@
   .allBadges {
     display: flex;
     flex-direction: row;
+
     .oneBadge {
       .grayscale {
         filter: grayscale(100%);
       }
-
-      background-image: url("../../assets/images/paper.png");
-      background-size: contain;
-      background-repeat: no-repeat;
+      @include bg-img-paper;
       width: 30rem;
       height: 40rem;
       margin: 1rem;
@@ -48,11 +46,10 @@
           width: 80px;
           background-image: url("../../assets/images/rosette.png");
           background-size: contain;
-          background-repeat: no-repeat;
+          background-repeat: none;
           position: relative;
           bottom: 80px;
           left: 50px;
-          // transform: rotate(15deg);
           animation: rosette 2s linear infinite both alternate-reverse;
         }
       }

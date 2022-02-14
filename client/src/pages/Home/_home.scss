@@ -20,11 +20,14 @@
     @include btn-green;
   }
 }
+.story-overlay {
+  @include center-fixed;
+}
 
 .closeModal {
   @include btn-modal;
   position: absolute;
-  bottom: 2%;
+  bottom: 5rem;
   left: 50%;
   transform: translate(-50%, -50%);
 }

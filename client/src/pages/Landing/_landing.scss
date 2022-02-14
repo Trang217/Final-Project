@@ -38,20 +38,18 @@
 }
 
 .modalContent {
-  background-image: $bg-paper-horizontal;
+  @include bg-img-paper-hor;
   background-size: contain;
-  background-position: center;
   background-repeat: no-repeat;
   height: 100%;
   width: 100%;
 
   .closeModalBtn {
-    @include btn-shadow;
-    background-color: $light-bg;
-    color: $primary;
-    font-size: $font-size-md;
-    height: 7rem;
-    width: 7rem;
+    @include btn-green;
+    color: $light-txt;
+    font-size: $font-size-sm;
+    height: 5rem;
+    width: 5rem;
     position: relative;
     top: 5%;
     left: 85%;

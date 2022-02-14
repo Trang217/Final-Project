@@ -42,19 +42,21 @@ const Home = () => {
           isOpen={isOpen}
           ariaHideApp={false}
           style={{
+            overlay: {
+              backgroundColor: "rgba(204, 196, 157, 0.5)",
+            },
             content: {
-              left: "15%",
-              right: "15%",
-              background: "rgba(255, 255, 2010)",
               border: "none",
-              borderRadius: "20px",
+              backgroundColor: "transparent",
             },
           }}
         >
-          <Story closeModal={closeModal} />
-          <button className="closeModal" onClick={closeModal}>
-            Back to home
-          </button>
+          <div className="story-overlay">
+            <Story closeModal={closeModal} />
+            <button className="closeModal" onClick={closeModal}>
+              Back to home
+            </button>
+          </div>
         </Modal>
       </div>
       <div>
