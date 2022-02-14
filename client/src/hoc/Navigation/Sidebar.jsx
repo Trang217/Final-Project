@@ -1,6 +1,6 @@
 // ---- hooks, dependencies, styling import ----
 import { useState, useEffect, useRef, useContext } from "react";
-import menuBtn from "../Navigation/images/compass-test.png";
+import compass from "../../assets/images/compass.png";
 
 // ---- components ----
 import Navigation from "./Navigation";
@@ -46,7 +46,7 @@ export default function Sidebar() {
       {loggedIn ? (
         <div ref={wrapperRef}>
           <div className="menuBtn" onClick={closeSidebar}>
-            <img alt="logo" src={menuBtn} />
+            <img alt="logo" src={compass} />
           </div>
 
           <div className={`sidebar ${!isOpen ? "hideSidebar" : null}`}>

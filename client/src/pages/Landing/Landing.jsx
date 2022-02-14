@@ -61,6 +61,9 @@ const Landing = () => {
         <Modal
           isOpen={modalOpen}
           style={{
+            overlay: {
+              backgroundColor: "rgba(204, 196, 157, 0.5)",
+            },
             content: {
               border: "none",
               left: "15%",
