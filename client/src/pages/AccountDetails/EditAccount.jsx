@@ -52,38 +52,43 @@ const EditAccount = ({ currentFirstName, currentUserName, currentEmail }) => {
       <h1>Edit account detail!</h1>
 
       {message.length ? (
-        <p>
-          {message} <br /> <p>Refresh page to see your new information</p>
-        </p>
+        <p>{message}</p>
       ) : (
         <form onSubmit={handleEditSubmit}>
           <div className="input-container">
+            <label htmlFor="firstName">
+              Your current first name: {currentFirstName}
+            </label>
             <input
               value={firstName}
               id="firstName"
               type="text"
               name="firstName"
-              placeholder="First name"
+              placeholder="Enter your new first name"
               onChange={(e) => handleInputChange(e, setFirstName)}
             />
           </div>
           <div className="input-container">
+            <label htmlFor="userName">
+              Your current username: {currentUserName}
+            </label>
             <input
               value={userName}
               id="userName"
               type="text"
               name="userName"
-              placeholder="Username"
+              placeholder="Enter your new username"
               onChange={(e) => handleInputChange(e, setUserName)}
             />
           </div>
           <div className="input-container">
+            <label htmlFor="email">Your current email: {currentEmail}</label>
             <input
               value={email}
               id="email"
               type="email"
               name="email"
-              placeholder="myemail@gmail.com"
+              placeholder="Enter your new email"
               onChange={(e) => handleInputChange(e, setEmail)}
             />
           </div>

@@ -43,7 +43,7 @@ exports.registerUser = tryCatchHelper(async (req, res, next) => {
   user.email = email;
   user.password = hashedPassword;
   user.badges = defaultBadges;
-  user.totalScore = 0
+  user.totalScore = 0;
 
   await user.save();
 
@@ -162,8 +162,8 @@ exports.updateBadges = tryCatchHelper(async (req, res, next) => {
         "badges.$[element].date": Date.now(),
       },
       $inc: {
-          "totalScore": score
-      }
+        totalScore: score,
+      },
     },
     {
       arrayFilters: [
@@ -242,30 +242,23 @@ exports.resetPassword = tryCatchHelper(async (req, res, next) => {
   });
 });
 
-
 // Update user account
 
 exports.updateAccountDetail = tryCatchHelper(async (req, res, next) => {
-  const user = await User.findById(req.user._id);
+  const update = req.body;
+  const user = await User.findByIdAndUpdate(req.user._id, update, {
+    new: true,
+  });
 
   if (!user) {
     return next(new AppError("No User exists!", 404));
   }
-
-  const { firstName, userName, email } = req.body;
-
-  user.firstName = firstName;
-  user.userName = userName;
-  user.email = email;
-
-  user.save({ validateBeforeSave: true });
 
   return res.status(200).json({
     status: "success",
     message: "Your account detail is successfully updated!",
   });
 });
-
 
 exports.updateFirstName = tryCatchHelper(async (req, res, next) => {
   const user = await User.findByIdAndUpdate(
@@ -361,15 +354,17 @@ exports.deleteUser = tryCatchHelper(async (req, res, next) => {
 });
 
 exports.getUsers = tryCatchHelper(async (req, res, next) => {
-  const users = await User.find().select("userName totalScore")
-  .sort({totalScore: -1})
-  .limit(Number(req.query["limit"]) || 5)
-  .skip(Number(req.query["skip"]) || 0)
-  .lean();
+  const users = await User.find()
+    .select("userName totalScore")
+    .sort({ totalScore: -1 })
+    .limit(Number(req.query["limit"]) || 5)
+    .skip(Number(req.query["skip"]) || 0)
+    .lean();
 
   if (!users) {
     return next(new AppError("No Users exists!", 404));
   }
   return res.status(200).json({
-    users,})
+    users,
   });
+});

@@ -24,7 +24,7 @@ const AccountDetails = () => {
     };
 
     fetchData();
-  }, []);
+  }, [editModalOpen]);
 
   //? ---- event handlers ----
 
@@ -61,9 +61,9 @@ const AccountDetails = () => {
         </tbody>
       </table>
 
-      <button onClick={handleDeleteModal}>Delete this account</button>
-
       <button onClick={handleEditModal}>Edit information</button>
+
+      <button onClick={handleDeleteModal}>Delete this account</button>
 
       {editModalOpen ? (
         <Modal
