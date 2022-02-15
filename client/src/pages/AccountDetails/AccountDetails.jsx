@@ -1,12 +1,17 @@
 // ---- hooks, dependencies, styling import ----
 import { useState, useEffect } from "react";
 import axios from "../../utils/axiosInstance";
+import Modal from "react-modal";
+import EditAccount from "./EditAccount";
+import DeleteAccount from "./DeleteAccount";
 
 // ---- COMPONENT ----
 
 const AccountDetails = () => {
   //? ---- hooks ----
   const [data, setData] = useState({});
+  const [editModalOpen, setEditModalOpen] = useState(false);
+  const [deleteModalOpen, setDeleteModalOpen] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -23,7 +28,13 @@ const AccountDetails = () => {
 
   //? ---- event handlers ----
 
-  //! DELETE ACCOUNT
+  const handleEditModal = () => {
+    setEditModalOpen(!editModalOpen);
+  };
+
+  const handleDeleteModal = () => {
+    setDeleteModalOpen(!deleteModalOpen);
+  };
 
   //? ---- variables ----
   const { firstName, userName, email } = data;
@@ -48,14 +59,61 @@ const AccountDetails = () => {
         </tr>
       </table>
 
-      <button onClick={() => alert("delete account")}>Delete this account</button>
+      <button onClick={handleDeleteModal}>Delete this account</button>
 
-      {/* <button
-        onClick={() => alert("edit information")}
-        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-      >
-        Edit information
-      </button> */}
+      <button onClick={handleEditModal}>Edit information</button>
+
+      {editModalOpen ? (
+        <Modal
+          isOpen={editModalOpen}
+          style={{
+            overlay: {
+              backgroundColor: "rgba(204, 196, 157, 0.5)",
+            },
+            content: {
+              border: "none",
+              left: "35%",
+              top: "15%",
+              backgroundColor: "transparent",
+            },
+          }}
+        >
+          <div className="accountDetails">
+            <button className="accountModalBtn" onClick={handleEditModal}>
+              X
+            </button>
+          </div>
+          <EditAccount
+            currentFirstName={firstName}
+            currentUserName={userName}
+            currentEmail={email}
+          />
+        </Modal>
+      ) : null}
+
+      {deleteModalOpen ? (
+        <Modal
+          isOpen={deleteModalOpen}
+          style={{
+            overlay: {
+              backgroundColor: "rgba(204, 196, 157, 0.5)",
+            },
+            content: {
+              border: "none",
+              left: "35%",
+              top: "15%",
+              backgroundColor: "transparent",
+            },
+          }}
+        >
+          <div className="accountDetails">
+            <button className="accountModalBtn" onClick={handleDeleteModal}>
+              X
+            </button>
+          </div>
+          <DeleteAccount />
+        </Modal>
+      ) : null}
     </div>
   );
 };

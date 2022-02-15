@@ -34,4 +34,49 @@
     color: $dark;
     margin-top: 3rem;
   }
+  .accountModalBtn {
+    @include btn-shadow;
+    font-size: $font-size-sm;
+    height: 5rem;
+    width: 5rem;
+    position: absolute;
+    top: 4%;
+    left: 46%;
+  }
+}
+
+.accountModal {
+  @include bg-img-paper;
+  background-size: 110%;
+  text-align: center;
+  height: 55rem;
+  width: 60rem;
+  border-radius: 50px;
+
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  @include flex-center;
+
+  h1 {
+    font-size: $font-size-md;
+    font-family: $font-title;
+    margin-bottom: 3rem;
+  }
+
+  input {
+    @include input-login;
+    flex: 1 1 0%;
+    margin: 1rem;
+    width: 32rem;
+    font-size: $font-size-xs;
+  }
+
+  p {
+    font-size: $font-size-sm;
+    margin-bottom: 2.5rem;
+  }
+
+  .saveBtn {
+    @include btn-green;
+    margin-top: 2.5rem;
+  }
 }
