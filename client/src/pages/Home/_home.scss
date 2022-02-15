@@ -20,20 +20,14 @@
     @include btn-green;
   }
 }
-
 .story-overlay {
-  height: 100%;
-  background-image: url("../../assets/images/b-1.png");
-  box-shadow: $shadow-modal;
-  background-position: center;
-  background-size: 110%;
-  border-radius: 5rem;
-  padding: 2rem;
+  @include center-fixed;
 }
+
 .closeModal {
   @include btn-modal;
   position: absolute;
-  bottom: 5%;
+  bottom: 5rem;
   left: 50%;
   transform: translate(-50%, -50%);
 }

@@ -4,7 +4,12 @@
 @import "../../assets/scss/mixin";
 
 .sidebar {
-  @include bg-img-paper;
+  //@include bg-img-paper;
+
+  background-image: url("../../assets/images/pap-1.png");
+  background-position: center;
+  background-size: 110%;
+  border-radius: 5rem 0rem 0rem 5rem;
   position: fixed;
   background-size: cover;
   background-position: 0%;

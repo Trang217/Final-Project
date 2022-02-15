@@ -10,27 +10,66 @@ const AboutUs = () => {
   //? ---- rendering ----
   return (
     <div className="about">
-      <h1>About the project ...</h1>
+      <h1>About the project</h1>
       <p>
-        This website is a final project for a Full Stack Web Development Course
-        at Digital Career Institute. We hope you enjoy discovering some
-        interesting facts about our planet’s astonishing landscapes, amazing
-        wildlife, and diverse flora. At the end of each exploration you can do a
-        fun little quiz to test your knowledge and collect some badges on your
-        profile!
+        This website was created as a final project for a Full Stack Web
+        Development Course at{" "}
+        <a
+          href="https://digitalcareerinstitute.org/"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Digital Career Institute
+        </a>{" "}
+        in January and February 2022. We wanted to offer you a fun experience
+        while exploring different ecosystems and learning about their uniqueness
+        and relevance in a playful way.
       </p>
-      <h2>... and the team:</h2>
+
+      <h2>About the team</h2>
+
+      <p>
+        We are a team of four developers who are passionate about coding, art,
+        animation, and our planet.
+      </p>
       <div className="imagesContainer">
-        <img src={aleksandra} alt="Aleksandra Bury" />
-        <img src={luisa} alt="Luisa-Lisanne Forck" />
-        <img src={patrick} alt="Patrick Mohr" />
-        <img src={trang} alt="Trang Nguyen" />
+        <span>
+          <a
+            href="https://github.com/Aleksandra-Wiktoria-Bury"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <img src={aleksandra} alt="Aleksandra Bury" />
+            Aleksandra
+          </a>
+        </span>
+        <span>
+          <a
+            href="https://github.com/luisalisanne"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <img src={luisa} alt="Luisa-Lisanne Forck" />
+            Luisa
+          </a>
+        </span>
+        <span>
+          <a href="https://github.com/pmdice" target="_blank" rel="noreferrer">
+            <img src={patrick} alt="Patrick Mohr" />
+            Patrick
+          </a>
+        </span>
+        <span>
+          <a
+            href="https://github.com/Trang217"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <img src={trang} alt="Trang Nguyen" />
+            Trang
+          </a>
+        </span>
       </div>
-      <p>
-        We are a team of four full stack web developers - Aleksandra, Luisa,
-        Patrick and Trang - who are passionate about coding, art, animation, and
-        our planet. We graduate at DCI in February 2022.
-      </p>
       <p>
         If you’d like to take a look at what’s happening behind the scenes,
         <br></br>

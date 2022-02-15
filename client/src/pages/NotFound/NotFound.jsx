@@ -10,7 +10,7 @@ const NotFound = () => {
 
   //? ---- event handlers ----
   const handleHome = () => {
-    navigate("/");
+    navigate("/home");
   };
 
   //? ---- rendering ----

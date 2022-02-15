@@ -38,8 +38,9 @@
 }
 
 .modalContent {
-  @include bg-img-paper;
-  background-image: $bg-paper-horizontal;
+  @include bg-img-paper-hor;
+  background-size: contain;
+  background-repeat: no-repeat;
   height: 100%;
   width: 100%;
 
@@ -51,6 +52,6 @@
     width: 5rem;
     position: relative;
     top: 5%;
-    left: 90%;
+    left: 85%;
   }
 }

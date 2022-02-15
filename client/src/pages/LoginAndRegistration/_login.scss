@@ -9,19 +9,15 @@
   min-height: 100vh;
 
   .container {
-    background-color: #f9edca;
     margin-top: 1.25rem;
     position: relative;
-    overflow: hidden;
-    border-radius: 5rem;
-    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
     width: 66%;
     min-width: 70rem;
-    height: 65rem;
+    height: 72rem;
 
     .sign-in-container {
-      @include bg-img-paper;
-      background-size: 110%;
+      background-image: url("../../assets/images/pap-left.png");
+      @include bg-center;
       height: 100%;
       position: absolute;
       top: 0;
@@ -35,7 +31,6 @@
         text-align: center;
         height: 100%;
         padding: 0 2.5rem 0 2.5rem;
-
         h1 {
           font-size: $font-size-md;
           line-height: 4.25rem;
@@ -82,8 +77,8 @@
     }
 
     .sign-up-container {
-      @include bg-img-paper;
-      background-size: 110%;
+      background-image: url("../../assets/images/pap-right.png");
+      @include bg-center;
       height: 100%;
       position: absolute;
       top: 0;
@@ -95,7 +90,6 @@
 
       .sign-up-form {
         @include flex-center;
-        background-color: $light-bg;
         text-align: center;
         height: 100%;
         padding: 0 2.5rem 0 2.5rem;
@@ -166,10 +160,8 @@
     z-index: 100;
 
     .overlay {
-      background-image: url("../../assets/images/b-1.png");
-      background-repeat: no-repeat;
-      background-size: cover;
-      background-position: center;
+      background-image: url("../../assets/images/blue-log.png");
+      @include bg-center;
       color: $light-txt;
       position: relative;
       left: -100%;
@@ -249,7 +241,7 @@
 
 .submit-btn-light {
   background-image: $bg-paper;
-  background-position: center;
+  @include bg-center;
   margin: 2rem;
   padding: 0.5rem 2rem;
   border-radius: 5rem;

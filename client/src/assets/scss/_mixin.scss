@@ -67,12 +67,12 @@
 @mixin btn-modal {
   background-position: center;
   background-size: cover;
-  background-color: $light-txt;
+  background-color: rgb(250, 233, 210);
   font-size: $font-size-xs;
   color: $dark;
   padding: 0.5rem 2rem;
   border-radius: 5rem;
-  box-shadow: $shadow-btn;
+  box-shadow: $shadow-btn-dark;
 }
 
 @mixin center-fixed {
@@ -142,4 +142,10 @@
   :active {
     border: 3px $primary solid;
   }
+}
+
+@mixin bg-center {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 }
