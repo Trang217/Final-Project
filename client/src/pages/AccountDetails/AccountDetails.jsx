@@ -68,6 +68,7 @@ const AccountDetails = () => {
       {editModalOpen ? (
         <Modal
           isOpen={editModalOpen}
+          ariaHideApp={false}
           style={{
             overlay: {
               backgroundColor: "rgba(204, 196, 157, 0.5)",
