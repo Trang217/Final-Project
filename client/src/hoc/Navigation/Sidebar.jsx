@@ -50,7 +50,7 @@ export default function Sidebar() {
           </div>
 
           <div className={`sidebar ${!isOpen ? "hideSidebar" : null}`}>
-            <Navigation />
+            <Navigation closeSidebar={closeSidebar} />
           </div>
         </div>
       ) : null}
