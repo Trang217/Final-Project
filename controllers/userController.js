@@ -9,6 +9,7 @@ const User = require("../models/User");
 const authenticationHelper = require("../helpers/authenticationHelper");
 const { tryCatchHelper } = require("../helpers/tryCatchHelper");
 const Email = require("../email/email");
+//const { getScore } = require("../helpers/calcScoreHelper");
 
 //--------------------IMPORT APP ERROR----------------------
 const AppError = require("../error/AppError");
@@ -42,6 +43,7 @@ exports.registerUser = tryCatchHelper(async (req, res, next) => {
   user.email = email;
   user.password = hashedPassword;
   user.badges = defaultBadges;
+  user.totalScore = 0
 
   await user.save();
 
@@ -159,6 +161,9 @@ exports.updateBadges = tryCatchHelper(async (req, res, next) => {
         "badges.$[element].score": score,
         "badges.$[element].date": Date.now(),
       },
+      $inc: {
+          "totalScore": score
+      }
     },
     {
       arrayFilters: [
@@ -236,8 +241,6 @@ exports.resetPassword = tryCatchHelper(async (req, res, next) => {
     message: "New password is successfully set!",
   });
 });
-
-// Update user account
 
 exports.updateFirstName = tryCatchHelper(async (req, res, next) => {
   const user = await User.findByIdAndUpdate(
@@ -331,3 +334,28 @@ exports.deleteUser = tryCatchHelper(async (req, res, next) => {
     message: "Your account is deleted!",
   });
 });
+
+exports.getUsers = tryCatchHelper(async (req, res, next) => {
+  const users = await User.find().select("userName badges")
+  // .sort()
+  // .limit(Number(req.query["limit"]) || 5)
+  // .skip(Number(req.query["skip"]) || 0)
+  .lean();
+ /* const allScores = users.map((user) => {
+    const singleUser = {
+      name: user.userName,
+      totalScore: getScore(user.badges),
+      desert: user.badges[0].score,
+      rainforest: user.badges[1].score,
+      // ocean: user.badges[2].score //! users without ocean throw an error
+    };
+    return singleUser;
+  });
+
+  const league = allScores.sort((a, b) => b.totalScore - a.totalScore);
+*/
+  if (!users) {
+    return next(new AppError("No Users exists!", 404));
+  }
+  return res.status(200).json({
+    users,
