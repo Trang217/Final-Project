@@ -239,6 +239,27 @@ exports.resetPassword = tryCatchHelper(async (req, res, next) => {
 
 // Update user account
 
+exports.updateAccountDetail = tryCatchHelper(async (req, res, next) => {
+  const user = await User.findById(req.user._id);
+
+  if (!user) {
+    return next(new AppError("No User exists!", 404));
+  }
+
+  const { firstName, userName, email } = req.body;
+
+  user.firstName = firstName;
+  user.userName = userName;
+  user.email = email;
+
+  user.save({ validateBeforeSave: true });
+
+  return res.status(200).json({
+    status: "success",
+    message: "Your account detail is successfully updated!",
+  });
+});
+
 exports.updateFirstName = tryCatchHelper(async (req, res, next) => {
   const user = await User.findByIdAndUpdate(
     req.user._id,
