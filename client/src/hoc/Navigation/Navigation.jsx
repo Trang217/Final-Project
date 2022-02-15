@@ -2,14 +2,14 @@
 import React, { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "../../utils/axiosInstance";
-import closeSidebar from "./Sidebar";
+//import closeSidebar from "./Sidebar";
 
 // ---- context import ----
 import { AuthContext } from "../../contexts/AuthContext/AuthContext";
 
 // ---- COMPONENT ----
 
-export default function Navigation() {
+export default function Navigation({closeSidebar}) {
   //? ---- variables ----
   const navigate = useNavigate();
   const { handleLogin } = useContext(AuthContext);
@@ -17,6 +17,7 @@ export default function Navigation() {
   //? ---- event handlers ----
   const handleLogout = async () => {
     await axios.get("/api/users/logout");
+    closeSidebar();
     handleLogin("");
     navigate("/");
   };
