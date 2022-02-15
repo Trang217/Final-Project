@@ -336,26 +336,15 @@ exports.deleteUser = tryCatchHelper(async (req, res, next) => {
 });
 
 exports.getUsers = tryCatchHelper(async (req, res, next) => {
-  const users = await User.find().select("userName badges")
-  // .sort()
-  // .limit(Number(req.query["limit"]) || 5)
-  // .skip(Number(req.query["skip"]) || 0)
+  const users = await User.find().select("userName totalScore")
+  .sort({totalScore: -1})
+  .limit(Number(req.query["limit"]) || 5)
+  .skip(Number(req.query["skip"]) || 0)
   .lean();
- /* const allScores = users.map((user) => {
-    const singleUser = {
-      name: user.userName,
-      totalScore: getScore(user.badges),
-      desert: user.badges[0].score,
-      rainforest: user.badges[1].score,
-      // ocean: user.badges[2].score //! users without ocean throw an error
-    };
-    return singleUser;
-  });
 
-  const league = allScores.sort((a, b) => b.totalScore - a.totalScore);
-*/
   if (!users) {
     return next(new AppError("No Users exists!", 404));
   }
   return res.status(200).json({
-    users,
+    users,})
+  });
