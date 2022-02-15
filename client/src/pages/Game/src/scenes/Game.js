@@ -1,7 +1,5 @@
-//import Phaser from 'phaser';
-import Hero from '../entities/Hero';
-
 import Phaser from 'phaser';
+import Hero from '../entities/Hero';
 
 //Images
 import tileMapLevel1 from '../../assets/tilemaps/level-1.json';
