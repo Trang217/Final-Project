@@ -45,18 +45,20 @@ const AccountDetails = () => {
       <h1>Account Details</h1>
 
       <table>
-        <tr>
-          <td>Your name</td>
-          <td>{firstName}</td>
-        </tr>
-        <tr>
-          <td>username</td>
-          <td>{userName}</td>
-        </tr>
-        <tr>
-          <td>email address</td>
-          <td>{email}</td>
-        </tr>
+        <tbody>
+          <tr>
+            <td>Your name</td>
+            <td>{firstName}</td>
+          </tr>
+          <tr>
+            <td>username</td>
+            <td>{userName}</td>
+          </tr>
+          <tr>
+            <td>email address</td>
+            <td>{email}</td>
+          </tr>
+        </tbody>
       </table>
 
       <button onClick={handleDeleteModal}>Delete this account</button>
