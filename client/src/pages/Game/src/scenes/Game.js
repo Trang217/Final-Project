@@ -1,5 +1,7 @@
-import Phaser from 'phaser';
+//import Phaser from 'phaser';
 import Hero from '../entities/Hero';
+
+import Phaser from 'phaser';
 
 //Images
 import tileMapLevel1 from '../../assets/tilemaps/level-1.json';
@@ -58,7 +60,7 @@ class Game extends Phaser.Scene {
   }
 
   addHero() {
-    this.hero = new Hero(this, 400, 300);
+    this.hero = new Hero(this, 400, 5955);
 
     this.physics.add.collider(
       this.hero,
