@@ -360,17 +360,21 @@ exports.deleteUser = tryCatchHelper(async (req, res, next) => {
 });
 
 exports.getUsers = tryCatchHelper(async (req, res, next) => {
+  
+  const userName = req.user.userName
   const users = await User.find()
     .select("userName totalScore")
     .sort({ totalScore: -1 })
-    .limit(Number(req.query["limit"]) || 5)
-    .skip(Number(req.query["skip"]) || 0)
+    .limit(30)
     .lean();
+
+  const placement = await users.findIndex(user=> user.userName === userName)
 
   if (!users) {
     return next(new AppError("No Users exists!", 404));
   }
   return res.status(200).json({
-    users,
+    placement,
+    users, userName
   });
 });

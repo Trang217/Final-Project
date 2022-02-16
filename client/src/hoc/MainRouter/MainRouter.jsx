@@ -29,6 +29,7 @@ import GameDesert from "../../pages/Game/GameDesert";
 
 // Quizzes
 import Quiz from "../../pages/Quiz/Quiz";
+import HallOfFame from "../../pages/HallOfFame/HallOfFame";
 
 export default function MainRouter() {
   return (
@@ -56,6 +57,10 @@ export default function MainRouter() {
               <Route
                 path="quiz/rainforest"
                 element={<Quiz biomeName="Rainforest" />}
+              />
+                <Route
+                path="/hall-of-fame"
+                element={<HallOfFame/>}
               />
             </Route>
           </Routes>
