@@ -76,15 +76,13 @@ const AboutUs = () => {
         check out our project repository on GitHub:{" "}
       </p>
 
-      <button>
-        <a
-          href="https://github.com/Trang217/Final-Project"
-          target="_blank"
-          rel="noreferrer"
-        >
-          Take me to the repo
-        </a>
-      </button>
+      <a
+        href="https://github.com/Trang217/Final-Project"
+        target="_blank"
+        rel="noreferrer"
+      >
+        <button>Take me to the repo</button>
+      </a>
     </div>
   );
 };
