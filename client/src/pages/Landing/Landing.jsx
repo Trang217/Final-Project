@@ -66,8 +66,6 @@ const Landing = () => {
             },
             content: {
               border: "none",
-              left: "15%",
-              right: "15%",
               backgroundColor: "transparent",
             },
           }}
