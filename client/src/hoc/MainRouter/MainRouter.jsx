@@ -3,8 +3,9 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 // Context
 import { AuthProvider } from "../../contexts/AuthContext/AuthContext";
 
-// Import Protected Routes
+// Import Protected & Public Routes
 import ProtectedRoutes from "./ProtectedRoutes";
+import PublicRoutes from "./PublicRoutes";
 
 //* Nav/Sidebar
 import Sidebar from "../Navigation/Sidebar";
@@ -36,13 +37,15 @@ export default function MainRouter() {
         <Sidebar />
         <main className="backgroundContainer">
           <Routes>
-            <Route path="/" element={<Landing />} />
-            <Route path="login" element={<LoginAndRegistration />} />
-            <Route path="forget-password" element={<ForgetPassword />} />
-            <Route path="reset-password/:token" element={<ResetPassword />} />
-
             <Route path="*" element={<NotFound />} />
             <Route path="about" element={<AboutUs />} />
+
+            <Route element={<PublicRoutes />}>
+              <Route path="/" element={<Landing />} />
+              <Route path="login" element={<LoginAndRegistration />} />
+              <Route path="forget-password" element={<ForgetPassword />} />
+              <Route path="reset-password/:token" element={<ResetPassword />} />
+            </Route>
 
             <Route element={<ProtectedRoutes />}>
               <Route path="account" element={<AccountDetails />} />
