@@ -73,6 +73,7 @@ const HallOfFame = () => {
     <div className="hallOfFame">
       {hasLoaded ? (
         <>
+          <h1>Hall of Fame</h1>
           <p>You are currently #{placement} in the league!</p>
           <p>
             {placement <= 3
@@ -85,28 +86,11 @@ const HallOfFame = () => {
           </p>
           <div className="podium">
             <div className="medal">
-              <h2>#1</h2>
-              {isTop1 === -1 ? (
-                <div className="card">
-                  <p>{random1.userName}</p>
-                  <p>score: {random1.totalScore}</p>
-                </div>
-              ) : (
-                <div className="card">
-                  <p>{rank1[isTop1].userName}</p>
-                  <p>score: {rank1[isTop1].totalScore}</p>
-                </div>
-              )}
-              {rank1.length > 1 ? (
-                <p>... and {rank1.length - 1} user(s) </p>
-              ) : null}
-            </div>
-            <div className="medal">
-              <h2>#2</h2>
+              <h2>2</h2>
               {isTop2 === -1 ? (
                 <div className="card">
-                  <p>{random2.userName}</p>
                   <p>score: {random2.totalScore}</p>
+                  <p className="name">{random2.userName}</p>
                 </div>
               ) : (
                 <div className="card">
@@ -115,15 +99,33 @@ const HallOfFame = () => {
                 </div>
               )}
               {rank2.length > 1 ? (
-                <p>... and {rank2.length - 1} user(s) </p>
+                <p>... and {rank2.length - 1} other user(s) </p>
               ) : null}
             </div>
             <div className="medal">
-              <h2>#3</h2>
+              <h2>1</h2>
+              {isTop1 === -1 ? (
+                <div className="card">
+                  <p>score: {random1.totalScore}</p>
+                  <p className="name">{random1.userName}</p>
+                </div>
+              ) : (
+                <div className="card">
+                  <p>score: {rank1[isTop1].totalScore}</p>
+                  <p>{rank1[isTop1].userName}</p>
+                </div>
+              )}
+              {rank1.length > 1 ? (
+                <p>... and {rank1.length - 1} other user(s) </p>
+              ) : null}
+            </div>
+
+            <div className="medal">
+              <h2>3</h2>
               {isTop3 === -1 ? (
                 <div className="card">
-                  <p>{random3.userName}</p>
                   <p>score: {random3.totalScore}</p>
+                  <p className="name">{random3.userName}</p>
                 </div>
               ) : (
                 <div className="card">
@@ -132,7 +134,7 @@ const HallOfFame = () => {
                 </div>
               )}
               {rank3.length > 1 ? (
-                <p>... and {rank3.length - 1} user(s) </p>
+                <p>... and {rank3.length - 1} other user(s) </p>
               ) : null}
             </div>
           </div>{" "}
