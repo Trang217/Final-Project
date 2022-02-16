@@ -31,11 +31,15 @@
         text-align: center;
         height: 100%;
         padding: 0 2.5rem 0 2.5rem;
-        h1 {
-          font-size: $font-size-md;
-          line-height: 4.25rem;
-          font-family: $font-title;
-          margin-bottom: 4rem;
+        h2 {
+          font-size: 3rem;
+          margin-bottom: 0;
+          font-family: $font-main;
+        }
+
+        p {
+          margin: 0.25rem 0 2rem 0;
+          font-size: $font-size-xs;
         }
 
         .label-input-container {
