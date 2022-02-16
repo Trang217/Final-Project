@@ -148,8 +148,20 @@ exports.getUserBadges = tryCatchHelper(async (req, res, next) => {
 
 exports.updateBadges = tryCatchHelper(async (req, res, next) => {
   const { score } = req.body;
-
   const { type } = req.body;
+
+  //---- set update total on conditions ----
+  const currentUser = await User.findOne({
+    _id: req.user._id,
+  }).select("badges");
+
+  const currentScore = currentUser.badges.filter((el) => el.type === type)[0]
+    .score;
+
+  const update = () => {
+    const amount = score - currentScore;
+    return amount > 0 ? amount : 0;
+  };
 
   const updatedUserBadges = await User.findOneAndUpdate(
     {
@@ -162,7 +174,7 @@ exports.updateBadges = tryCatchHelper(async (req, res, next) => {
         "badges.$[element].date": Date.now(),
       },
       $inc: {
-        totalScore: score,
+        totalScore: update(),
       },
     },
     {
@@ -354,21 +366,21 @@ exports.deleteUser = tryCatchHelper(async (req, res, next) => {
 });
 
 exports.getUsers = tryCatchHelper(async (req, res, next) => {
-  
-  const userName = req.user.userName
+  const userName = req.user.userName;
   const users = await User.find()
     .select("userName totalScore")
     .sort({ totalScore: -1 })
     .limit(30)
     .lean();
 
-  const placement = await users.findIndex(user=> user.userName === userName)
+  const placement = await users.findIndex((user) => user.userName === userName);
 
   if (!users) {
     return next(new AppError("No Users exists!", 404));
   }
   return res.status(200).json({
     placement,
-    users, userName
+    users,
+    userName,
   });
 });
