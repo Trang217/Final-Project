@@ -1,5 +1,4 @@
 @import "../../assets/scss/animations";
-@import "../../assets/scss/fonts";
 @import "../../assets/scss/variables";
 @import "../../assets/scss/mixin";
 
@@ -22,23 +21,23 @@
 
     .medal {
       @include bg-img-paper;
-      width: 30rem;
+      width: 31rem;
       height: 40rem;
       margin: 1rem;
       display: flex;
       flex-direction: column;
 
       h2 {
+        font-family: $font-title;
         background-image: url("../../assets/images/rosette.png");
         background-size: contain;
         background-repeat: no-repeat;
-        height: 15rem;
         background-position: center;
+        height: 15rem;
         margin: 2rem;
-        animation: rosette 3s linear infinite both alternate-reverse;
         padding: 3rem;
+        animation: rosette 3s linear infinite both alternate-reverse;
         filter: drop-shadow(16px 16px 20px rgb(177, 152, 152));
-        font-family: $font-title;
       }
 
       .name {
@@ -51,12 +50,12 @@
         margin-top: 2rem;
       }
 
-      // &:nth-child(1) {
-      //   border: 2px solid goldenrod;
-      // }
+      &:nth-child(1) {
+        filter: drop-shadow(5px 5px 10px rgb(163, 159, 159));
+      }
 
       &:nth-child(2) {
-        // border: 2px solid silver;
+        filter: drop-shadow(5px 5px 10px rgb(202, 171, 93));
         height: 45rem;
         width: 35rem;
 
@@ -66,9 +65,10 @@
           font-size: 4rem;
         }
       }
-      // &:nth-child(3) {
-      //   // border: 2px solid rgb(153, 117, 80);
-      // }
+
+      &:nth-child(3) {
+        filter: drop-shadow(5px 5px 10px rgb(153, 117, 80));
+      }
     }
   }
 }

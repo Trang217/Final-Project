@@ -1,5 +1,4 @@
 @import "../../assets/scss/animations";
-@import "../../assets/scss/fonts";
 @import "../../assets/scss/variables";
 @import "../../assets/scss/mixin";
 
@@ -28,7 +27,7 @@
         filter: grayscale(100%);
       }
       @include bg-img-paper;
-      width: 30rem;
+      width: 31rem;
       height: 40rem;
       margin: 1rem;
 
