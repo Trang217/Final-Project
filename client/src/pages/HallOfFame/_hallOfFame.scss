@@ -51,7 +51,12 @@
         margin-top: 2rem;
       }
 
+      &:nth-child(1) {
+        filter: drop-shadow(5px 5px 10px rgb(163, 159, 159));
+      }
+
       &:nth-child(2) {
+        filter: drop-shadow(5px 5px 10px rgb(202, 171, 93));
         height: 45rem;
         width: 35rem;
 
@@ -60,6 +65,9 @@
           padding: 3rem;
           font-size: 4rem;
         }
+      }
+      &:nth-child(3) {
+        filter: drop-shadow(5px 5px 10px rgb(153, 117, 80));
       }
     }
   }
