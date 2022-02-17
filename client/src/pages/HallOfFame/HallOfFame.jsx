@@ -1,7 +1,6 @@
 // ---- hooks, dependencies, styling import ----
 import { useState, useEffect } from "react";
 import axios from "../../utils/axiosInstance";
-// ---- components ----
 
 // ---- COMPONENT ----
 
@@ -26,8 +25,6 @@ const HallOfFame = () => {
     }
   };
 
-  //? ---- event handlers ----
-
   //? ---- variables ----
   //add a rank to each player
   let rank = 1;
@@ -37,7 +34,7 @@ const HallOfFame = () => {
     }
     league[i].rank = rank;
   }
-
+  // create top 3 arrays
   const rank1 = [];
   league.forEach((player) => {
     if (player.rank === 1) {
@@ -57,13 +54,20 @@ const HallOfFame = () => {
     }
   });
 
-  const isTop3 = rank3.findIndex((player) => player.userName === currentUser);
-  const isTop2 = rank2.findIndex((player) => player.userName === currentUser);
-  const isTop1 = rank1.findIndex((player) => player.userName === currentUser);
+  // establish if current user on podium
+  const findMe = (array) =>
+    array.findIndex((player) => player.userName === currentUser);
 
-  const random1 = rank1[Math.floor(Math.random() * rank1.length)];
-  const random2 = rank2[Math.floor(Math.random() * rank2.length)];
-  const random3 = rank3[Math.floor(Math.random() * rank3.length)];
+  const isTop1 = findMe(rank1);
+  const isTop2 = findMe(rank2);
+  const isTop3 = findMe(rank3);
+
+  // randomly select a user to be displayed if more than 1
+  const randomUser = (array) => array[Math.floor(Math.random() * array.length)];
+
+  const random1 = randomUser(rank1);
+  const random2 = randomUser(rank2);
+  const random3 = randomUser(rank3);
 
   useEffect(() => getData(), []);
 
