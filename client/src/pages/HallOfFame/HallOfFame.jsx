@@ -88,7 +88,9 @@ const HallOfFame = () => {
               ? `Wow, ${currentUser}, you're in the top 10, that's amazing!`
               : placement >= 0 && placement <= 20
               ? `That's a great score, ${currentUser}, keep it on!`
-              : `Good job, ${currentUser}! Keep on learning!`}
+              : placement >= 0
+              ? `Good job, ${currentUser}! Keep on learning!`
+              : null}
           </p>
           <div className="podium">
             <div className="medal">
