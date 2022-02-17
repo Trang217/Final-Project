@@ -40,13 +40,14 @@
     height: 5rem;
     width: 5rem;
     position: absolute;
-    top: 12%;
-    left: 49%;
+    top: 22%;
+    right: 33%;
+    z-index: 2;
   }
 }
-
 .accountModal {
   background-image: url("../../assets/images/pap-hor.png");
+  @include center-fixed;
   @include bg-center;
   @include flex-center;
   width: 65rem;
