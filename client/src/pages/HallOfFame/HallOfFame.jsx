@@ -78,15 +78,17 @@ const HallOfFame = () => {
       {hasLoaded ? (
         <>
           <h1>Hall of Fame</h1>
-          <p>You are currently #{placement} in the league!</p>
+          {placement >= 0 ? (
+            <p>You are currently #{placement} in the league!</p>
+          ) : null}{" "}
           <p>
-            {placement <= 3
+            {placement >= 0 && placement <= 3
               ? `Congratulations, ${currentUser}! You're a champion!`
-              : placement <= 10
-              ? `Wow, ${currentUser}, top 10, that's amazing!`
-              : placement <= 20
+              : placement >= 0 && placement <= 10
+              ? `Wow, ${currentUser}, you're in the top 10, that's amazing!`
+              : placement >= 0 && placement <= 20
               ? `That's a great score, ${currentUser}, keep it on!`
-              : `Good job, ${currentUser}! Keep on learning`}
+              : `Good job, ${currentUser}! Keep on learning!`}
           </p>
           <div className="podium">
             <div className="medal">
