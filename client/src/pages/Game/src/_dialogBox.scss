@@ -1,0 +1,56 @@
+@import '../../../assets/scss/animations';
+@import '../../../assets/scss/fonts';
+@import '../../../assets/scss/variables';
+@import '../../../assets/scss/mixin';
+
+.DialogWindow {
+  background-image: url('../assets/DialogBoxSmall.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  //border: solid black 2px;
+  padding: 2rem;
+  width: 620px;
+  height: 260px;
+  //min-width: 60rem;
+  position: absolute;
+  top: 30%;
+  font-size: 1.6rem;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  filter: drop-shadow(3px 5px 15px #000000);
+}
+
+.DialogMessage {
+  padding-left: 2rem;
+  width: 100%;
+}
+
+.DialogTitle {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 15px;
+  padding-left: 2rem;
+}
+
+.DialogFooter {
+  cursor: pointer;
+  font-size: 2rem;
+  margin-top: 15px;
+  margin-right: 20px;
+  text-align: end;
+}
+
+.test-border {
+  border: solid red 2px;
+  position: absolute;
+}
+
+.test-border-2 {
+  border: solid black 2px;
+}
+
+.fullscreen {
+  width: 100vw;
+  height: 100vh;
+  border: solid black 2px;
+}
