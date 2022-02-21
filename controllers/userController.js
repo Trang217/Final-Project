@@ -375,6 +375,8 @@ exports.getUsers = tryCatchHelper(async (req, res, next) => {
 
   const placement = await users.findIndex((user) => user.userName === userName);
 
+  const score = await User.findById(req.user._id).select("totalScore");
+
   if (!users) {
     return next(new AppError("No Users exists!", 404));
   }
@@ -382,5 +384,6 @@ exports.getUsers = tryCatchHelper(async (req, res, next) => {
     placement,
     users,
     userName,
+    score
   });
 });
