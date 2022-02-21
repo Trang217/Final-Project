@@ -29,17 +29,25 @@ const GameDesert = () => {
         default: 'arcade',
         arcade: {
           gravity: { y: 750 },
-          debug: true,
-          debugShowVelocity: true,
-          debugShowBody: true,
-          debugShowStatic: true,
+          debug: false,
+          debugShowVelocity: false,
+          debugShowBody: false,
+          debugShowStatic: false,
         },
       },
       parent: 'game-content',
       scene: [Game],
+      dom: {
+        createContainer: true,
+      },
     });
   });
 
-  return <div id="game-content" />;
+  return (
+    <div className="fullscreen">
+      <div className="test-border-2"></div>
+      <div id="game-content" />
+    </div>
+  );
 };
 export default GameDesert;
