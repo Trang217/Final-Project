@@ -352,13 +352,19 @@ exports.updatePassword = tryCatchHelper(async (req, res, next) => {
 });
 
 exports.deleteUser = tryCatchHelper(async (req, res, next) => {
-  const user = await User.findById(req.user._id);
-  user.active = false;
-  user.email = undefined;
-  user.userName = undefined;
-  user.password = undefined;
-  user.badges = undefined;
-  user.save();
+  const deleteUser = {
+    active: false,
+    email: "delete@delete.com",
+    userName: "delete",
+  };
+  const user = await User.findByIdAndUpdate(req.user._id, deleteUser, {
+    new: true,
+  });
+
+  if (!user) {
+    return next(new AppError("No User exists!", 404));
+  }
+
   return res.status(200).json({
     status: "success",
     message: "Your account is deleted!",

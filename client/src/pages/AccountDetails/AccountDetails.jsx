@@ -75,8 +75,6 @@ const AccountDetails = () => {
             },
             content: {
               border: "none",
-              left: "35%",
-              top: "15%",
               backgroundColor: "transparent",
             },
           }}
@@ -85,16 +83,17 @@ const AccountDetails = () => {
             <button className="accountModalBtn" onClick={handleEditModal}>
               X
             </button>
-          </div>
           <EditAccount
             currentFirstName={firstName}
             currentUserName={userName}
             currentEmail={email}
           />
+          </div>
         </Modal>
       ) : null}
 
       {deleteModalOpen ? (
+      
         <Modal
           isOpen={deleteModalOpen}
           style={{
@@ -103,8 +102,6 @@ const AccountDetails = () => {
             },
             content: {
               border: "none",
-              left: "35%",
-              top: "15%",
               backgroundColor: "transparent",
             },
           }}
@@ -113,9 +110,10 @@ const AccountDetails = () => {
             <button className="accountModalBtn" onClick={handleDeleteModal}>
               X
             </button>
-          </div>
           <DeleteAccount />
+          </div>
         </Modal>
+      
       ) : null}
     </div>
   );

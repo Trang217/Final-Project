@@ -1,7 +1,14 @@
-
 import React, { useRef, useState, Component, useEffect } from 'react';
 import Phaser from 'phaser';
 import Game from './src/scenes/Game';
+
+// Ratio
+const ratio = Math.max(
+  window.innerWidth / window.innerHeight,
+  window.innerHeight / window.innerWidth
+);
+const DEFAULT_HEIGHT = 720; // any height you want
+const DEFAULT_WIDTH = ratio * DEFAULT_HEIGHT;
 
 const GameDesert = () => {
   useEffect(() => {
@@ -10,8 +17,8 @@ const GameDesert = () => {
       parent: 'game',
       backgroundColor: '#33A5E7',
       scale: {
-        width: 800,
-        height: 600,
+        width: DEFAULT_WIDTH,
+        height: DEFAULT_HEIGHT,
         mode: Phaser.Scale.FIT,
         autoCenter: Phaser.Scale.CENTER_BOTH,
       },
@@ -22,18 +29,25 @@ const GameDesert = () => {
         default: 'arcade',
         arcade: {
           gravity: { y: 750 },
-          debug: true,
-          debugShowVelocity: true,
-          debugShowBody: true,
-          debugShowStatic: true,
+          debug: false,
+          debugShowVelocity: false,
+          debugShowBody: false,
+          debugShowStatic: false,
         },
       },
       parent: 'game-content',
       scene: [Game],
+      dom: {
+        createContainer: true,
+      },
     });
   });
 
-  return <div id="game-content" />;
-
+  return (
+    <div className="fullscreen">
+      <div className="test-border-2"></div>
+      <div id="game-content" />
+    </div>
+  );
 };
 export default GameDesert;

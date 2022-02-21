@@ -3,29 +3,6 @@
 @import "./mixin";
 @import "./variables";
 
-@import "../../pages/AboutUs/about";
-@import "../../pages/Quiz/quiz";
-@import "../../hoc/Navigation/sidebar";
-
-@import "../../pages/LoginAndRegistration/login";
-@import "../../pages/LoginAndRegistration/errorMessage";
-
-@import "../../pages/ForgetAndResetPassword/forgetAndResetPassword";
-
-@import "../../pages/Home/home";
-@import "../../pages/Home/story";
-
-@import "../../pages/Landing/landing";
-@import "../../pages/AccountDetails/accountDetails";
-@import "../../pages/MyBadges/myBadges";
-@import "../../components/bubble";
-@import "../../components/resize";
-@import "../../hoc/MainRouter/background";
-@import "../../pages/NotFound/notFound";
-@import "../../pages/HallOfFame/hallOfFame";
-
-@import "../../components/LandingMobile/landingMobile";
-
 :root {
   font-size: 62.5%;
   color: $dark;
@@ -35,3 +12,45 @@
 ::selection {
   background-color: $secondary;
 }
+
+//? SCSS _PARTIAL IMPORTS
+
+//* COMPONENTS
+// AnimalBubble
+@import "../../components/bubble";
+// LandingMobile
+@import "../../components/LandingMobile/landingMobile";
+// Resize
+@import "../../components/resize";
+
+//* HOC
+// MainRouter
+@import "../../hoc/MainRouter/background";
+// Navigation
+@import "../../hoc/Navigation/sidebar";
+
+//* PAGES
+// AboutUs
+@import "../../pages/AboutUs/about";
+// AccountDetails
+@import "../../pages/AccountDetails/accountDetails";
+// ForgetAndResetPassword
+@import "../../pages/ForgetAndResetPassword/forgetAndResetPassword";
+// Game
+@import "../../pages/Game/src/dialogBox";
+// HallOfFame
+@import "../../pages/HallOfFame/hallOfFame";
+// Home
+@import "../../pages/Home/home";
+@import "../../pages/Home/story";
+// Landing
+@import "../../pages/Landing/landing";
+// LoginAndRegistration
+@import "../../pages/LoginAndRegistration/login";
+@import "../../pages/LoginAndRegistration/errorMessage";
+// MyBadges
+@import "../../pages/MyBadges/myBadges";
+// NotFound
+@import "../../pages/NotFound/notFound";
+// Quiz
+@import "../../pages/Quiz/quiz";
