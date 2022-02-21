@@ -71,12 +71,12 @@ const HallOfFame = () => {
   const random2 = randomUser(rank2);
   const random3 = randomUser(rank3);
 
-console.log(score);
+  console.log(score);
   useEffect(() => getData(), []);
 
   //? ---- rendering ----
 
-    return (
+  return (
     <div className="hallOfFame">
       {hasLoaded ? (
         <>
