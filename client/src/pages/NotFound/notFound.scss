@@ -1,5 +1,4 @@
 @import "../../assets/scss/animations";
-@import "../../assets/scss/fonts";
 @import "../../assets/scss/variables";
 @import "../../assets/scss/mixin";
 
@@ -19,7 +18,7 @@
   color: white;
 
   h2 {
-    font-family: "Rochester";
+    font-family: $font-title;
     font-size: $font-size-md;
     margin: 2rem;
   }
