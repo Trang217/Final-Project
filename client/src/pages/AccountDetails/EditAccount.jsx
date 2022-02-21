@@ -31,7 +31,7 @@ const EditAccount = ({ currentFirstName, currentUserName, currentEmail }) => {
     try {
       const response = await axios.patch("/api/users/update", editData);
       if (response.status === 200) {
-        console.log("user updated!");
+        //console.log("user updated!");
         setMessage(response.data.message);
       }
     } catch (error) {

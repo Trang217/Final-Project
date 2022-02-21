@@ -21,7 +21,7 @@ const DeleteAccount = () => {
     try {
       const response = await axios.patch("/api/users/delete");
       if (response.status === 200) {
-        console.log("user is deleted!");
+        //console.log("user is deleted!");
         setMessage(response.data.message);
 
         setTimeout(() => {
