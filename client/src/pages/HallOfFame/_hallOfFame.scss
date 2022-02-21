@@ -1,7 +1,3 @@
-@import "../../assets/scss/animations";
-@import "../../assets/scss/variables";
-@import "../../assets/scss/mixin";
-
 .hallOfFame {
   @include flex-center;
   font-size: $font-size-sm;
