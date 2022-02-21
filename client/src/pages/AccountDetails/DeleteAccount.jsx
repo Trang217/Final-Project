@@ -35,8 +35,6 @@ const DeleteAccount = () => {
     }
   };
 
-  //? ---- variables ----
-
   //? ---- rendering ----
   return (
     <div className="accountModal">
