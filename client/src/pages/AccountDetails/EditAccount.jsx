@@ -31,7 +31,7 @@ const EditAccount = ({ currentFirstName, currentUserName, currentEmail }) => {
     try {
       const response = await axios.patch("/api/users/update", editData);
       if (response.status === 200) {
-        console.log("user updated!");
+        //console.log("user updated!");
         setMessage(response.data.message);
       }
     } catch (error) {
@@ -55,10 +55,10 @@ const EditAccount = ({ currentFirstName, currentUserName, currentEmail }) => {
         <p>{message}</p>
       ) : (
         <form onSubmit={handleEditSubmit}>
+          <label htmlFor="firstName">
+            Your current first name: {currentFirstName}
+          </label>
           <div className="input-container">
-            <label htmlFor="firstName">
-              Your current first name: {currentFirstName}
-            </label>
             <input
               value={firstName}
               id="firstName"
@@ -68,10 +68,10 @@ const EditAccount = ({ currentFirstName, currentUserName, currentEmail }) => {
               onChange={(e) => handleInputChange(e, setFirstName)}
             />
           </div>
+          <label htmlFor="userName">
+            Your current username: {currentUserName}
+          </label>
           <div className="input-container">
-            <label htmlFor="userName">
-              Your current username: {currentUserName}
-            </label>
             <input
               value={userName}
               id="userName"
@@ -81,8 +81,8 @@ const EditAccount = ({ currentFirstName, currentUserName, currentEmail }) => {
               onChange={(e) => handleInputChange(e, setUserName)}
             />
           </div>
+          <label htmlFor="email">Your current email: {currentEmail}</label>
           <div className="input-container">
-            <label htmlFor="email">Your current email: {currentEmail}</label>
             <input
               value={email}
               id="email"

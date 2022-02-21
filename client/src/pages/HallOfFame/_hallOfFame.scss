@@ -1,34 +1,70 @@
-@import "../../assets/scss/animations";
-@import "../../assets/scss/fonts";
-@import "../../assets/scss/variables";
-@import "../../assets/scss/mixin";
-
 .hallOfFame {
   @include flex-center;
   font-size: $font-size-sm;
-  margin: 0 50rem;
+  text-align: center;
+
+  h1 {
+    font-family: $font-title;
+    font-size: $font-size-md;
+    margin: 1rem;
+  }
+
   .podium {
+    margin: 1rem;
     display: flex;
     flex-direction: row;
+    align-items: center;
+
     .medal {
-      width: 25rem;
-      margin: 2rem;
+      @include bg-img-paper;
+      width: 31rem;
+      height: 40rem;
+      margin: 1rem;
       display: flex;
       flex-direction: column;
-      align-items: center;
+
+      h2 {
+        font-family: $font-title;
+        background-image: url("../../assets/images/rosette.png");
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        height: 15rem;
+        margin: 2rem;
+        padding: 3rem;
+        animation: rosette 3s linear infinite both alternate-reverse;
+        filter: drop-shadow(16px 16px 20px rgb(177, 152, 152));
+      }
+
+      .name {
+        font-family: $font-title;
+        font-size: $font-size-md;
+        margin: 1rem;
+      }
+
+      .card {
+        margin-top: 2rem;
+      }
 
       &:nth-child(1) {
-        border: 2px solid goldenrod;
+        filter: drop-shadow(5px 5px 10px rgb(163, 159, 159));
       }
+
       &:nth-child(2) {
-        border: 2px solid silver;
+        filter: drop-shadow(5px 5px 10px rgb(202, 171, 93));
+        height: 45rem;
+        width: 35rem;
+
+        h2 {
+          height: 20rem;
+          padding: 3rem;
+          font-size: 4rem;
+        }
       }
+
       &:nth-child(3) {
-        border: 2px solid rgb(153, 117, 80);
+        filter: drop-shadow(5px 5px 10px rgb(153, 117, 80));
       }
     }
-  }
-  .player {
-    margin: 2rem;
   }
 }

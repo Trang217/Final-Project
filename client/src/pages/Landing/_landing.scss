@@ -1,5 +1,4 @@
 @import "../../assets/scss/animations";
-@import "../../assets/scss/fonts";
 @import "../../assets/scss/variables";
 @import "../../assets/scss/mixin";
 
@@ -50,8 +49,8 @@
     font-size: $font-size-sm;
     height: 5rem;
     width: 5rem;
-    position: relative;
-    top: 5%;
-    left: 85%;
+    position: absolute;
+    top: 8%;
+    left: 75%;
   }
 }

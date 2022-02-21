@@ -13,7 +13,7 @@ class Hero extends Phaser.GameObjects.Sprite {
     this.body.setCollideWorldBounds(true);
     this.body.setSize(80, 118);
     this.body.setOffset(20, 25);
-    this.body.setMaxVelocity(250, 400);
+    this.body.setMaxVelocity(250, 1000);
     this.body.setDragX(750);
 
     this.keys = scene.cursorKeys;
@@ -70,12 +70,12 @@ class Hero extends Phaser.GameObjects.Sprite {
     this.input.didPressJump = Phaser.Input.Keyboard.JustDown(this.keys.up);
 
     if (this.keys.left.isDown) {
-      this.body.setAccelerationX(-1000);
+      this.body.setAccelerationX(-50000);
       this.setFlipX(true);
 
       //this.body.offset.x = 197;
     } else if (this.keys.right.isDown) {
-      this.body.setAccelerationX(1000);
+      this.body.setAccelerationX(50000);
       this.setFlipX(false);
 
       // this.body.offset.x = 196;

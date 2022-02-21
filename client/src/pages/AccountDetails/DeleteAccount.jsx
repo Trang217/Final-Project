@@ -19,9 +19,9 @@ const DeleteAccount = () => {
 
   const handleClick = async () => {
     try {
-      const response = await axios.delete("/api/users/delete");
+      const response = await axios.patch("/api/users/delete");
       if (response.status === 200) {
-        console.log("user is deleted!");
+        //console.log("user is deleted!");
         setMessage(response.data.message);
 
         setTimeout(() => {
@@ -34,8 +34,6 @@ const DeleteAccount = () => {
       setErrorMessage(error.response.data.message);
     }
   };
-
-  //? ---- variables ----
 
   //? ---- rendering ----
   return (

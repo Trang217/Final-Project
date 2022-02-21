@@ -9,7 +9,7 @@ import { AuthContext } from "../../contexts/AuthContext/AuthContext";
 
 // ---- COMPONENT ----
 
-export default function Navigation({closeSidebar}) {
+export default function Navigation({ closeSidebar }) {
   //? ---- variables ----
   const navigate = useNavigate();
   const { handleLogin } = useContext(AuthContext);
@@ -33,6 +33,11 @@ export default function Navigation({closeSidebar}) {
         <li>
           <Link to="/badges" onClick={closeSidebar}>
             Badges
+          </Link>
+        </li>
+        <li>
+          <Link to="/hall-of-fame" onClick={closeSidebar}>
+            Hall of Fame
           </Link>
         </li>
         <li>

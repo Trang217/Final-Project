@@ -1,5 +1,4 @@
 // ---- hooks, dependencies, styling import ----
-import "./notFound.scss";
 import { useNavigate } from "react-router-dom";
 
 // ---- COMPONENT ----

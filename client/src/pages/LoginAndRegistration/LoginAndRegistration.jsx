@@ -89,7 +89,7 @@ const LoginAndRegistration = () => {
           >
             <h2>Create account</h2>
             <p>
-              Are you new? Just one more step before you can start exploring!
+              Just one more step before you can start exploring!
               <br />
               Please tell us who you are!
             </p>
@@ -161,9 +161,8 @@ const LoginAndRegistration = () => {
 
         <div className="sign-in-container">
           <form onSubmit={handleLoginSubmit} className="sign-in-form">
-            <h1>
-              Sign in to Oiko <br /> to explore
-            </h1>
+            <h2>Login</h2>
+            <p>Sign in to Oiko to explore!</p>
 
             <div className="label-input-container ">
               <label htmlFor="email">Email:</label>
@@ -228,7 +227,7 @@ const LoginAndRegistration = () => {
             <div className="overlay-panel overlay-right">
               <h1>Hello, Explorer!</h1>
               <p>
-                Enter your details and start <br />
+                Are you new? Enter your detail and start <br />
                 your journey with us!
               </p>
               <button
