@@ -9,6 +9,7 @@ const HallOfFame = () => {
 
   const [league, setLeague] = useState([]);
   const [placement, setPlacement] = useState("");
+  const [score, setScore] = useState("");
   const [currentUser, setCurrentUser] = useState("");
   const [hasLoaded, setHasLoaded] = useState(false);
 
@@ -19,6 +20,7 @@ const HallOfFame = () => {
       setLeague(response.data.users);
       setPlacement(response.data.placement);
       setCurrentUser(response.data.userName);
+      setScore(response.data.score.totalScore);
       setHasLoaded(true);
     } catch (error) {
       console.log(error);
@@ -69,6 +71,7 @@ const HallOfFame = () => {
   const random2 = randomUser(rank2);
   const random3 = randomUser(rank3);
 
+console.log(score);
   useEffect(() => getData(), []);
 
   //? ---- rendering ----
@@ -79,7 +82,7 @@ const HallOfFame = () => {
         <>
           <h1>Hall of Fame</h1>
           {placement >= 0 ? (
-            <p>You are currently #{placement} in the league!</p>
+            <p>You are currently #{placement} in the league with {score} points!</p>
           ) : null}{" "}
           <p>
             {placement >= 0 && placement <= 3
