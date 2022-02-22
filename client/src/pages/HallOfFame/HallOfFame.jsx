@@ -71,7 +71,6 @@ const HallOfFame = () => {
   const random2 = randomUser(rank2);
   const random3 = randomUser(rank3);
 
-console.log(score);
   useEffect(() => getData(), []);
 
   //? ---- rendering ----
@@ -105,8 +104,8 @@ console.log(score);
                 </div>
               ) : (
                 <div className="card">
-                  <p>{rank3[isTop2].userName}</p>
                   <p>score: {rank3[isTop2].totalScore}</p>
+                  <p className="name">{rank3[isTop2].userName}</p>
                 </div>
               )}
               {rank2.length > 1 ? (
@@ -123,7 +122,7 @@ console.log(score);
               ) : (
                 <div className="card">
                   <p>score: {rank1[isTop1].totalScore}</p>
-                  <p>{rank1[isTop1].userName}</p>
+                  <p className="name">{rank1[isTop1].userName}</p>
                 </div>
               )}
               {rank1.length > 1 ? (
@@ -140,8 +139,8 @@ console.log(score);
                 </div>
               ) : (
                 <div className="card">
-                  <p>{rank3[isTop3].userName}</p>
                   <p>score: {rank3[isTop3].totalScore}</p>
+                  <p className="name">{rank3[isTop3].userName}</p>
                 </div>
               )}
               {rank3.length > 1 ? (
