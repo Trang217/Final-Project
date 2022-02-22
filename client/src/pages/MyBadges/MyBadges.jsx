@@ -11,14 +11,14 @@ import Badge from "./Badge";
 const MyBadges = () => {
   //? ---- hooks ----
   const [badges, setBadges] = useState([]);
-  const [firstName, setFirstName] = useState("");
+  const [userName, setUserName] = useState("");
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const res = await axios.get("/api/users/badges");
         setBadges(res.data.badges);
-        setFirstName(res.data.firstName);
+        setUserName(res.data.userName);
       } catch (error) {
         console.error(error);
       }
@@ -30,7 +30,7 @@ const MyBadges = () => {
   //? ---- rendering ----
   return (
     <div className="myBadges">
-      <div className="greeting">Hello {capitalize(firstName)}!</div>
+      <div className="greeting">Hello {capitalize(userName)}!</div>
       <p>
         See all the chapters change as you explore the ecosystems! <br></br>{" "}
         Help the scientist finish his book before he wakes up!
