@@ -81,7 +81,7 @@ const HallOfFame = () => {
         <>
           <h1>Hall of Fame</h1>
           {placement >= 0 ? (
-            <p>You are currently #{placement} in the league with {score} points!</p>
+            <p>You are currently #{placement + 1} in the league with {score} points!</p>
           ) : null}{" "}
           <p>
             {placement >= 0 && placement <= 3
@@ -104,8 +104,8 @@ const HallOfFame = () => {
                 </div>
               ) : (
                 <div className="card">
-                  <p>score: {rank3[isTop2].totalScore}</p>
-                  <p className="name">{rank3[isTop2].userName}</p>
+                  <p>score: {rank2[isTop2].totalScore}</p>
+                  <p className="name">{rank2[isTop2].userName}</p>
                 </div>
               )}
               {rank2.length > 1 ? (
