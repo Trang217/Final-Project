@@ -1,5 +1,6 @@
 // ---- hooks, dependencies, styling import ----
-import { useState } from "react";
+import axios from "../../utils/axiosInstance";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Modal from "react-modal";
 
@@ -14,6 +15,20 @@ const Home = () => {
   //? ---- hooks ----
   const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
+  const [username, setUsername] = useState("");
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res = await axios.get("/api/users/profile");
+        setUsername(res.data.user.userName);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    fetchData();
+  }, []);
 
   //? ---- event handlers ----
 
@@ -25,14 +40,18 @@ const Home = () => {
     setIsOpen(false);
   };
 
-  const navigateToProfile = () => {
-    console.log("Player clicked, navigate to profile");
-  };
+  // const navigateToProfile = () => {
+  //   console.log("Player clicked, navigate to profile");
+  // };
 
   //? ---- rendering ----
   return (
     <div className="home">
       <div className="start">
+        <h1>
+          Hi {username},<br /> enjoy your exploration!
+        </h1>
+
         <div
           className="inkBlot pulse-me"
           onClick={() => navigate("/badges")}
