@@ -37,7 +37,7 @@ class Hero extends Phaser.GameObjects.Sprite {
       ],
       methods: {
         onEnterState: (lifecycle) => {
-          console.log(lifecycle);
+          //console.log(lifecycle);
         },
         onJump: () => {
           this.body.setVelocityY(-400);
