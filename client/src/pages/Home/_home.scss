@@ -6,6 +6,12 @@
     @include center-fixed;
     @include flex-center;
 
+    .greeting {
+      font-family: $font-title;
+      font-size: $font-size-md;
+      margin-bottom: 10rem;
+    }
+
     h1 {
       font-family: $font-title;
       font-size: $font-size-md;

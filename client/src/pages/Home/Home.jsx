@@ -1,4 +1,5 @@
 // ---- hooks, dependencies, styling import ----
+
 import axios from "../../utils/axiosInstance";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
@@ -16,27 +17,24 @@ const Home = () => {
   //? ---- hooks ----
   const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
-  const [username, setUsername] = useState("");
-
+  const [myName, setMyName] = useState("");
   const [mousePosition, setMousePosition] = useState({
     left: 0,
     top: 0,
-  });
+    });
+
+  //? ---- API CONNECTION ----
+
+  const getData = async () => {
+    try {
+      const response = await axios.get(`/api/users/getInfo?get=firstName`);
+      setMyName(response.data.user.firstName);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   const { width } = useWindowDimensions();
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const res = await axios.get("/api/users/profile");
-        setUsername(res.data.user.userName);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-
-    fetchData();
-  }, []);
 
   //? ---- event handlers ----
 
@@ -51,22 +49,25 @@ const Home = () => {
   const handleMouseMove = (e) => {
     setMousePosition({ left: e.pageX, top: e.pageY });
   };
+  
+  useEffect(() => getData(), []);
 
   //? ---- rendering ----
   return (
     <div className="home" onMouseMove={(e) => handleMouseMove(e)}>
       <div className="start">
+
+        <div className="greeting slide-me"> Welcome, {myName}! </div>
         {/* <p>
           {mousePosition.left.toString()} / {mousePosition.top.toString()}
-        </p> */}
+        </p> 
         <h1
         // style={{
         //   transform: `rotate(${mousePosition.top / mousePosition.left}deg)`,
         // }}
         >
           Hi {username},<br /> enjoy your exploration!
-        </h1>
-
+        </h1>*/}
         <div
           className="inkBlot"
           style={{
@@ -74,7 +75,9 @@ const Home = () => {
           }}
           onClick={() => navigate("/badges")}
         ></div>
-        <button onClick={openModal}>What am I doing here?</button>
+        <button className="slide-me" onClick={openModal}>
+          What am I doing here?
+        </button>
         <Modal
           isOpen={isOpen}
           ariaHideApp={false}
