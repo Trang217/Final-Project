@@ -21,7 +21,7 @@ const Home = () => {
   const [mousePosition, setMousePosition] = useState({
     left: 0,
     top: 0,
-    });
+  });
 
   //? ---- API CONNECTION ----
 
@@ -49,25 +49,17 @@ const Home = () => {
   const handleMouseMove = (e) => {
     setMousePosition({ left: e.pageX, top: e.pageY });
   };
-  
+
   useEffect(() => getData(), []);
 
   //? ---- rendering ----
   return (
     <div className="home" onMouseMove={(e) => handleMouseMove(e)}>
       <div className="start">
+        <h1 className="greeting slide-me">
+          Hi {myName},<br /> enjoy your exploration!
+        </h1>
 
-        <div className="greeting slide-me"> Welcome, {myName}! </div>
-        {/* <p>
-          {mousePosition.left.toString()} / {mousePosition.top.toString()}
-        </p> 
-        <h1
-        // style={{
-        //   transform: `rotate(${mousePosition.top / mousePosition.left}deg)`,
-        // }}
-        >
-          Hi {username},<br /> enjoy your exploration!
-        </h1>*/}
         <div
           className="inkBlot"
           style={{
