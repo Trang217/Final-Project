@@ -12,19 +12,35 @@ import DesertBg from '../../assets/TestBackground.png';
 import secondBg from '../../assets/secondBg.png';
 import thirdBg from '../../assets/thirdBg2.png';
 import foreGround from '../../assets/foreGround.png';
-import Turtle from '../../assets/item_15.png';
+import Turtle from '../../assets/item_15.2.png';
 import Platform from '../../assets/PlatformLong.png';
 import FinalBg from '../../assets/DesertBGSmall.png';
+import Flag from '../../assets/flag.png';
+import spaceButton from '../../assets/spaceBar.png';
+import StoneForeGround from '../../assets/stoneFG.png';
 
 //DialogBoxImage
 import DialogBoxImage from '../../assets/DialogBoxSmall.png';
 
-let inZone = false;
+let inZoneTurtle = false;
+let inZoneFlag = false;
 let div1 = document.createElement('div');
 let DialogBox2 = document.createElement('div');
+let DialogBoxFlag = document.createElement('div');
+let SpaceBar;
 let visible = false;
+let quizBox = document.createElement('div');
+let quizExit;
+const FlagPos = 500;
 
-const turtleX = 2000;
+const turtleX = 8000;
+
+// EXTERNAL LINK
+function openExternalLink() {
+  var url = 'http://localhost:3000/quiz/desert';
+
+  window.open(url, '_self');
+}
 
 class Game extends Phaser.Scene {
   constructor() {
@@ -43,6 +59,9 @@ class Game extends Phaser.Scene {
     this.load.image('turtle', Turtle);
     this.load.image('DialogBox', DialogBoxImage);
     this.load.image('Foreground', foreGround);
+    this.load.image('flag', Flag);
+    this.load.image('spaceBar', spaceButton);
+    this.load.image('stones', StoneForeGround);
 
     this.load.spritesheet('hero-idle-sheet', klexStand, {
       frameWidth: 127,
@@ -73,7 +92,11 @@ class Game extends Phaser.Scene {
     // TURTLE
     const turtle = this.physics.add
       .staticImage(turtleX, 830, 'turtle')
-      .setScale(0.13);
+      .setScale(0.25)
+      .setSize(300, 200)
+      .setOffset(750, 400);
+
+    // OSTRICH
 
     this.anims.create({
       key: 'hero-idle',
@@ -91,30 +114,69 @@ class Game extends Phaser.Scene {
 
     //this.addMap();
 
+    // MAP LOADING
     this.addMap2();
 
+    // EXIT FLAG
+    const exitFlag = this.physics.add
+      .staticImage(FlagPos, 845, 'flag')
+      .setScale(0.2)
+      .setSize(170, 200)
+      .setOffset(300, 350)
+      .setInteractive();
+
+    exitFlag.on('pointerup', openExternalLink, this);
+    // HERO LOADING
     this.addHero();
 
+    // FOREGROUND
     this.add.image(1300, 750, 'Foreground').setScrollFactor(1.2);
+    this.add.image(3700, 750, 'Foreground').setScrollFactor(1.2);
+    this.add.image(5000, 750, 'Foreground').setScrollFactor(1.2);
+    this.add.image(6300, 750, 'stones').setScrollFactor(1.2);
+    this.add.image(7600, 750, 'stones').setScrollFactor(1.2);
+    this.add.image(8900, 750, 'stones').setScrollFactor(1.2);
 
+    // HERO WORLD COLLIDERS
     this.hero.body.collideWorldBounds = true;
 
+    // CAMERA CONTROLS
     this.cameras.main.setBounds(0, 0, 9800, height * 1.4);
     this.cameras.main.startFollow(this.hero);
 
+    // COLLISION DETECTION
+    // OVERLAP TURTLE
     this.physics.add.overlap(this.hero, turtle, function () {
-      inZone = true;
+      inZoneTurtle = true;
+    });
+
+    // OVERLAP FLAG
+    this.physics.add.overlap(this.hero, exitFlag, function () {
+      inZoneFlag = true;
     });
 
     // DIALOGBOX
     div1.style =
-      ' width: 220px; height: 100px; font: 24px SeoulHangang; font-weight: 400; ';
-    div1.innerText = 'Klex';
+      ' width: 350px; height: 100px; font: 18px SeoulHangang; font-weight: 400; color: black ';
+    div1.innerText = `"What's that moving stone?"     "The desert tortoise is able to adapt to the extreme temperature of the desert through its large urinary bladder. Whenever it finds water, it works like a sponge, storing enough water to equal over 40 percent of its body weight. Because of this amazing ability, it can go without water for months. Adult tortoises are known to go without water for nearly one year. They eat fruits, herbs and wildflowers."`;
 
-    // Add the DIalogBackground Sprite and make it invisible as default
+    // Add the DialogBackground Sprite and make it invisible as default
     DialogBox2 = this.add.sprite(turtleX, 600, 'DialogBox');
     DialogBox2.visible = false;
     //this.add.sprite(800, 700, 'DialogBox');
+
+    // QUIZBOX
+    quizBox.style =
+      ' width: 350px; height: 100px; font: 18px SeoulHangang; font-weight: 400; color: black';
+    quizBox.innerText = 'Checkout the Quiz';
+    quizExit = this.add.dom(FlagPos + 100, 720, quizBox);
+    quizExit.visible = false;
+    DialogBoxFlag = this.add.sprite(FlagPos, 630, 'DialogBox').setScale(0.6);
+    DialogBoxFlag.visible = false;
+
+    // PRESS SPACE ICON
+    SpaceBar = this.add.image(FlagPos, 600, 'spaceBar').setScale(0.15);
+    SpaceBar.visible = false;
   }
 
   //Methods
@@ -149,19 +211,36 @@ class Game extends Phaser.Scene {
   }
 
   update(time, delta) {
-    if (inZone && this.cursorKeys.space.isDown) {
-      console.log('colliding');
+    // TURTLE INFOBOX
+    if (inZoneTurtle && this.cursorKeys.space.isDown) {
+      console.log(' this colliding');
       this.box2 = this.add.dom(turtleX, 550, div1);
       DialogBox2.visible = true;
       visible = true;
     }
 
+    // FLAG
+    if (inZoneFlag) {
+      SpaceBar.visible = true;
+      quizExit.visible = true;
+      DialogBoxFlag.visible = true;
+      if (this.cursorKeys.space.isDown) {
+        openExternalLink();
+      }
+    } else {
+      SpaceBar.visible = false;
+      quizExit.visible = false;
+      DialogBoxFlag.visible = false;
+    }
+
+    // DESTROY INFOBOX
     if (visible && this.cursorKeys.shift.isDown) {
       this.box2.destroy();
       DialogBox2.visible = false;
     }
 
-    inZone = false;
+    inZoneTurtle = false;
+    inZoneFlag = false;
   }
 }
 
