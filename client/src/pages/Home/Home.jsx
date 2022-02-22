@@ -3,6 +3,7 @@ import axios from "../../utils/axiosInstance";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Modal from "react-modal";
+import useWindowDimensions from "../../utils/windowSize";
 
 // ---- components ----
 
@@ -16,6 +17,13 @@ const Home = () => {
   const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
   const [username, setUsername] = useState("");
+
+  const [mousePosition, setMousePosition] = useState({
+    left: 0,
+    top: 0,
+  });
+
+  const { width } = useWindowDimensions();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -40,20 +48,30 @@ const Home = () => {
     setIsOpen(false);
   };
 
-  // const navigateToProfile = () => {
-  //   console.log("Player clicked, navigate to profile");
-  // };
+  const handleMouseMove = (e) => {
+    setMousePosition({ left: e.pageX, top: e.pageY });
+  };
 
   //? ---- rendering ----
   return (
-    <div className="home">
+    <div className="home" onMouseMove={(e) => handleMouseMove(e)}>
       <div className="start">
-        <h1>
+        {/* <p>
+          {mousePosition.left.toString()} / {mousePosition.top.toString()}
+        </p> */}
+        <h1
+        // style={{
+        //   transform: `rotate(${mousePosition.top / mousePosition.left}deg)`,
+        // }}
+        >
           Hi {username},<br /> enjoy your exploration!
         </h1>
 
         <div
-          className="inkBlot pulse-me"
+          className="inkBlot"
+          style={{
+            transform: mousePosition.left < width / 2 ? `scale(-1,1)` : null,
+          }}
           onClick={() => navigate("/badges")}
         ></div>
         <button onClick={openModal}>What am I doing here?</button>
