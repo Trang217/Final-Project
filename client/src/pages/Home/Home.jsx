@@ -1,7 +1,8 @@
 // ---- hooks, dependencies, styling import ----
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Modal from "react-modal";
+import axios from "../../utils/axiosInstance";
 
 // ---- components ----
 
@@ -14,6 +15,18 @@ const Home = () => {
   //? ---- hooks ----
   const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
+  const [myName, setMyName] = useState("");
+
+  //? ---- API CONNECTION ----
+
+  const getData = async () => {
+    try {
+      const response = await axios.get(`/api/users/getInfo?get=firstName`);
+      setMyName(response.data.user.firstName);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   //? ---- event handlers ----
 
@@ -25,19 +38,19 @@ const Home = () => {
     setIsOpen(false);
   };
 
-  const navigateToProfile = () => {
-    console.log("Player clicked, navigate to profile");
-  };
-
+  useEffect(() => getData(), []);
   //? ---- rendering ----
   return (
     <div className="home">
       <div className="start">
+        <div className="greeting slide-me">Welcome, {myName}!</div>
         <div
           className="inkBlot pulse-me"
           onClick={() => navigate("/badges")}
         ></div>
-        <button onClick={openModal}>What am I doing here?</button>
+        <button className="slide-me" onClick={openModal}>
+          What am I doing here?
+        </button>
         <Modal
           isOpen={isOpen}
           ariaHideApp={false}

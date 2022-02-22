@@ -1,20 +1,23 @@
-@import "../../assets/scss/mixin";
-
 .home {
   @include bg-img;
   .start {
     @include center-fixed;
     @include flex-center;
-  }
-  .inkBlot {
-    background-image: url("../../assets/images/blob_2.png");
-    background-position: center;
-    background-size: cover;
-    height: 400px;
-    width: 300px;
-  }
-  button {
-    @include btn-green;
+    .greeting {
+      font-family: $font-title;
+      font-size: $font-size-md;
+      margin-bottom: 10rem;
+    }
+    .inkBlot {
+      background-image: url("../../assets/images/blob_2.png");
+      background-position: center;
+      background-size: cover;
+      height: 400px;
+      width: 300px;
+    }
+    button {
+      @include btn-green;
+    }
   }
 }
 .story-overlay {
