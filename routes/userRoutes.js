@@ -20,6 +20,7 @@ router.use(authenticationHelper.authenticateJwt);
 
 router.get("/list", controller.listUsers);
 router.get("/profile", controller.profile);
+router.get("/getinfo", controller.userInfo);
 
 //badges
 

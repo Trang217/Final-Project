@@ -393,3 +393,21 @@ exports.getUsers = tryCatchHelper(async (req, res, next) => {
     score
   });
 });
+
+// get selected user info: i.e. use /getInfo?get=userName to get current user userName
+
+exports.userInfo = tryCatchHelper(async (req, res, next) => {
+  const select = req.query["get"]
+
+  const user = await User.findById(req.user._id).select(
+    [select]
+  );
+
+  if (!user) {
+    return next(new AppError("No User exists!", 404));
+  }
+
+  return res
+    .status(200)
+    .json({ status: "success", user });
+});
