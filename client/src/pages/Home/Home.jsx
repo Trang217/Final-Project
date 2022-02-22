@@ -1,8 +1,10 @@
 // ---- hooks, dependencies, styling import ----
+
+import axios from "../../utils/axiosInstance";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Modal from "react-modal";
-import axios from "../../utils/axiosInstance";
+import useWindowDimensions from "../../utils/windowSize";
 
 // ---- components ----
 
@@ -16,6 +18,10 @@ const Home = () => {
   const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
   const [myName, setMyName] = useState("");
+  const [mousePosition, setMousePosition] = useState({
+    left: 0,
+    top: 0,
+    });
 
   //? ---- API CONNECTION ----
 
@@ -28,6 +34,8 @@ const Home = () => {
     }
   };
 
+  const { width } = useWindowDimensions();
+
   //? ---- event handlers ----
 
   const openModal = () => {
@@ -38,14 +46,33 @@ const Home = () => {
     setIsOpen(false);
   };
 
+  const handleMouseMove = (e) => {
+    setMousePosition({ left: e.pageX, top: e.pageY });
+  };
+  
   useEffect(() => getData(), []);
+
   //? ---- rendering ----
   return (
-    <div className="home">
+    <div className="home" onMouseMove={(e) => handleMouseMove(e)}>
       <div className="start">
-        <div className="greeting slide-me">Welcome, {myName}!</div>
+
+        <div className="greeting slide-me"> Welcome, {myName}! </div>
+        {/* <p>
+          {mousePosition.left.toString()} / {mousePosition.top.toString()}
+        </p> 
+        <h1
+        // style={{
+        //   transform: `rotate(${mousePosition.top / mousePosition.left}deg)`,
+        // }}
+        >
+          Hi {username},<br /> enjoy your exploration!
+        </h1>*/}
         <div
-          className="inkBlot pulse-me"
+          className="inkBlot"
+          style={{
+            transform: mousePosition.left < width / 2 ? `scale(-1,1)` : null,
+          }}
           onClick={() => navigate("/badges")}
         ></div>
         <button className="slide-me" onClick={openModal}>
