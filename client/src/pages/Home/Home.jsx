@@ -27,8 +27,8 @@ const Home = () => {
 
   const getData = async () => {
     try {
-      const response = await axios.get(`/api/users/getInfo?get=firstName`);
-      setMyName(response.data.user.firstName);
+      const response = await axios.get(`/api/users/getInfo?get=userName`);
+      setMyName(response.data.user.userName);
     } catch (error) {
       console.log(error);
     }
@@ -57,7 +57,7 @@ const Home = () => {
     <div className="home" onMouseMove={(e) => handleMouseMove(e)}>
       <div className="start">
 
-        <div className="greeting slide-me"> Welcome, {myName}! </div>
+        <div className="greeting slide-me"> Hi {myName},<br /> enjoy your exploration!</div>
         {/* <p>
           {mousePosition.left.toString()} / {mousePosition.top.toString()}
         </p> 
