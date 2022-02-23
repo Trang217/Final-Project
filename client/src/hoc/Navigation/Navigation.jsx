@@ -1,6 +1,6 @@
 // ---- hooks, dependencies, styling import ----
 import React, { useContext } from "react";
-import { Link, useNavigate, NavLink } from "react-router-dom";
+import { useNavigate, NavLink } from "react-router-dom";
 import axios from "../../utils/axiosInstance";
 //import closeSidebar from "./Sidebar";
 
