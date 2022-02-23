@@ -3,7 +3,6 @@
 @import "../../assets/scss/mixin";
 
 .landing {
-  @include bg-filter;
   .openModalButton {
     @include bubble;
     animation: float 8s linear infinite reverse both;
