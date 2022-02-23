@@ -26,18 +26,18 @@ export default function Navigation({ closeSidebar }) {
     <nav className="nav">
       <ul>
         <li>
-          <NavLink activeClassName="active" to="/home" onClick={closeSidebar}>
+          <NavLink activeclassname="active" to="/home" onClick={closeSidebar}>
             Home
           </NavLink>
         </li>
         <li>
-          <NavLink activeClassName="active" to="/badges" onClick={closeSidebar}>
+          <NavLink activeclassname="active" to="/badges" onClick={closeSidebar}>
             Badges
           </NavLink>
         </li>
         <li>
           <NavLink
-            activeClassName="active"
+            activeclassname="active"
             to="/hall-of-fame"
             onClick={closeSidebar}
           >
@@ -45,13 +45,13 @@ export default function Navigation({ closeSidebar }) {
           </NavLink>
         </li>
         <li>
-          <NavLink activeClassName="active" to="/about" onClick={closeSidebar}>
+          <NavLink activeclassname="active" to="/about" onClick={closeSidebar}>
             About
           </NavLink>
         </li>
         <li>
           <NavLink
-            activeClassName="active"
+            activeclassname="active"
             to="/account"
             onClick={closeSidebar}
           >
