@@ -132,7 +132,7 @@ exports.profile = tryCatchHelper(async (req, res, next) => {
 //badges
 
 exports.getUserBadges = tryCatchHelper(async (req, res, next) => {
-  const userInfo = await User.findById(req.user._id).select("firstName badges");
+  const userInfo = await User.findById(req.user._id).select("userName badges");
 
   if (!userInfo) {
     return next(new AppError("No User exists!", 404));
@@ -142,7 +142,7 @@ exports.getUserBadges = tryCatchHelper(async (req, res, next) => {
     status: "success",
     message: "user information",
     badges: userInfo.badges,
-    firstName: userInfo.firstName,
+    userName: userInfo.userName,
   });
 });
 

@@ -27,8 +27,8 @@ const Home = () => {
 
   const getData = async () => {
     try {
-      const response = await axios.get(`/api/users/getInfo?get=firstName`);
-      setMyName(response.data.user.firstName);
+      const response = await axios.get(`/api/users/getInfo?get=userName`);
+      setMyName(response.data.user.userName);
     } catch (error) {
       console.log(error);
     }
@@ -59,7 +59,17 @@ const Home = () => {
         <h1 className="greeting slide-me">
           Hi {myName},<br /> enjoy your exploration!
         </h1>
-
+        <div className="greeting slide-me"> Hi {myName},<br /> enjoy your exploration!</div>
+        {/* <p>
+          {mousePosition.left.toString()} / {mousePosition.top.toString()}
+        </p> 
+        <h1
+        // style={{
+        //   transform: `rotate(${mousePosition.top / mousePosition.left}deg)`,
+        // }}
+        >
+          Hi {username},<br /> enjoy your exploration!
+        </h1>*/}
         <div
           className="inkBlot"
           style={{
