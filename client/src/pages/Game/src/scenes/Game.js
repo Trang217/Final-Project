@@ -16,7 +16,7 @@ import Turtle from "../../assets/item_15.2.png";
 import Platform from "../../assets/PlatformLong.png";
 import FinalBg from "../../assets/DesertBGSmall.png";
 import Flag from "../../assets/flag.png";
-// import spaceButton from "../../assets/spaceBar.png";
+// import spaceButton from "../../assets/spaceBar.png"; //? can be removed
 import StoneForeGround from "../../assets/stoneFG.png";
 
 //DialogBoxImage
@@ -30,7 +30,7 @@ let div15 = document.createElement("div"); //!turtle div
 // let SpaceBar; //? can be removed
 let visible = false;
 let quizBox = document.createElement("div");
-let quizExit;
+// let quizExit; //? can be removed
 const FlagPos = 1000;
 const turtleX = 600;
 
@@ -212,8 +212,8 @@ class Game extends Phaser.Scene {
     quizBox.classList.add("quizBox");
     quizBox.innerHTML =
       "<p>Click space to <br/> go to the quiz</></p><div></div>";
-    quizExit = this.add.dom(FlagPos + 100, 720, quizBox);
-    quizExit.visible = false;
+    quizBox = this.add.dom(FlagPos + 100, 720, quizBox);
+    quizBox.visible = false;
     // DialogBoxFlag = this.add.sprite(FlagPos, 630, "DialogBox").setScale(0.6); //? can be removed
     // DialogBoxFlag.visible = false; //? can be removed
     // PRESS SPACE ICON
@@ -263,15 +263,15 @@ class Game extends Phaser.Scene {
     //! TURTLE ----------------------------------------------------------------------
     // FLAG
     if (inZoneFlag) {
-      // SpaceBar.visible = true;
-      quizExit.visible = true;
+      // SpaceBar.visible = true; //? can be removed
+      quizBox.visible = true;
       // DialogBoxFlag.visible = true; //? can be removed
       if (this.cursorKeys.space.isDown) {
         openExternalLink();
       }
     } else {
       // SpaceBar.visible = false; //? can be removed
-      quizExit.visible = false;
+      quizBox.visible = false;
       // DialogBoxFlag.visible = false; //? can be removed
     }
 
