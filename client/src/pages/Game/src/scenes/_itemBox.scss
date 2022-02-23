@@ -1,0 +1,15 @@
+.itemBox {
+  background-image: $bg-paper-horizontal;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 500px;
+  @include flex-center;
+  div {
+    width: 350px;
+    font-size: 14px;
+    font-weight: 400;
+    color: $dark;
+    padding: 3rem;
+  }
+}
