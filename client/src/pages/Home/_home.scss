@@ -5,27 +5,27 @@
   .start {
     @include center-fixed;
     @include flex-center;
+
     .greeting {
       font-family: $font-title;
       font-size: $font-size-md;
-      margin-bottom: 7rem;
+      margin-bottom: 10rem;
       text-align: center;
     }
 
     h1 {
       font-family: $font-title;
       font-size: $font-size-md;
-      // margin-bottom: 1rem;
+      margin-bottom: 2rem;
       text-align: center;
     }
 
     .inkBlot {
-      background-image: url("../../assets/images/blob-up-right.gif");
+      background-image: url("../../assets/images/blob_2.png");
       background-position: center;
       background-size: cover;
-      height: 30rem;
+      height: 40rem;
       width: 30rem;
-      margin-bottom: 2rem;
     }
     button {
       @include btn-green;

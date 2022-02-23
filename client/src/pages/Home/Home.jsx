@@ -56,6 +56,9 @@ const Home = () => {
   return (
     <div className="home" onMouseMove={(e) => handleMouseMove(e)}>
       <div className="start">
+        <h1 className="greeting slide-me">
+          Hi {myName},<br /> enjoy your exploration!
+        </h1>
         <div className="greeting slide-me"> Hi {myName},<br /> enjoy your exploration!</div>
         {/* <p>
           {mousePosition.left.toString()} / {mousePosition.top.toString()}
