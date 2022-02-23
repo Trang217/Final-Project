@@ -1,6 +1,6 @@
 // ---- hooks, dependencies, styling import ----
 import React, { useContext } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, NavLink } from "react-router-dom";
 import axios from "../../utils/axiosInstance";
 //import closeSidebar from "./Sidebar";
 
@@ -26,29 +26,37 @@ export default function Navigation({ closeSidebar }) {
     <nav className="nav">
       <ul>
         <li>
-          <Link to="/home" onClick={closeSidebar}>
+          <NavLink activeClassName="active" to="/home" onClick={closeSidebar}>
             Home
-          </Link>
+          </NavLink>
         </li>
         <li>
-          <Link to="/badges" onClick={closeSidebar}>
+          <NavLink activeClassName="active" to="/badges" onClick={closeSidebar}>
             Badges
-          </Link>
+          </NavLink>
         </li>
         <li>
-          <Link to="/hall-of-fame" onClick={closeSidebar}>
+          <NavLink
+            activeClassName="active"
+            to="/hall-of-fame"
+            onClick={closeSidebar}
+          >
             Hall of Fame
-          </Link>
+          </NavLink>
         </li>
         <li>
-          <Link to="/about" onClick={closeSidebar}>
+          <NavLink activeClassName="active" to="/about" onClick={closeSidebar}>
             About
-          </Link>
+          </NavLink>
         </li>
         <li>
-          <Link to="/account" onClick={closeSidebar}>
+          <NavLink
+            activeClassName="active"
+            to="/account"
+            onClick={closeSidebar}
+          >
             Account
-          </Link>
+          </NavLink>
         </li>
         <li>
           <button className="logoutBtn" onClick={handleLogout}>
