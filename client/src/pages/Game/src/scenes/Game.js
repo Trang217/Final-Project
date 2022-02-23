@@ -16,23 +16,22 @@ import Turtle from "../../assets/item_15.2.png";
 import Platform from "../../assets/PlatformLong.png";
 import FinalBg from "../../assets/DesertBGSmall.png";
 import Flag from "../../assets/flag.png";
-import spaceButton from "../../assets/spaceBar.png";
+// import spaceButton from "../../assets/spaceBar.png";
 import StoneForeGround from "../../assets/stoneFG.png";
 
 //DialogBoxImage
-//import DialogBoxImage from "../../assets/DialogBoxSmall.png";
+//import DialogBoxImage from "../../assets/DialogBoxSmall.png"; //? can be removed
 
 let inZoneTurtle = false;
 let inZoneFlag = false;
 let div15 = document.createElement("div"); //!turtle div
 //let DialogBox2 = document.createElement("div"); //! comment out?
-let DialogBoxFlag = document.createElement("div");
-let SpaceBar;
+// let DialogBoxFlag = document.createElement("div"); //? can be removed
+// let SpaceBar; //? can be removed
 let visible = false;
 let quizBox = document.createElement("div");
 let quizExit;
 const FlagPos = 1000;
-
 const turtleX = 600;
 
 // EXTERNAL LINK
@@ -64,7 +63,6 @@ getData().then((res) => {
   items = res;
 });
 
-
 //*------ CONTENT LOAD ABOVE THIS LINE
 class Game extends Phaser.Scene {
   constructor() {
@@ -81,10 +79,10 @@ class Game extends Phaser.Scene {
     this.load.image("2bg", secondBg);
     this.load.image("3bg", thirdBg);
     this.load.image("turtle", Turtle);
-    //this.load.image("DialogBox", DialogBoxImage);
+    //this.load.image("DialogBox", DialogBoxImage); //? can be removed
     this.load.image("Foreground", foreGround);
     this.load.image("flag", Flag);
-    this.load.image("spaceBar", spaceButton);
+    // this.load.image("spaceBar", spaceButton); //? can be removed
     this.load.image("stones", StoneForeGround);
 
     this.load.spritesheet("hero-idle-sheet", klexStand, {
@@ -112,24 +110,24 @@ class Game extends Phaser.Scene {
     this.add.image(1300, 550, "3bg").setScrollFactor(0.7);
 
     //! ITEMS
-const {
-    item_0,
-    item_1,
-    item_2,
-    item_3,
-    item_4,
-    item_5: ostrich, //optional renaming
-    item_6,
-    item_7,
-    item_8,
-    item_9,
-    item_10,
-    item_11,
-    item_12,
-    item_13,
-    item_14,
-    item_15,
-  } = items;
+    const {
+      item_0,
+      item_1,
+      item_2,
+      item_3,
+      item_4,
+      item_5: ostrich, //optional renaming
+      item_6,
+      item_7,
+      item_8,
+      item_9,
+      item_10,
+      item_11,
+      item_12,
+      item_13,
+      item_14,
+      item_15,
+    } = items;
 
     // TURTLE IMAGE
     const turtle = this.physics.add
@@ -154,7 +152,7 @@ const {
       repeat: -1,
     });
 
-    //this.addMap();
+    //this.addMap(); //? can be removed
 
     // MAP LOADING
     this.addMap2();
@@ -200,27 +198,27 @@ const {
     });
     // TURTLE CONTENT
     div15.classList.add("itemBox");
-    div15.innerHTML = `<div><p>${(item_15[0])}</p>
-    <p>${(item_15[1]).replace("/", "<br/><br/>")}</p></div>`
+    div15.innerHTML = `<div><p>${item_15[0]}</p>
+    <p>${item_15[1].replace("/", "<br/><br/>")}</p></div>`;
 
     // Add the DialogBackground Sprite and make it invisible as default
     //DialogBox2 = this.add.sprite(turtleX, 600, "DialogBox"); //! comment out maybe?
-    //DialogBox2.visible = false;
-    //this.add.sprite(800, 700, 'DialogBox');
+    //DialogBox2.visible = false; //? can be removed
+    //this.add.sprite(800, 700, 'DialogBox'); //? can be removed
 
     //! TURTLE ENDS ----------------------------------------------------------------------
 
     // QUIZBOX
-    quizBox.classList.add("itemBox")
-    quizBox.innerText = "Checkout the Quiz";
+    quizBox.classList.add("quizBox");
+    quizBox.innerHTML =
+      "<p>Click space to <br/> go to the quiz</></p><div></div>";
     quizExit = this.add.dom(FlagPos + 100, 720, quizBox);
     quizExit.visible = false;
-    DialogBoxFlag = this.add.sprite(FlagPos, 630, "DialogBox").setScale(0.6);
-    DialogBoxFlag.visible = false;
-
+    // DialogBoxFlag = this.add.sprite(FlagPos, 630, "DialogBox").setScale(0.6); //? can be removed
+    // DialogBoxFlag.visible = false; //? can be removed
     // PRESS SPACE ICON
-    SpaceBar = this.add.image(FlagPos, 600, "spaceBar").setScale(0.15);
-    SpaceBar.visible = false;
+    // SpaceBar = this.add.image(FlagPos, 600, "spaceBar").setScale(0.15); //? can be removed
+    // SpaceBar.visible = false; //? can be removed
   }
 
   //Methods
@@ -257,24 +255,24 @@ const {
   update(time, delta) {
     // TURTLE INFOBOX
     if (inZoneTurtle && this.cursorKeys.space.isDown) {
-      console.log(" this colliding");
+      // console.log(" this colliding");
       this.box2 = this.add.dom(turtleX, 550, div15);
-     // DialogBox2.visible = true;
+      // DialogBox2.visible = true; //? can be removed
       visible = true;
     }
     //! TURTLE ----------------------------------------------------------------------
     // FLAG
     if (inZoneFlag) {
-      SpaceBar.visible = true;
+      // SpaceBar.visible = true;
       quizExit.visible = true;
-      DialogBoxFlag.visible = true;
+      // DialogBoxFlag.visible = true; //? can be removed
       if (this.cursorKeys.space.isDown) {
         openExternalLink();
       }
     } else {
-      SpaceBar.visible = false;
+      // SpaceBar.visible = false; //? can be removed
       quizExit.visible = false;
-      DialogBoxFlag.visible = false;
+      // DialogBoxFlag.visible = false; //? can be removed
     }
 
     // DESTROY INFOBOX
