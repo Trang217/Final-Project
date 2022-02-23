@@ -376,7 +376,6 @@ exports.getUsers = tryCatchHelper(async (req, res, next) => {
   const users = await User.find()
     .select("userName totalScore")
     .sort({ totalScore: -1 })
-    .limit(30)
     .lean();
 
   const placement = await users.findIndex((user) => user.userName === userName);

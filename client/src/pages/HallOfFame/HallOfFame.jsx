@@ -71,6 +71,8 @@ const HallOfFame = () => {
   const random2 = randomUser(rank2);
   const random3 = randomUser(rank3);
 
+  const myPlacement = league.find(player=> player.userName === currentUser);
+
   useEffect(() => getData(), []);
 
   //? ---- rendering ----
@@ -81,7 +83,7 @@ const HallOfFame = () => {
         <>
           <h1>Hall of Fame</h1>
           {placement >= 0 ? (
-            <p>You are currently #{placement + 1} in the league with {score} points!</p>
+            <p>You are currently #{myPlacement.rank} in the league with {score} points!</p>
           ) : null}{" "}
           <p>
             {placement >= 0 && placement <= 3
