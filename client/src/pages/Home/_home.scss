@@ -9,7 +9,7 @@
     .greeting {
       font-family: $font-title;
       font-size: $font-size-md;
-      margin-bottom: 10rem;
+      margin-bottom: 6rem;
       text-align: center;
     }
 
@@ -21,11 +21,12 @@
     }
 
     .inkBlot {
-      background-image: url("../../assets/images/blob_2.png");
+      background-image: url("../../assets/images/blob-up-right.gif");
       background-position: center;
       background-size: cover;
-      height: 40rem;
+      height: 30rem;
       width: 30rem;
+      margin-bottom: 4rem;
     }
     button {
       @include btn-green;
