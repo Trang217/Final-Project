@@ -8,12 +8,12 @@ import klexRun from "../../assets/hero/Klex-Run.png";
 import Background1 from "../../assets/BG1.png";
 import Background2 from "../../assets/BG2.png";
 import Background3 from "../../assets/BG3.png";
-import secondBg from "../../assets/secondBg.png";
-import thirdBg from "../../assets/thirdBg2.png";
-import foreGround from "../../assets/foreGround.png";
 import Platform from "../../assets/Platform.png";
 import Flag from "../../assets/flag.png";
 import StoneForeGround from "../../assets/stoneFG.png";
+import MD2 from "../../assets/MD2.png";
+import MD3 from "../../assets/MD3.png";
+import MD4 from "../../assets/MD4.png";
 
 //* Import Discovery Items
 import Start from "../../assets/discovery_items/item_0.png";
@@ -150,9 +150,9 @@ class Game extends Phaser.Scene {
     this.load.image("BG1", Background1);
     this.load.image("BG2", Background2);
     this.load.image("BG3", Background3);
-    this.load.image("2bg", secondBg);
-    this.load.image("3bg", thirdBg);
-    this.load.image("Foreground", foreGround);
+    this.load.image("MD2", MD2);
+    this.load.image("MD3", MD3);
+    this.load.image("MD4", MD4);
     this.load.image("stones", StoneForeGround);
 
     //* Preload Character
@@ -173,15 +173,9 @@ class Game extends Phaser.Scene {
 
     this.cursorKeys = this.input.keyboard.createCursorKeys();
 
-    this.add.image(width * 0.5, height * 0.2, "sky").setScrollFactor(0);
-    this.add.image(500, 100, "bg").setScrollFactor(0.3);
-    this.add.image(700, 400, "FinalBg").setScrollFactor(0.3).setScale(0.65);
-    this.add.image(1300, 510, "2bg").setScrollFactor(0.5);
-    this.add.image(1300, 550, "3bg").setScrollFactor(0.7);
-
     // Background LOADING
     this.addMapBackground();
-
+    this.addMiddleLayer();
     //*------ DESTRUCTURING INFOBOX TEXT FROM DB
 
     items = await getData();
@@ -279,13 +273,13 @@ class Game extends Phaser.Scene {
       .setScale(0.25)
       .setSize(100, 400)
       .setOffset(320, 1290);
-    
+
     const oasis = this.physics.add
       .staticImage(oasisX, 800, "oasis")
       .setScale(0.5)
       .setSize(300, 200)
       .setOffset(250, 300);
-    
+
     const camel = this.physics.add
       .staticImage(camelX, 762, "camel")
       .setScale(0.4)
@@ -372,7 +366,7 @@ class Game extends Phaser.Scene {
     quizBox = this.add.dom(FlagPos + 100, 720, quizBox);
     quizBox.visible = false;
 
-    //* Discovery Items ---- 
+    //* Discovery Items ----
     //! temporary solution - to be updated and wrapped in functions
 
     this.physics.add.overlap(this.hero, start, function () {
@@ -468,15 +462,29 @@ class Game extends Phaser.Scene {
     const BGHeight = 410;
     const backgroundMultiply = () => {
       for (let i = 0; i < BGArray.length; i++) {
-        console.log(BGArray[i]);
         this.add.image(BGOffset[i], BGHeight, BGArray[i]).setScrollFactor(0.3);
-        console.log(BGOffset[i]);
         this.add.image(BGOffset[i], BGHeight, BGArray[i]).setScrollFactor(0.3);
       }
     };
     backgroundMultiply();
   }
+
   // BACKGROUND METHOD END //
+
+  //? BACKGROUND METHOD
+  addMiddleLayer() {
+    const MDArray = ["MD2","MD4","MD3"];
+    const MDOffset = [1000, 3000, 4800];
+    const MDHeight = 570;
+    const backgroundMultiply = () => {
+      for (let i = 0; i < MDArray.length; i++) {
+        this.add.image(MDOffset[i], MDHeight, MDArray[i]).setScrollFactor(0.5);
+        this.add.image(MDOffset[i], MDHeight, MDArray[i]).setScrollFactor(0.5);
+        this.add.image(MDOffset[i], MDHeight, MDArray[i]).setScrollFactor(0.5);
+      }
+    };
+    backgroundMultiply();
+  }
 
   //? PLATFORM METHOD
   addPlatform() {
@@ -500,8 +508,8 @@ class Game extends Phaser.Scene {
 
   update(time, delta) {
     //* ----- SPACE BAR DOWN EVENT: SHOW INFOBOX WHEN IN ZONE
-  //! temporary solution - to be updated and wrapped in functions
-  
+    //! temporary solution - to be updated and wrapped in functions
+
     if (inZoneStart && this.cursorKeys.space.isDown) {
       this.box2 = this.add.dom(startX, 550, div0);
       visible = true;
