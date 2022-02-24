@@ -16,6 +16,7 @@ import Flag from "../../assets/flag.png";
 import StoneForeGround from "../../assets/stoneFG.png";
 
 //* Import Discovery Items
+import Start from "../../assets/discovery_items/item_0.png";
 import Ruin from "../../assets/discovery_items/item_1.png";
 import Landform from "../../assets/discovery_items/item_2.png";
 import Maps from "../../assets/discovery_items/item_3.png";
@@ -26,7 +27,7 @@ import Cactus from "../../assets/discovery_items/item_7.png";
 import Oasis from "../../assets/discovery_items/item_8.png";
 import Sage from "../../assets/discovery_items/item_9.png";
 import Snake from "../../assets/discovery_items/item_10.png";
-import Boojun from "../../assets/discovery_items/item_11.png";
+import Boojum from "../../assets/discovery_items/item_11.png";
 import Yucca from "../../assets/discovery_items/item_12.png";
 import Camel from "../../assets/discovery_items/item_13.png";
 import ElephantTree from "../../assets/discovery_items/item_14.png";
@@ -46,8 +47,8 @@ let div15 = document.createElement("div"); // turtle
 let quizBox = document.createElement("div");
 
 //* Position Discovery Items on X-axis
-const FlagPos = 1000;
-const turtleX = 600;
+const FlagPos = 9000;
+const turtleX = 8500;
 
 //? EXTERNAL LINK
 function openExternalLink() {
@@ -81,6 +82,21 @@ class Game extends Phaser.Scene {
 
   preload() {
     //* Preload Discovery Items
+    this.load.image("start", Start);
+    this.load.image("ruin", Ruin);
+    this.load.image("landform", Landform);
+    this.load.image("maps", Maps);
+    this.load.image("fox", Fox);
+    this.load.image("ostrich", Ostrich);
+    this.load.image("ringtail", Ringtail);
+    this.load.image("cactus", Cactus);
+    this.load.image("oasis", Oasis);
+    this.load.image("sage", Sage);
+    this.load.image("snake", Snake);
+    this.load.image("boojum", Boojum);
+    this.load.image("yucca", Yucca);
+    this.load.image("camel", Camel);
+    this.load.image("elephantTree", ElephantTree);
     this.load.image("turtle", Turtle);
     this.load.image("flag", Flag);
 
