@@ -56,22 +56,22 @@ let inZoneFlag = false;
 
 let visible = false; // set to false by default
 
-let div0 = document.createElement("div"); // turtle
-let div1 = document.createElement("div"); // turtle
-let div2 = document.createElement("div"); // turtle
-let div3 = document.createElement("div"); // turtle
-let div4 = document.createElement("div"); // turtle
-let div5 = document.createElement("div"); // turtle
-let div6 = document.createElement("div"); // turtle
-let div7 = document.createElement("div"); // turtle
-let div8 = document.createElement("div"); // turtle
-let div9 = document.createElement("div"); // turtle
-let div10 = document.createElement("div"); // turtle
-let div11 = document.createElement("div"); // turtle
-let div12 = document.createElement("div"); // turtle
-let div13 = document.createElement("div"); // turtle
-let div14 = document.createElement("div"); // turtle
-let div15 = document.createElement("div"); // turtle
+let div0 = document.createElement("div");
+let div1 = document.createElement("div");
+let div2 = document.createElement("div");
+let div3 = document.createElement("div");
+let div4 = document.createElement("div");
+let div5 = document.createElement("div");
+let div6 = document.createElement("div");
+let div7 = document.createElement("div");
+let div8 = document.createElement("div");
+let div9 = document.createElement("div");
+let div10 = document.createElement("div");
+let div11 = document.createElement("div");
+let div12 = document.createElement("div");
+let div13 = document.createElement("div");
+let div14 = document.createElement("div");
+let div15 = document.createElement("div");
 let quizBox = document.createElement("div");
 
 //* Position Discovery Items on X-axis
@@ -242,7 +242,7 @@ class Game extends Phaser.Scene {
       .setScale(0.35)
       .setSize(300, 200)
       .setOffset(750, 400);
-    /*
+
     const ringtail = this.physics.add
       .staticImage(ringtailX, 830, "ringtail")
       .setScale(0.25)
@@ -253,48 +253,48 @@ class Game extends Phaser.Scene {
       .setScale(0.25)
       .setSize(300, 200)
       .setOffset(750, 400);
-const oasis = this.physics.add
-  .staticImage(oasisX, 830, "oasis")
-  .setScale(0.25)
-  .setSize(300, 200)
-  .setOffset(750, 400);
+    const oasis = this.physics.add
+      .staticImage(oasisX, 830, "oasis")
+      .setScale(0.25)
+      .setSize(300, 200)
+      .setOffset(750, 400);
 
-const sage = this.physics.add
-  .staticImage(sageX, 830, "sage")
-  .setScale(0.25)
-  .setSize(300, 200)
-  .setOffset(750, 400);
+    const sage = this.physics.add
+      .staticImage(sageX, 830, "sage")
+      .setScale(0.25)
+      .setSize(300, 200)
+      .setOffset(750, 400);
 
-const snake = this.physics.add
-  .staticImage(snakeX, 830, "snake")
-  .setScale(0.25)
-  .setSize(300, 200)
-  .setOffset(750, 400);
+    const snake = this.physics.add
+      .staticImage(snakeX, 830, "snake")
+      .setScale(0.25)
+      .setSize(300, 200)
+      .setOffset(750, 400);
 
-const boojum = this.physics.add
-  .staticImage(boojumX, 830, "boojum")
-  .setScale(0.25)
-  .setSize(300, 200)
-  .setOffset(750, 400);
+    const boojum = this.physics.add
+      .staticImage(boojumX, 830, "boojum")
+      .setScale(0.25)
+      .setSize(300, 200)
+      .setOffset(750, 400);
 
-const yucca = this.physics.add
-  .staticImage(yuccaX, 830, "yucca")
-  .setScale(0.25)
-  .setSize(300, 200)
-  .setOffset(750, 400);
+    const yucca = this.physics.add
+      .staticImage(yuccaX, 830, "yucca")
+      .setScale(0.25)
+      .setSize(300, 200)
+      .setOffset(750, 400);
 
-const camel = this.physics.add
-  .staticImage(camelX, 830, "camel")
-  .setScale(0.25)
-  .setSize(300, 200)
-  .setOffset(750, 400);
+    const camel = this.physics.add
+      .staticImage(camelX, 830, "camel")
+      .setScale(0.25)
+      .setSize(300, 200)
+      .setOffset(750, 400);
 
-const elephantTree = this.physics.add
-  .staticImage(elephantTreeX, 830, "elephantTree")
-  .setScale(0.25)
-  .setSize(300, 200)
-  .setOffset(750, 400);
-*/
+    const elephantTree = this.physics.add
+      .staticImage(elephantTreeX, 830, "elephantTree")
+      .setScale(0.25)
+      .setSize(300, 200)
+      .setOffset(750, 400);
+
     const turtle = this.physics.add
       .staticImage(turtleX, 830, "turtle")
       .setScale(0.25)
@@ -370,7 +370,77 @@ const elephantTree = this.physics.add
     quizBox.visible = false;
 
     //* Discovery Items
-    //! THE FOLLOWING 4 LINES NEED TO BE CREATED FOR ALL THE ITEMS !
+
+    this.physics.add.overlap(this.hero, ruin, function () {
+      inZoneRuin = true;
+    });
+    addItem(div1, item_1);
+
+    this.physics.add.overlap(this.hero, landform, function () {
+      inZoneLandform = true;
+    });
+    addItem(div2, item_2);
+
+    this.physics.add.overlap(this.hero, fox, function () {
+      inZoneFox = true;
+    });
+    addItem(div3, item_3);
+
+    this.physics.add.overlap(this.hero, fox, function () {
+      inZoneFox = true;
+    });
+    addItem(div4, item_4);
+
+    this.physics.add.overlap(this.hero, ostrich, function () {
+      inZoneOstrich = true;
+    });
+    addItem(div5, item_5);
+
+    this.physics.add.overlap(this.hero, ringtail, function () {
+      inZoneRingtail = true;
+    });
+    addItem(div6, item_6);
+
+    this.physics.add.overlap(this.hero, cactus, function () {
+      inZoneCactus = true;
+    });
+    addItem(div7, item_7);
+
+    this.physics.add.overlap(this.hero, oasis, function () {
+      inZoneOasis = true;
+    });
+    addItem(div8, item_8);
+
+    this.physics.add.overlap(this.hero, sage, function () {
+      inZoneSage = true;
+    });
+    addItem(div9, item_9);
+
+    this.physics.add.overlap(this.hero, snake, function () {
+      inZoneSnake = true;
+    });
+    addItem(div10, item_10);
+
+    this.physics.add.overlap(this.hero, boojum, function () {
+      inZoneBoojum = true;
+    });
+    addItem(div11, item_11);
+
+    this.physics.add.overlap(this.hero, yucca, function () {
+      inZoneYucca = true;
+    });
+    addItem(div12, item_12);
+
+    this.physics.add.overlap(this.hero, camel, function () {
+      inZoneCamel = true;
+    });
+    addItem(div13, item_13);
+
+    this.physics.add.overlap(this.hero, elephantTree, function () {
+      inZoneElephantTree = true;
+    });
+    addItem(div14, item_14);
+
     this.physics.add.overlap(this.hero, turtle, function () {
       inZoneTurtle = true;
     });
