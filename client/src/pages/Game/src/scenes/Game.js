@@ -196,10 +196,15 @@ class Game extends Phaser.Scene {
     this.physics.add.overlap(this.hero, turtle, function () {
       inZoneTurtle = true;
     });
-    // TURTLE CONTENT
-    div15.classList.add("itemBox");
-    div15.innerHTML = `<div><p>${item_15[0]}</p>
-    <p>${item_15[1].replace("/", "<br/><br/>")}</p></div>`;
+    // ADDING ITEMS
+
+    const addItem = (div, item) => {
+      div.classList.add("itemBox");
+      div.innerHTML = `<div><p>${item[0]}</p>
+      <p>${item[1].replaceAll("/", "<br/><br/>")}</p></div>`;
+    };
+
+    addItem(div15, item_15);
 
     // Add the DialogBackground Sprite and make it invisible as default
     //DialogBox2 = this.add.sprite(turtleX, 600, "DialogBox"); //! comment out maybe?
