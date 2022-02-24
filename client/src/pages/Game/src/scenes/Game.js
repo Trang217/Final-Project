@@ -2,7 +2,7 @@ import Phaser from "phaser";
 import Hero from "../entities/Hero";
 import axios from "../../../../utils/axiosInstance";
 
-//Images
+//* Import Landscape Images
 import klexStand from "../../assets/hero/Klex-Stand.png";
 import klexRun from "../../assets/hero/Klex-Run.png";
 import Background1 from "../../assets/BG1.png";
@@ -11,14 +11,26 @@ import Background3 from "../../assets/BG3.png";
 import secondBg from "../../assets/secondBg.png";
 import thirdBg from "../../assets/thirdBg2.png";
 import foreGround from "../../assets/foreGround.png";
-import Turtle from "../../assets/item_15.2.png";
 import Platform from "../../assets/Platform.png";
 import Flag from "../../assets/flag.png";
-// import spaceButton from "../../assets/spaceBar.png"; //? can be removed
 import StoneForeGround from "../../assets/stoneFG.png";
 
-//DialogBoxImage
-//import DialogBoxImage from "../../assets/DialogBoxSmall.png"; //? can be removed
+//* Import Discovery Items
+import Ruin from "../../assets/discovery_items/item_1.png";
+import Landform from "../../assets/discovery_items/item_2.png";
+import Maps from "../../assets/discovery_items/item_3.png";
+import Fox from "../../assets/discovery_items/item_4.png";
+import Ostrich from "../../assets/discovery_items/item_5.png";
+import Ringtail from "../../assets/discovery_items/item_6.png";
+import Cactus from "../../assets/discovery_items/item_7.png";
+import Oasis from "../../assets/discovery_items/item_8.png";
+import Sage from "../../assets/discovery_items/item_9.png";
+import Snake from "../../assets/discovery_items/item_10.png";
+import Boojun from "../../assets/discovery_items/item_11.png";
+import Yucca from "../../assets/discovery_items/item_12.png";
+import Camel from "../../assets/discovery_items/item_13.png";
+import ElephantTree from "../../assets/discovery_items/item_14.png";
+import Turtle from "../../assets/discovery_items/item_15.png";
 
 let inZoneTurtle = false;
 let inZoneFlag = false;
@@ -57,18 +69,13 @@ const getData = async () => {
 
 let items = {};
 
-  
-
 //*------ CONTENT LOAD ABOVE THIS LINE
 class Game extends Phaser.Scene {
   constructor() {
-   
     super({ key: "GameScene" });
-
   }
 
   preload() {
-  
     this.load.image("platform", Platform);
     this.load.image("BG1", Background1);
     this.load.image("BG2", Background2);
@@ -94,7 +101,7 @@ class Game extends Phaser.Scene {
     });
   }
 
-  async create (data) {
+  async create(data) {
     const width = this.scale.width;
     const height = this.scale.height;
 
@@ -110,14 +117,11 @@ class Game extends Phaser.Scene {
     // Background LOADING
     this.addMapBackground();
 
-
     //! ITEMS
-    
-    
-    
-   items = await getData()
 
-const {
+    items = await getData();
+
+    const {
       item_0,
       item_1,
       item_2,
@@ -136,7 +140,6 @@ const {
       item_15,
     } = items;
 
-  
     // TURTLE IMAGE
     const turtle = this.physics.add
       .staticImage(turtleX, 830, "turtle")
@@ -203,8 +206,7 @@ const {
       inZoneTurtle = true;
     });
     // ADDING ITEMS
-  
- 
+
     const addItem = (div, item) => {
       div.classList.add("itemBox");
       div.innerHTML = `<div><p>${item[0]}</p>
