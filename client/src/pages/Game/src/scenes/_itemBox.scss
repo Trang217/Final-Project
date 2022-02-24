@@ -4,12 +4,44 @@
   background-repeat: no-repeat;
   background-position: center;
   width: 500px;
-  @include flex-center;
   div {
-    width: 350px;
-    font-size: 14px;
-    font-weight: 400;
+    margin: 0 auto;
+    text-align: center;
+    width: 400px;
+    font-size: 1.5rem;
     color: $dark;
     padding: 3rem;
+
+    :first-child {
+      font-family: $font-title;
+      font-size: $font-size-sm;
+      padding-bottom: 1rem;
+    }
+  }
+}
+
+.quizBox {
+  width: 300px;
+  background-image: $bg-paper-horizontal;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 1.5rem;
+
+  p {
+    text-align: center;
+    font-family: $font-title;
+    font-size: $font-size-sm;
+    padding-bottom: 1rem;
+  }
+
+  div {
+    background-image: url("../../assets/spaceBar.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 50;
+    height: 50px;
+    padding: 0.5rem;
   }
 }
