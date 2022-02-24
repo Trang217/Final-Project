@@ -371,6 +371,11 @@ class Game extends Phaser.Scene {
 
     //* Discovery Items
 
+    this.physics.add.overlap(this.hero, start, function () {
+      inZoneStart = true;
+    });
+    addItem(div0, item_0);
+
     this.physics.add.overlap(this.hero, ruin, function () {
       inZoneRuin = true;
     });
