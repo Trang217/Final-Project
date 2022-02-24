@@ -34,7 +34,21 @@ import ElephantTree from "../../assets/discovery_items/item_14.png";
 import Turtle from "../../assets/discovery_items/item_15.png";
 
 //* Create Collision Zones
-//! THE FOLLOWING 2 LINES NEED TO BE CREATED FOR ALL THE ITEMS !
+let inZoneStart = false;
+let inZoneRuin = false;
+let inZoneLandform = false;
+let inZoneMaps = false;
+let inZoneFox = false;
+let inZoneOstrich = false;
+let inZoneRingtail = false;
+let inZoneCactus = false;
+let inZoneOasis = false;
+let inZoneSage = false;
+let inZoneSnake = false;
+let inZoneBoojum = false;
+let inZoneYucca = false;
+let inZoneCamel = false;
+let inZoneElephantTree = false;
 let inZoneTurtle = false;
 let inZoneFlag = false;
 
@@ -42,7 +56,21 @@ let inZoneFlag = false;
 
 let visible = false; // set to false by default
 
-//! THE FOLLOWING LINE NEED TO BE CREATED FOR ALL THE ITEMS !
+let div0 = document.createElement("div"); // turtle
+let div1 = document.createElement("div"); // turtle
+let div2 = document.createElement("div"); // turtle
+let div3 = document.createElement("div"); // turtle
+let div4 = document.createElement("div"); // turtle
+let div5 = document.createElement("div"); // turtle
+let div6 = document.createElement("div"); // turtle
+let div7 = document.createElement("div"); // turtle
+let div8 = document.createElement("div"); // turtle
+let div9 = document.createElement("div"); // turtle
+let div10 = document.createElement("div"); // turtle
+let div11 = document.createElement("div"); // turtle
+let div12 = document.createElement("div"); // turtle
+let div13 = document.createElement("div"); // turtle
+let div14 = document.createElement("div"); // turtle
 let div15 = document.createElement("div"); // turtle
 let quizBox = document.createElement("div");
 
