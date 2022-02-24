@@ -590,7 +590,21 @@ class Game extends Phaser.Scene {
 
     //* ----- RESET THE ZONES
 
-    //! THE FOLLOWING LINE NEEDS TO BE REPEATED FOR EACH ITEM !
+    inZoneStart = false;
+    inZoneRuin = false;
+    inZoneLandform = false;
+    inZoneMaps = false;
+    inZoneFox = false;
+    inZoneOstrich = false;
+    inZoneRingtail = false;
+    inZoneCactus = false;
+    inZoneOasis = false;
+    inZoneSage = false;
+    inZoneSnake = false;
+    inZoneBoojum = false;
+    inZoneYucca = false;
+    inZoneCamel = false;
+    inZoneElephantTree = false;
     inZoneTurtle = false;
     inZoneFlag = false;
   }
