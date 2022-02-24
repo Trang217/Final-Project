@@ -48,24 +48,24 @@ let quizBox = document.createElement("div");
 
 //* Position Discovery Items on X-axis
 
-const startX = 1000;
-const ruinX = 1100;
-const landformX = 1200;
-const mapsX = 1100;
-const foxX = 800;
-const ostrichX = 800;
-const ringtailX = 800;
-const cactusX = 800;
-const oasisX = 800;
-const sageX = 800;
-const snakeX = 800;
-const boojumX = 800;
-const yuccaX = 800;
-const camelX = 800;
-const elephantTreeX = 800;
-const turtleX = 8500;
+const startX = 800;
+const ruinX = 1400;
+const landformX = 2400;
+const mapsX = 3000;
+const foxX = 3600;
+const ostrichX = 4100;
+const ringtailX = 4750;
+const cactusX = 5250;
+const yuccaX = 6200;
+const sageX = 6600;
+const snakeX = 6750;
+const boojumX = 7200;
+const oasisX = 7650;
+const camelX = 8000;
+const elephantTreeX = 8500;
+const turtleX = 8800;
 
-const FlagPos = 9000;
+const FlagPos = 9300;
 
 //? EXTERNAL LINK
 function openExternalLink() {
@@ -181,97 +181,100 @@ class Game extends Phaser.Scene {
 
     //! FOLLOWING 5 LINES FOR EVERY ITEM
     const start = this.physics.add
-      .staticImage(startX, 830, "start")
+      .staticImage(startX, 890, "start")
       .setScale(0.25)
-      .setSize(300, 200)
-      .setOffset(750, 400);
+      .setSize(250, 200)
+      .setOffset(300, 50);
 
     const ruin = this.physics.add
-      .staticImage(ruinX, 830, "ruin")
-      .setScale(0.36)
-      .setSize(300, 200)
-      .setOffset(750, 400);
+      .staticImage(ruinX, 780, "ruin")
+      .setScale(0.5)
+      .setSize(600, 200)
+      .setOffset(550, 300);
+
     const landform = this.physics.add
-      .staticImage(landformX, 830, "landform")
+      .staticImage(landformX, 820, "landform")
       .setScale(0.3)
-      .setSize(300, 200)
-      .setOffset(750, 400);
+      .setSize(600, 200)
+      .setOffset(850, 400);
 
     const maps = this.physics.add
       .staticImage(mapsX, 855, "maps")
       .setScale(0.3)
       .setSize(300, 200)
-      .setOffset(750, 400);
+      .setOffset(300, 150);
 
     const fox = this.physics.add
       .staticImage(foxX, 860, "fox")
       .setScale(0.25)
       .setSize(300, 200)
-      .setOffset(750, 400);
+      .setOffset(350, 250);
 
     const ostrich = this.physics.add
       .staticImage(ostrichX, 738, "ostrich")
       .setScale(0.35)
       .setSize(300, 200)
-      .setOffset(750, 400);
-    /*
+      .setOffset(250, 600);
+
     const ringtail = this.physics.add
-      .staticImage(ringtailX, 830, "ringtail")
-      .setScale(0.25)
-      .setSize(300, 200)
-      .setOffset(750, 400);
+      .staticImage(ringtailX, 790, "ringtail")
+      .setScale(0.2)
+      .setSize(200, 200)
+      .setOffset(400, 820);
+
     const cactus = this.physics.add
-      .staticImage(cactusX, 830, "cactus")
+      .staticImage(cactusX, 820, "cactus")
       .setScale(0.25)
+      .setSize(150, 200)
+      .setOffset(200, 400);
+
+    const yucca = this.physics.add
+      .staticImage(yuccaX, 810, "yucca")
+      .setScale(0.29)
+      .setSize(200, 200)
+      .setOffset(250, 500);
+
+    const sage = this.physics.add
+      .staticImage(sageX, 820, "sage")
+      .setScale(0.25)
+      .setSize(150, 200)
+      .setOffset(370, 400);
+
+    const snake = this.physics.add
+      .staticImage(snakeX, 875, "snake")
+      .setScale(0.2)
+      .setSize(150, 200)
+      .setOffset(460, 220);
+
+    const boojum = this.physics.add
+      .staticImage(boojumX, 830, "boojum")
+      .setScale(0.25)
+      .setSize(100, 400)
+      .setOffset(320, 1290);
+
+    const oasis = this.physics.add
+      .staticImage(oasisX, 800, "oasis")
+      .setScale(0.5)
       .setSize(300, 200)
-      .setOffset(750, 400);
-const oasis = this.physics.add
-  .staticImage(oasisX, 830, "oasis")
-  .setScale(0.25)
-  .setSize(300, 200)
-  .setOffset(750, 400);
+      .setOffset(250, 300);
 
-const sage = this.physics.add
-  .staticImage(sageX, 830, "sage")
-  .setScale(0.25)
-  .setSize(300, 200)
-  .setOffset(750, 400);
+    const camel = this.physics.add
+      .staticImage(camelX, 762, "camel")
+      .setScale(0.4)
+      .setSize(300, 200)
+      .setOffset(350, 450);
 
-const snake = this.physics.add
-  .staticImage(snakeX, 830, "snake")
-  .setScale(0.25)
-  .setSize(300, 200)
-  .setOffset(750, 400);
+    const elephantTree = this.physics.add
+      .staticImage(elephantTreeX, 760, "elephantTree")
+      .setScale(0.4)
+      .setSize(300, 200)
+      .setOffset(900, 750);
 
-const boojum = this.physics.add
-  .staticImage(boojumX, 830, "boojum")
-  .setScale(0.25)
-  .setSize(300, 200)
-  .setOffset(750, 400);
-
-const yucca = this.physics.add
-  .staticImage(yuccaX, 830, "yucca")
-  .setScale(0.25)
-  .setSize(300, 200)
-  .setOffset(750, 400);
-
-const camel = this.physics.add
-  .staticImage(camelX, 830, "camel")
-  .setScale(0.25)
-  .setSize(300, 200)
-  .setOffset(750, 400);
-
-const elephantTree = this.physics.add
-  .staticImage(elephantTreeX, 830, "elephantTree")
-  .setScale(0.25)
-  .setSize(300, 200)
-  .setOffset(750, 400);
-*/
     const turtle = this.physics.add
-      .staticImage(turtleX, 830, "turtle")
-      .setScale(0.25)
-      .setSize(300, 200)
-      .setOffset(750, 400);
+      .staticImage(turtleX, 860, "turtle")
+      .setScale(0.18)
+      .setSize(200, 200)
+      .setOffset(850, 400);
 
     const exitFlag = this.physics.add
       .staticImage(FlagPos, 845, "flag")
