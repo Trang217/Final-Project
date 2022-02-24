@@ -230,7 +230,7 @@ class Game extends Phaser.Scene {
       .staticImage(mapsX, 855, "maps")
       .setScale(0.3)
       .setSize(300, 200)
-      .setOffset(300, 150);
+      .setOffset(300, 170);
 
     const fox = this.physics.add
       .staticImage(foxX, 860, "fox")
@@ -274,11 +274,11 @@ class Game extends Phaser.Scene {
       .setSize(150, 200)
       .setOffset(460, 220);
 
-   const boojum = this.physics.add
+    const boojum = this.physics.add
       .staticImage(boojumX, 830, "boojum")
       .setScale(0.25)
-      .setSize(300, 200)
-      .setOffset(750, 400);
+      .setSize(100, 400)
+      .setOffset(320, 1290);
     
     const oasis = this.physics.add
       .staticImage(oasisX, 800, "oasis")
@@ -372,7 +372,8 @@ class Game extends Phaser.Scene {
     quizBox = this.add.dom(FlagPos + 100, 720, quizBox);
     quizBox.visible = false;
 
-    //* Discovery Items
+    //* Discovery Items ---- 
+    //! temporary solution - to be updated and wrapped in functions
 
     this.physics.add.overlap(this.hero, start, function () {
       inZoneStart = true;
@@ -389,8 +390,8 @@ class Game extends Phaser.Scene {
     });
     addItem(div2, item_2);
 
-    this.physics.add.overlap(this.hero, fox, function () {
-      inZoneFox = true;
+    this.physics.add.overlap(this.hero, maps, function () {
+      inZoneMaps = true;
     });
     addItem(div3, item_3);
 
@@ -499,7 +500,8 @@ class Game extends Phaser.Scene {
 
   update(time, delta) {
     //* ----- SPACE BAR DOWN EVENT: SHOW INFOBOX WHEN IN ZONE
-
+  //! temporary solution - to be updated and wrapped in functions
+  
     if (inZoneStart && this.cursorKeys.space.isDown) {
       this.box2 = this.add.dom(startX, 550, div0);
       visible = true;
