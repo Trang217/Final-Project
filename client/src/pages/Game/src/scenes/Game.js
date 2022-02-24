@@ -491,7 +491,82 @@ class Game extends Phaser.Scene {
 
   update(time, delta) {
     //* ----- SPACE BAR DOWN EVENT: SHOW INFOBOX WHEN IN ZONE
-    //! THE FOLLOWING $ LINES NEED TO BE REPEATED FOR AL THE ITEMS !
+
+    if (inZoneStart && this.cursorKeys.space.isDown) {
+      this.box2 = this.add.dom(startX, 550, div0);
+      visible = true;
+    }
+
+    if (inZoneRuin && this.cursorKeys.space.isDown) {
+      this.box2 = this.add.dom(ruinX, 550, div1);
+      visible = true;
+    }
+
+    if (inZoneLandform && this.cursorKeys.space.isDown) {
+      this.box2 = this.add.dom(landformX, 550, div2);
+      visible = true;
+    }
+
+    if (inZoneMaps && this.cursorKeys.space.isDown) {
+      this.box2 = this.add.dom(mapsX, 550, div3);
+      visible = true;
+    }
+
+    if (inZoneFox && this.cursorKeys.space.isDown) {
+      this.box2 = this.add.dom(foxX, 550, div4);
+      visible = true;
+    }
+
+    if (inZoneOstrich && this.cursorKeys.space.isDown) {
+      this.box2 = this.add.dom(ostrichX, 550, div5);
+      visible = true;
+    }
+
+    if (inZoneRingtail && this.cursorKeys.space.isDown) {
+      this.box2 = this.add.dom(ringtailX, 550, div6);
+      visible = true;
+    }
+
+    if (inZoneCactus && this.cursorKeys.space.isDown) {
+      this.box2 = this.add.dom(cactusX, 550, div7);
+      visible = true;
+    }
+
+    if (inZoneOasis && this.cursorKeys.space.isDown) {
+      this.box2 = this.add.dom(oasisX, 550, div8);
+      visible = true;
+    }
+
+    if (inZoneSage && this.cursorKeys.space.isDown) {
+      this.box2 = this.add.dom(sageX, 550, div9);
+      visible = true;
+    }
+
+    if (inZoneSnake && this.cursorKeys.space.isDown) {
+      this.box2 = this.add.dom(snakeX, 550, div10);
+      visible = true;
+    }
+
+    if (inZoneBoojum && this.cursorKeys.space.isDown) {
+      this.box2 = this.add.dom(boojumX, 550, div11);
+      visible = true;
+    }
+
+    if (inZoneYucca && this.cursorKeys.space.isDown) {
+      this.box2 = this.add.dom(yuccaX, 550, div12);
+      visible = true;
+    }
+
+    if (inZoneCamel && this.cursorKeys.space.isDown) {
+      this.box2 = this.add.dom(camelX, 550, div13);
+      visible = true;
+    }
+
+    if (inZoneElephantTree && this.cursorKeys.space.isDown) {
+      this.box2 = this.add.dom(elephantTreeX, 550, div14);
+      visible = true;
+    }
+
     if (inZoneTurtle && this.cursorKeys.space.isDown) {
       this.box2 = this.add.dom(turtleX, 550, div15);
       visible = true;
