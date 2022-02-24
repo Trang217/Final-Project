@@ -56,12 +56,19 @@ app.use("/api/content", contentRoutes);
 
 // Handling unhandled routes
 
-app.all("*", (req, res, next) => {
-  next(new AppError(`Can not find ${req.originalUrl} on this server`, 404));
-});
+// app.all("*", (req, res, next) => {
+//   next(new AppError(`Can not find ${req.originalUrl} on this server`, 404));
+// });
 
 app.use(errorHandler);
 
+//!For deployment - Do not add code below this line!
+
+// Serve frontend client/build folder
+app.use(express.static(path.join(__dirname, "client/build")));
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname + "/client/build/index.html"));
+});
 //-----------------------APP----------------------
 
 app.listen(app.get("port"), () => {
