@@ -16,6 +16,7 @@ import Flag from "../../assets/flag.png";
 import StoneForeGround from "../../assets/stoneFG.png";
 
 //* Import Discovery Items
+import Start from "../../assets/discovery_items/item_0.png";
 import Ruin from "../../assets/discovery_items/item_1.png";
 import Landform from "../../assets/discovery_items/item_2.png";
 import Maps from "../../assets/discovery_items/item_3.png";
@@ -26,7 +27,7 @@ import Cactus from "../../assets/discovery_items/item_7.png";
 import Oasis from "../../assets/discovery_items/item_8.png";
 import Sage from "../../assets/discovery_items/item_9.png";
 import Snake from "../../assets/discovery_items/item_10.png";
-import Boojun from "../../assets/discovery_items/item_11.png";
+import Boojum from "../../assets/discovery_items/item_11.png";
 import Yucca from "../../assets/discovery_items/item_12.png";
 import Camel from "../../assets/discovery_items/item_13.png";
 import ElephantTree from "../../assets/discovery_items/item_14.png";
@@ -46,8 +47,25 @@ let div15 = document.createElement("div"); // turtle
 let quizBox = document.createElement("div");
 
 //* Position Discovery Items on X-axis
-const FlagPos = 1000;
-const turtleX = 600;
+
+const startX = 1000;
+const ruinX = 1100;
+const landformX = 1200;
+const mapsX = 1100;
+const foxX = 800;
+const ostrichX = 800;
+const ringtailX = 800;
+const cactusX = 800;
+const oasisX = 800;
+const sageX = 800;
+const snakeX = 800;
+const boojumX = 800;
+const yuccaX = 800;
+const camelX = 800;
+const elephantTreeX = 800;
+const turtleX = 8500;
+
+const FlagPos = 9000;
 
 //? EXTERNAL LINK
 function openExternalLink() {
@@ -81,6 +99,21 @@ class Game extends Phaser.Scene {
 
   preload() {
     //* Preload Discovery Items
+    this.load.image("start", Start);
+    this.load.image("ruin", Ruin);
+    this.load.image("landform", Landform);
+    this.load.image("maps", Maps);
+    this.load.image("fox", Fox);
+    this.load.image("ostrich", Ostrich);
+    this.load.image("ringtail", Ringtail);
+    this.load.image("cactus", Cactus);
+    this.load.image("oasis", Oasis);
+    this.load.image("sage", Sage);
+    this.load.image("snake", Snake);
+    this.load.image("boojum", Boojum);
+    this.load.image("yucca", Yucca);
+    this.load.image("camel", Camel);
+    this.load.image("elephantTree", ElephantTree);
     this.load.image("turtle", Turtle);
     this.load.image("flag", Flag);
 
@@ -146,6 +179,94 @@ class Game extends Phaser.Scene {
 
     //*------ FORMATE IMAGE AND ITS COLLISION AREA
 
+    //! FOLLOWING 5 LINES FOR EVERY ITEM
+    const start = this.physics.add
+      .staticImage(startX, 830, "start")
+      .setScale(0.25)
+      .setSize(300, 200)
+      .setOffset(750, 400);
+
+    const ruin = this.physics.add
+      .staticImage(ruinX, 830, "ruin")
+      .setScale(0.36)
+      .setSize(300, 200)
+      .setOffset(750, 400);
+    const landform = this.physics.add
+      .staticImage(landformX, 830, "landform")
+      .setScale(0.3)
+      .setSize(300, 200)
+      .setOffset(750, 400);
+
+    const maps = this.physics.add
+      .staticImage(mapsX, 855, "maps")
+      .setScale(0.3)
+      .setSize(300, 200)
+      .setOffset(750, 400);
+
+    const fox = this.physics.add
+      .staticImage(foxX, 860, "fox")
+      .setScale(0.25)
+      .setSize(300, 200)
+      .setOffset(750, 400);
+
+    const ostrich = this.physics.add
+      .staticImage(ostrichX, 738, "ostrich")
+      .setScale(0.35)
+      .setSize(300, 200)
+      .setOffset(750, 400);
+    /*
+    const ringtail = this.physics.add
+      .staticImage(ringtailX, 830, "ringtail")
+      .setScale(0.25)
+      .setSize(300, 200)
+      .setOffset(750, 400);
+    const cactus = this.physics.add
+      .staticImage(cactusX, 830, "cactus")
+      .setScale(0.25)
+      .setSize(300, 200)
+      .setOffset(750, 400);
+const oasis = this.physics.add
+  .staticImage(oasisX, 830, "oasis")
+  .setScale(0.25)
+  .setSize(300, 200)
+  .setOffset(750, 400);
+
+const sage = this.physics.add
+  .staticImage(sageX, 830, "sage")
+  .setScale(0.25)
+  .setSize(300, 200)
+  .setOffset(750, 400);
+
+const snake = this.physics.add
+  .staticImage(snakeX, 830, "snake")
+  .setScale(0.25)
+  .setSize(300, 200)
+  .setOffset(750, 400);
+
+const boojum = this.physics.add
+  .staticImage(boojumX, 830, "boojum")
+  .setScale(0.25)
+  .setSize(300, 200)
+  .setOffset(750, 400);
+
+const yucca = this.physics.add
+  .staticImage(yuccaX, 830, "yucca")
+  .setScale(0.25)
+  .setSize(300, 200)
+  .setOffset(750, 400);
+
+const camel = this.physics.add
+  .staticImage(camelX, 830, "camel")
+  .setScale(0.25)
+  .setSize(300, 200)
+  .setOffset(750, 400);
+
+const elephantTree = this.physics.add
+  .staticImage(elephantTreeX, 830, "elephantTree")
+  .setScale(0.25)
+  .setSize(300, 200)
+  .setOffset(750, 400);
+*/
     const turtle = this.physics.add
       .staticImage(turtleX, 830, "turtle")
       .setScale(0.25)
