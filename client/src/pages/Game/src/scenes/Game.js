@@ -99,7 +99,7 @@ const FlagPos = 9300;
 
 //? EXTERNAL LINK
 function openExternalLink() {
-  var url = "http://localhost:3000/quiz/desert"; //! we might have to change for deployment
+  var url = "https://oikobiomes.herokuapp.com/quiz/desert"; //! we might have to change for deployment
   window.open(url, "_self");
 }
 
