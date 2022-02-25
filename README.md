@@ -16,12 +16,15 @@ At the end of each exploration you can do a fun little quiz to test your knowled
 
 **:screwdriver: HOW DID THEY DO IT?**
 
-    //technologies we used coming soon
+    NODE.JS | EXPRESS.JS | MONGODB | PASSPORT.JS 
+    HTML5 | SCSS | REACT 
+    INSOMNIA | FIGMA | HEROKU | MAILTRAP | SENDGRID | PHASER3
 
 **:art: SNEAK-PEAK**
 
-    //gif with our pretty design coming soon
+![Example](./sample_view/game-sneak-peak.gif)
+![Example](./sample_view/sneak-peak.gif)
 
 **:mag_right: ... AND FINALLY - GO EXPLORE YOURSELF!**
 
-    //link coming soon
+Click here to explore [OIKO](https://oikobiomes.herokuapp.com/)!
