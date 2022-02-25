@@ -37,7 +37,7 @@ router.patch("/update/email", controller.updateEmail);
 router.patch("/update/password", controller.updatePassword);
 
 // delete user account
-router.patch("/delete", controller.deleteUser);
+router.delete("/delete", controller.deleteUser);
 
 // hall-of-fame
 router.get("/hall-of-fame", controller.getUsers);

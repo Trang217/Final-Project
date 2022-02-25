@@ -352,14 +352,12 @@ exports.updatePassword = tryCatchHelper(async (req, res, next) => {
 });
 
 exports.deleteUser = tryCatchHelper(async (req, res, next) => {
-  const deleteUser = {
-    active: false,
-    email: "delete@delete.com",
-    userName: "delete",
-  };
-  const user = await User.findByIdAndUpdate(req.user._id, deleteUser, {
-    new: true,
-  });
+  // const deleteUser = {
+  //   active: false,
+  //   email: "delete@delete.com",
+  //   userName: "delete",
+  // };
+  const user = await User.findByIdAndDelete(req.user._id);
 
   if (!user) {
     return next(new AppError("No User exists!", 404));
@@ -389,24 +387,20 @@ exports.getUsers = tryCatchHelper(async (req, res, next) => {
     placement,
     users,
     userName,
-    score
+    score,
   });
 });
 
 // get selected user info: i.e. use /getInfo?get=userName to get current user userName
 
 exports.userInfo = tryCatchHelper(async (req, res, next) => {
-  const select = req.query["get"]
+  const select = req.query["get"];
 
-  const user = await User.findById(req.user._id).select(
-    [select]
-  );
+  const user = await User.findById(req.user._id).select([select]);
 
   if (!user) {
     return next(new AppError("No User exists!", 404));
   }
 
-  return res
-    .status(200)
-    .json({ status: "success", user });
+  return res.status(200).json({ status: "success", user });
 });
