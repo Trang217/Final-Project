@@ -338,6 +338,7 @@ class Game extends Phaser.Scene {
     this.add.image(6300, 750, "stones").setScrollFactor(1.2);
     this.add.image(7600, 750, "stones").setScrollFactor(1.2);
     this.add.image(8900, 750, "stones").setScrollFactor(1.2);
+    this.add.image(10200, 750, "stones").setScrollFactor(1.2);
 
     //? HERO WORLD COLLIDERS
     this.hero.body.collideWorldBounds = true;
@@ -463,7 +464,6 @@ class Game extends Phaser.Scene {
     const backgroundMultiply = () => {
       for (let i = 0; i < BGArray.length; i++) {
         this.add.image(BGOffset[i], BGHeight, BGArray[i]).setScrollFactor(0.3);
-        this.add.image(BGOffset[i], BGHeight, BGArray[i]).setScrollFactor(0.3);
       }
     };
     backgroundMultiply();
@@ -471,15 +471,13 @@ class Game extends Phaser.Scene {
 
   // BACKGROUND METHOD END //
 
-  //? BACKGROUND METHOD
+  //? MIDDLE LAYER METHOD
   addMiddleLayer() {
     const MDArray = ["MD2","MD4","MD3"];
     const MDOffset = [1000, 3000, 4800];
     const MDHeight = 570;
     const backgroundMultiply = () => {
       for (let i = 0; i < MDArray.length; i++) {
-        this.add.image(MDOffset[i], MDHeight, MDArray[i]).setScrollFactor(0.5);
-        this.add.image(MDOffset[i], MDHeight, MDArray[i]).setScrollFactor(0.5);
         this.add.image(MDOffset[i], MDHeight, MDArray[i]).setScrollFactor(0.5);
       }
     };
@@ -494,8 +492,6 @@ class Game extends Phaser.Scene {
 
     const platformMultiply = () => {
       for (let i = 0; i < 4; i++) {
-        this.add.image(PlatformOffset[i], height, PlatformArray[i]);
-        this.add.image(PlatformOffset[i], height, PlatformArray[i]);
         this.add.image(PlatformOffset[i], height, PlatformArray[i]);
       }
     };
