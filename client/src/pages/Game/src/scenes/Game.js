@@ -14,8 +14,8 @@ import StoneForeGround from "../../assets/stoneFG.png";
 import MD2 from "../../assets/MD2.png";
 import MD3 from "../../assets/MD3.png";
 import MD4 from "../../assets/MD4.png";
-import Stones from "../../assets/stonesMD.png"
-import Cacti from "../../assets/cactiMD.png"
+import Stones from "../../assets/stonesMD.png";
+import Cacti from "../../assets/cactiMD.png";
 
 //* Import Discovery Items
 import Start from "../../assets/discovery_items/item_0.png";
@@ -99,7 +99,7 @@ const FlagPos = 9300;
 
 //? EXTERNAL LINK
 function openExternalLink() {
-  var url = "http://localhost:3000/quiz/desert"; //! we might have to change for deployment
+  var url = window.location.origin.concat("/quiz/desert");
   window.open(url, "_self");
 }
 
