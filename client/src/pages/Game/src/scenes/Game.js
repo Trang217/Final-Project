@@ -14,6 +14,8 @@ import StoneForeGround from "../../assets/stoneFG.png";
 import MD2 from "../../assets/MD2.png";
 import MD3 from "../../assets/MD3.png";
 import MD4 from "../../assets/MD4.png";
+import Stones from "../../assets/stonesMD.png"
+import Cacti from "../../assets/cactiMD.png"
 
 //* Import Discovery Items
 import Start from "../../assets/discovery_items/item_0.png";
@@ -154,6 +156,8 @@ class Game extends Phaser.Scene {
     this.load.image("MD3", MD3);
     this.load.image("MD4", MD4);
     this.load.image("stones", StoneForeGround);
+    this.load.image("stonesMD", Stones);
+    this.load.image("cactiMD", Cacti);
 
     //* Preload Character
     this.load.spritesheet("hero-idle-sheet", klexStand, {
@@ -275,7 +279,7 @@ class Game extends Phaser.Scene {
       .setOffset(320, 1290);
 
     const oasis = this.physics.add
-      .staticImage(oasisX, 800, "oasis")
+      .staticImage(oasisX, 810, "oasis")
       .setScale(0.5)
       .setSize(300, 200)
       .setOffset(250, 300);
@@ -287,7 +291,7 @@ class Game extends Phaser.Scene {
       .setOffset(350, 450);
 
     const elephantTree = this.physics.add
-      .staticImage(elephantTreeX, 760, "elephantTree")
+      .staticImage(elephantTreeX, 730, "elephantTree")
       .setScale(0.4)
       .setSize(300, 200)
       .setOffset(900, 750);
@@ -307,6 +311,12 @@ class Game extends Phaser.Scene {
 
     //* Go from Game to Quiz
     exitFlag.on("pointerup", openExternalLink, this);
+
+    this.add.image(1100, 630, "stonesMD").setScrollFactor(1.1);
+    this.add.image(4000, 765, "stonesMD").setScale(0.6).setScrollFactor(1.1);
+    this.add.image(5350, 880, "cactiMD").setScale(0.6).setScrollFactor(1.1);
+    this.add.image(7200, 765, "stonesMD").setScale(0.6).setScrollFactor(1.1);
+    this.add.image(10000, 765, "stonesMD").setScale(0.6).setScrollFactor(1.1);
 
     //*------ CHARACTER ANIMATION
 
@@ -473,7 +483,7 @@ class Game extends Phaser.Scene {
 
   //? MIDDLE LAYER METHOD
   addMiddleLayer() {
-    const MDArray = ["MD2","MD4","MD3"];
+    const MDArray = ["MD2", "MD4", "MD3"];
     const MDOffset = [1000, 3000, 4800];
     const MDHeight = 570;
     const backgroundMultiply = () => {
