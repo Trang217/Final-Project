@@ -83,19 +83,19 @@ const AccountDetails = () => {
             <button className="accountModalBtn" onClick={handleEditModal}>
               X
             </button>
-          <EditAccount
-            currentFirstName={firstName}
-            currentUserName={userName}
-            currentEmail={email}
-          />
+            <EditAccount
+              currentFirstName={firstName}
+              currentUserName={userName}
+              currentEmail={email}
+            />
           </div>
         </Modal>
       ) : null}
 
       {deleteModalOpen ? (
-      
         <Modal
           isOpen={deleteModalOpen}
+          ariaHideApp={false}
           style={{
             overlay: {
               backgroundColor: "rgba(204, 196, 157, 0.5)",
@@ -110,10 +110,9 @@ const AccountDetails = () => {
             <button className="accountModalBtn" onClick={handleDeleteModal}>
               X
             </button>
-          <DeleteAccount />
+            <DeleteAccount />
           </div>
         </Modal>
-      
       ) : null}
     </div>
   );
