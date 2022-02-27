@@ -9,7 +9,7 @@ const App = () => {
     <div className="app">
       {width < 600 ? (
         <LandingMobile />
-      ) : width < 1080 || height < 710 ? (
+      ) : width < 1080 || height < 660 ? (
         <Resize />
       ) : (
         <MainRouter />

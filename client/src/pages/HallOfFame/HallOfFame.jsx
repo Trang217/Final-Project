@@ -71,7 +71,7 @@ const HallOfFame = () => {
   const random2 = randomUser(rank2);
   const random3 = randomUser(rank3);
 
-  const myPlacement = league.find(player=> player.userName === currentUser);
+  const myPlacement = league.find((player) => player.userName === currentUser);
 
   useEffect(() => getData(), []);
 
@@ -82,17 +82,20 @@ const HallOfFame = () => {
       {hasLoaded ? (
         <>
           <h1>Hall of Fame</h1>
-          {placement >= 0 ? (
-            <p>You are currently #{myPlacement.rank} in the league with {score} points!</p>
+          {myPlacement.rank >= 0 ? (
+            <p>
+              You are currently #{myPlacement.rank} in the league with {score}{" "}
+              points!
+            </p>
           ) : null}{" "}
           <p>
-            {placement >= 0 && placement <= 3
+            {myPlacement.rank >= 0 && myPlacement.rank <= 3
               ? `Congratulations, ${currentUser}! You're a champion!`
-              : placement >= 0 && placement <= 10
+              : myPlacement.rank >= 0 && myPlacement.rank <= 10
               ? `Wow, ${currentUser}, you're in the top 10, that's amazing!`
-              : placement >= 0 && placement <= 20
+              : myPlacement.rank >= 0 && myPlacement.rank <= 20
               ? `That's a great score, ${currentUser}, keep it on!`
-              : placement >= 0
+              : myPlacement.rank >= 0
               ? `Good job, ${currentUser}! Keep on learning!`
               : null}
           </p>

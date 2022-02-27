@@ -60,6 +60,7 @@ const Landing = () => {
       {modalOpen ? (
         <Modal
           isOpen={modalOpen}
+           ariaHideApp={false}
           style={{
             overlay: {
               backgroundColor: "rgba(204, 196, 157, 0.5)",
