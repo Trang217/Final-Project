@@ -10,7 +10,7 @@ import PublicRoutes from "./PublicRoutes";
 //* Nav/Sidebar
 import Sidebar from "../Navigation/Sidebar";
 
-//* Unprotected Routes
+//* Public Routes
 import Landing from "../../pages/Landing/Landing";
 import LoginAndRegistration from "../../pages/LoginAndRegistration/LoginAndRegistration";
 import NotFound from "../../pages/NotFound/NotFound";
@@ -23,14 +23,14 @@ import ResetPassword from "../../pages/ForgetAndResetPassword/ResetPassword";
 import AccountDetails from "../../pages/AccountDetails/AccountDetails";
 import Home from "../../pages/Home/Home";
 import MyBadges from "../../pages/MyBadges/MyBadges";
+import HallOfFame from "../../pages/HallOfFame/HallOfFame";
 
 // Games
 import GameDesert from "../../pages/Game/GameDesert";
+import GameRainforest from "../../pages/Game/placeholders/GameRainforest";
 
 // Quizzes
 import Quiz from "../../pages/Quiz/Quiz";
-import HallOfFame from "../../pages/HallOfFame/HallOfFame";
-import GameTest from "../../pages/Game/test-content";
 
 export default function MainRouter() {
   return (
@@ -50,22 +50,21 @@ export default function MainRouter() {
             </Route>
 
             <Route element={<ProtectedRoutes />}>
+              {/* PAGES */}
               <Route path="account" element={<AccountDetails />} />
               <Route path="badges" element={<MyBadges />} />
               <Route path="home" element={<Home />} />
+              <Route path="hall-of-fame" element={<HallOfFame />} />
+
+              {/* GAMES */}
               <Route path="desert" element={<GameDesert />} />
+              <Route path="rainforest" element={<GameRainforest />} />
+
+              {/* QUIZZES */}
               <Route path="quiz/desert" element={<Quiz biomeName="Desert" />} />
               <Route
                 path="quiz/rainforest"
                 element={<Quiz biomeName="Rainforest" />}
-              />
-                <Route
-                path="/hall-of-fame"
-                element={<HallOfFame/>}
-              />
-               <Route
-                path="/content-test"
-                element={<GameTest biomeName="Desert"/>}
               />
             </Route>
           </Routes>

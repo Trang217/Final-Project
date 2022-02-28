@@ -1,0 +1,29 @@
+@import "../../../assets/scss/animations";
+@import "../../../assets/scss/fonts";
+@import "../../../assets/scss/mixin";
+@import "../../../assets/scss/variables";
+
+.placeholder {
+  @include flex-center;
+  height: 100vh;
+  width: 100vw;
+  background-position: center;
+  background-size: cover;
+
+  h1 {
+    font-family: $font-title;
+    color: $primary;
+    font-size: 10rem;
+    text-align: center;
+  }
+
+  button {
+    @include btn-green;
+    margin: 3rem;
+    margin-bottom: 40rem;
+  }
+}
+
+.rainforest-bg {
+  background-image: url("./rainforest.png");
+}
