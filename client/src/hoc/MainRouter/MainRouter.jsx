@@ -26,6 +26,7 @@ import MyBadges from "../../pages/MyBadges/MyBadges";
 
 // Games
 import GameDesert from "../../pages/Game/GameDesert";
+import GameRainforest from "../../pages/Game/placeholders/GameRainforest";
 
 // Quizzes
 import Quiz from "../../pages/Quiz/Quiz";
@@ -54,18 +55,17 @@ export default function MainRouter() {
               <Route path="badges" element={<MyBadges />} />
               <Route path="home" element={<Home />} />
               <Route path="desert" element={<GameDesert />} />
+              <Route path="rainforest" element={<GameRainforest />} />
+
               <Route path="quiz/desert" element={<Quiz biomeName="Desert" />} />
               <Route
                 path="quiz/rainforest"
                 element={<Quiz biomeName="Rainforest" />}
               />
-                <Route
-                path="/hall-of-fame"
-                element={<HallOfFame/>}
-              />
-               <Route
+              <Route path="/hall-of-fame" element={<HallOfFame />} />
+              <Route
                 path="/content-test"
-                element={<GameTest biomeName="Desert"/>}
+                element={<GameTest biomeName="Desert" />}
               />
             </Route>
           </Routes>
