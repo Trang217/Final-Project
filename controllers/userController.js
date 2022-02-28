@@ -47,7 +47,7 @@ exports.registerUser = tryCatchHelper(async (req, res, next) => {
 
   await user.save();
 
-  const url = `${req.protocol}://localhost:3000`;
+  const url = `${req.protocol}://oikobiomes.herokuapp.com`;
 
   await new Email(user, url).sendWelcome();
 
@@ -207,7 +207,7 @@ exports.forgotPassword = tryCatchHelper(async (req, res, next) => {
 
   try {
     // Send it to user 's email
-    const resetURL = `${req.protocol}://localhost:3000/reset-password/${resetToken}`;
+    const resetURL = `${req.protocol}://oikobiomes.herokuapp.com/reset-password/${resetToken}`;
     await new Email(user, resetURL).sendPasswordReset();
 
     res.status(200).json({
