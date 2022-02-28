@@ -12,7 +12,7 @@ function GameRainforest() {
 
   //? ---- rendering ----
   return (
-    <div className="placeholder">
+    <div className="placeholder rainforest-bg">
       <h1>Coming soon ...</h1>
       <button onClick={handleHome}>Take me back home</button>
     </div>
