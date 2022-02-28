@@ -208,7 +208,7 @@ class Game extends Phaser.Scene {
     //*------ FORMATE IMAGE AND ITS COLLISION AREA
 
     this.physics.add.staticImage(350, 480, "intro").setScale(0.5);
-    //! FOLLOWING 5 LINES FOR EVERY ITEM
+   
     const start = this.physics.add
       .staticImage(startX, 890, "start")
       .setScale(0.25)
