@@ -16,6 +16,7 @@ import MD3 from "../../assets/MD3.png";
 import MD4 from "../../assets/MD4.png";
 import Stones from "../../assets/stonesMD.png";
 import Cacti from "../../assets/cactiMD.png";
+import Instructions from "../../assets/instructions.png";
 
 //* Import Discovery Items
 import Start from "../../assets/discovery_items/item_0.png";
@@ -129,6 +130,7 @@ class Game extends Phaser.Scene {
 
   preload() {
     //* Preload Discovery Items
+    this.load.image("intro", Instructions);
     this.load.image("start", Start);
     this.load.image("ruin", Ruin);
     this.load.image("landform", Landform);
@@ -205,6 +207,7 @@ class Game extends Phaser.Scene {
 
     //*------ FORMATE IMAGE AND ITS COLLISION AREA
 
+    this.physics.add.staticImage(350, 480, "intro").setScale(0.5);
     //! FOLLOWING 5 LINES FOR EVERY ITEM
     const start = this.physics.add
       .staticImage(startX, 890, "start")
