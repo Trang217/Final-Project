@@ -89,15 +89,15 @@ const HallOfFame = () => {
             </p>
           ) : null}{" "}
           <p>
-            {myPlacement.rank >= 0 && myPlacement.rank <= 3
+            {score === 0 ? null : myPlacement.rank >= 0 && myPlacement.rank <= 3
               ? `Congratulations, ${currentUser}! You're a champion!`
               : myPlacement.rank >= 0 && myPlacement.rank <= 10
               ? `Wow, ${currentUser}, you're in the top 10, that's amazing!`
               : myPlacement.rank >= 0 && myPlacement.rank <= 20
               ? `That's a great score, ${currentUser}, keep it on!`
               : myPlacement.rank >= 0
-              ? `Good job, ${currentUser}! Keep on learning!`
-              : null}
+              ? `Good job, ${currentUser}! Keep on learning!` : null
+            }
           </p>
           <div className="podium">
             <div className="medal">
