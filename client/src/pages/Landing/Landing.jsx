@@ -56,11 +56,15 @@ const Landing = () => {
       <AnimalBubble name="rainforest" type="home" />
       <AnimalBubble name="desert" type="home" />
       <AnimalBubble name="ocean" type="home" />
-
+      <div className="test-account">
+        <p>You can use our testing account to explore!</p>
+        <p> email: explorer@sample.com</p>
+        <p> password: visitor</p>
+      </div>
       {modalOpen ? (
         <Modal
           isOpen={modalOpen}
-           ariaHideApp={false}
+          ariaHideApp={false}
           style={{
             overlay: {
               backgroundColor: "rgba(204, 196, 157, 0.5)",

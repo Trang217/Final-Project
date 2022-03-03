@@ -28,3 +28,8 @@ At the end of each exploration you can do a fun little quiz to test your knowled
 **:mag_right: ... AND FINALLY - GO EXPLORE YOURSELF!**
 
 Click here to explore [OIKO](https://oikobiomes.herokuapp.com/)!
+
+You can use our testing account: 
+
+    email: explorer@sample.com
+    password: visitor
